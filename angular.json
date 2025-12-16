@@ -31,7 +31,7 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "projects/sandbox/public"
+                "input": "projects/sandbox/src/shared"
               }
             ],
             "styles": [
@@ -90,7 +90,7 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "projects/sandbox/public"
+                "input": "projects/sandbox/src/shared"
               }
             ],
             "styles": [
