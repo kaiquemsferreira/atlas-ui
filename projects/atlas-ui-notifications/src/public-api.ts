@@ -1,6 +1,4 @@
-/*
- * Public API Surface of atlas-ui-notifications
- */
+export * from './lib/toast-host/toast-host.component';
+export * from './lib/atlas-notifications.service';
+export * from './lib/notification-types';
 
-export * from './lib/atlas-ui-notifications.service';
-export * from './lib/atlas-ui-notifications.component';

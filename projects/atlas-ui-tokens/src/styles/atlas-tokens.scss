@@ -1,0 +1,18 @@
+@use "./semantic" as *;
+@use "./mixins" as *;
+@use "./scale" as *;
+
+:root {
+  @include atlas-css-vars($atlas-typography);
+  @include atlas-css-vars($atlas-elevation);
+  @include atlas-css-vars($atlas-radius);
+  @include atlas-css-vars($atlas-space);
+}
+
+:root[data-atlas-theme="light"] {
+  @include atlas-css-vars($atlas-theme-light);
+}
+
+:root[data-atlas-theme="dark"] {
+  @include atlas-css-vars($atlas-theme-dark);
+}

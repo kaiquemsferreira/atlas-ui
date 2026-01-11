@@ -1,0 +1,125 @@
+<div class="shell">
+  <header class="topbar">
+    <div class="topbar__left">
+      <button class="icon-btn topbar__menu" type="button" (click)="mobileNavigationOpen.set(!mobileNavigationOpen())"
+              aria-label="Toggle navigation">
+        <span class="icon"><i class="ph ph-list"></i></span>
+      </button>
+
+      <a class="brand" routerLink="/" (click)="closeMobileNavigation()">
+        <span class="brand__dot"></span>
+        <span class="brand__text">Atlas UI</span>
+        <span class="brand__badge">Sandbox</span>
+      </a>
+    </div>
+
+    <div class="topbar__center">
+      <div class="search">
+        <span class="search__icon" aria-hidden="true">
+          <i class="ph ph-magnifying-glass"></i>
+        </span>
+        <input class="search__input" type="search" [value]="query()" (input)="query.set(($any($event.target)).value)"
+          placeholder="Search docs…" aria-label="Search docs"/>
+      </div>
+    </div>
+
+    <div class="topbar__right">
+      <button class="icon-btn" type="button" (click)="toggleTheme()" aria-label="Toggle theme">
+        <span class="icon">
+          <i [ngClass]="themeIconClass"></i>
+        </span>
+      </button>
+    </div>
+  </header>
+
+  <div class="body">
+    <aside class="sidebar" [class.sidebar--open]="this.mobileNavigationOpen()">
+      <nav class="nav" aria-label="Documentation navigation">
+        @for (item of filteredNavigation(); track item.label) {
+
+          @if (item.kind === 'link') {
+            <a
+              class="nav__link nav__link--root"
+              routerLinkActive="is-active"
+              [routerLink]="item.path"
+              (click)="closeMobileNavigation()"
+            >
+              {{ item.label }}
+
+              @if (item.badge) {
+                <span class="nav__badge" [attr.data-badge]="item.badge">
+            {{ item.badge }}
+          </span>
+              }
+            </a>
+          } @else {
+            <div class="nav__group">
+              <div class="nav__title">{{ item.label }}</div>
+
+              <div class="nav__items">
+                @for (child of item.children; track child.label) {
+
+                  @if (child.kind === 'link') {
+                    <a
+                      class="nav__link"
+                      routerLinkActive="is-active"
+                      [routerLink]="child.path"
+                      (click)="closeMobileNavigation()"
+                    >
+                      {{ child.label }}
+
+                      @if (child.badge) {
+                        <span class="nav__badge" [attr.data-badge]="child.badge">
+                    {{ child.badge }}
+                  </span>
+                      }
+                    </a>
+                  } @else {
+                    <div class="nav__subtitle">{{ child.label }}</div>
+
+                    <div class="nav__items nav__items--nested">
+                      @for (leaf of child.children; track leaf.label) {
+
+                        @if (leaf.kind === 'link') {
+                          <a
+                            class="nav__link"
+                            routerLinkActive="is-active"
+                            [routerLink]="leaf.path"
+                            (click)="closeMobileNavigation()"
+                          >
+                            {{ leaf.label }}
+
+                            @if (leaf.badge) {
+                              <span class="nav__badge" [attr.data-badge]="leaf.badge">
+                          {{ leaf.badge }}
+                        </span>
+                            }
+                          </a>
+                        } @else {
+                          <div class="nav__subtitle">{{ leaf.label }}</div>
+                        }
+
+                      }
+                    </div>
+                  }
+
+                }
+              </div>
+            </div>
+          }
+
+        }
+      </nav>
+    </aside>
+
+    @if (this.mobileNavigationOpen()) {
+      <div class="overlay" (click)="closeMobileNavigation()" aria-hidden="true"></div>
+    }
+
+    <main class="content" (click)="closeMobileNavigation()">
+      <div class="content__inner">
+        <router-outlet></router-outlet>
+      </div>
+    </main>
+  </div>
+</div>

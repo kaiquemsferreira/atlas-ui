@@ -1,1 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
+@use "../../atlas-ui-tokens/src/styles/atlas-tokens.scss";
+@use "../../atlas-ui-tokens/src/styles/scale.scss" as *;
+@use "sass:map";
+
+@import url('@phosphor-icons/web/regular');
+
+
+html, body {
+  height: 100%;
+}
+
+:root {
+  font-size: 62.5%;
+}
+
+body {
+  margin: 0;
+  font-family: map.get($atlas-typography, font-sans);
+  font-size: var(--atlas-fs-20);
+  color: var(--atlas-color-text);
+  background: var(--atlas-color-bg);
+  line-height: var(--atlas-lh-normal);
+}

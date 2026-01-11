@@ -1,0 +1,124 @@
+.doc {
+  display: grid;
+  gap: 2rem;
+}
+
+.doc__header {
+  padding: 2.2rem;
+  border-radius: var(--atlas-radius-lg);
+  border: 1px solid var(--atlas-color-border);
+  background: color-mix(in srgb, var(--atlas-color-surface) 92%, transparent);
+  box-shadow: var(--atlas-shadow-sm);
+}
+
+.doc__breadcrumb {
+  font-size: 1.2rem;
+  color: var(--atlas-color-text-muted);
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.doc__title {
+  margin: .6rem 0 .4rem;
+  font-size: 2.4rem;
+  letter-spacing: -0.02em;
+}
+
+.doc__subtitle {
+  margin: 0;
+  color: var(--atlas-color-text-muted);
+  line-height: var(--atlas-lh-relaxed);
+  max-width: 72ch;
+}
+
+.doc__actions {
+  margin-top: 1.6rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.btn {
+  border: 1px solid var(--atlas-color-border);
+  background: color-mix(in srgb, var(--atlas-color-surface) 92%, transparent);
+  color: var(--atlas-color-text);
+  border-radius: 1.2rem;
+  padding: .9rem 1.2rem;
+  cursor: pointer;
+  font-weight: 650;
+  transition: transform 120ms ease, background 120ms ease, border-color 120ms ease;
+}
+.btn:hover {
+  background: color-mix(in srgb, var(--atlas-color-surface-2) 75%, transparent);
+}
+.btn:active { transform: translateY(1px); }
+
+.btn--ghost {
+  background: transparent;
+}
+
+.doc__grid {
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 2rem;
+}
+
+@media (max-width: 980px) {
+  .doc__grid { grid-template-columns: 1fr; }
+}
+
+.card {
+  padding: 2rem;
+  border-radius: var(--atlas-radius-lg);
+  border: 1px solid var(--atlas-color-border);
+  background: var(--atlas-color-surface);
+  box-shadow: var(--atlas-shadow-sm);
+}
+
+.card__title {
+  margin: 0 0 .6rem;
+  font-size: 1.6rem;
+}
+
+.card__text {
+  margin: 0 0 1.2rem;
+  color: var(--atlas-color-text-muted);
+  line-height: var(--atlas-lh-relaxed);
+}
+
+.card__list {
+  display: grid;
+  gap: 1rem;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 12rem 1fr;
+  gap: 1.2rem;
+  padding: 1rem 1.2rem;
+  border-radius: 1.2rem;
+  border: 1px solid var(--atlas-color-border);
+  background: color-mix(in srgb, var(--atlas-color-surface-2) 70%, transparent);
+}
+
+.row__label {
+  font-weight: 700;
+}
+
+.row__desc {
+  color: var(--atlas-color-text-muted);
+}
+
+.code {
+  border-radius: 1.2rem;
+  border: 1px solid var(--atlas-color-border);
+  background: color-mix(in srgb, var(--atlas-color-surface-2) 70%, transparent);
+  overflow: auto;
+}
+.code pre {
+  margin: 0;
+  padding: 1.2rem;
+  font-family: var(--atlas-font-mono), system-ui;
+  font-size: 1.2rem;
+  line-height: 1.55;
+}

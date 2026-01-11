@@ -1,11 +1,16 @@
-/* To learn more about Typescript configuration file: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html. */
-/* To learn more about Angular compiler options: https://angular.dev/reference/configs/angular-compiler-options. */
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "baseUrl": ".",
     "paths": {
+      "atlas-ui-i18n": [
+        "./dist/atlas-ui-i18n"
+      ],
       "atlas-ui-notifications": [
-        "./dist/atlas-ui-notifications"
+        "projects/atlas-ui-notifications/src/public-api.ts"
+      ],
+      "atlas-ui-tokens": [
+        "./dist/atlas-ui-tokens"
       ]
     },
     "outDir": "./dist/out-tsc",
