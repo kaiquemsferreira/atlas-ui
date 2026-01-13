@@ -1,43 +1,71 @@
 <section class="doc">
   <header class="doc__header">
     <div class="doc__breadcrumb">Components / Notifications</div>
-    <h1 class="doc__title">Toast</h1>
+    <h1 class="doc__title">{{ 'sandbox.pages.toast.title' | translate }}</h1>
     <p class="doc__subtitle">
-      Notificações temporárias para feedback de ações do usuário. Suporta variantes, ações, detalhes expansíveis e posições.
+      {{ 'sandbox.pages.toast.subtitle' | translate }}
     </p>
 
     <div class="doc__actions">
-      <button class="btn" type="button" (click)="fireInfo()">Info</button>
-      <button class="btn" type="button" (click)="fireSuccess()">Success</button>
-      <button class="btn" type="button" (click)="fireWarning()">Warning</button>
-      <button class="btn" type="button" (click)="fireErrorSticky()">Error (sticky)</button>
-      <button class="btn btn--ghost" type="button" (click)="clear()">Clear</button>
+      <button class="btn" type="button" (click)="fireInfo()">
+        {{ 'ui.components.toast.info' | translate }}
+      </button>
+      <button class="btn" type="button" (click)="fireSuccess()">
+        {{ 'ui.components.toast.success' | translate }}
+      </button>
+      <button class="btn" type="button" (click)="fireWarning()">
+        {{ 'ui.components.toast.warning' | translate }}
+      </button>
+      <button class="btn" type="button" (click)="fireErrorSticky()">
+        {{ 'ui.components.toast.error' | translate }}
+      </button>
+      <button class="btn" type="button" (click)="fireNeutral()">
+        {{ 'ui.components.toast.neutral' | translate }}
+      </button>
+      <button class="btn btn--ghost" type="button" (click)="clear()">
+        {{ 'ui.common.clear' | translate }}
+      </button>
     </div>
   </header>
 
   <div class="doc__grid">
     <article class="card">
-      <h2 class="card__title">Examples</h2>
+      <h2 class="card__title">{{ 'ui.common.examples' | translate }}</h2>
       <p class="card__text">
-        Use os botões acima para disparar diferentes tipos de toast. Passe o mouse para pausar a barra de duração.
+        {{ 'sandbox.pages.toast.resume' | translate }}
       </p>
 
       <div class="card__list">
         <div class="row">
-          <div class="row__label">Info</div>
+          <div class="row__label">
+            {{ 'ui.components.toast.info' | translate }}:
+          </div>
           <div class="row__desc">Mensagem simples para informação.</div>
         </div>
         <div class="row">
-          <div class="row__label">Success</div>
+          <div class="row__label">
+            {{ 'ui.components.toast.success' | translate }}:
+          </div>
           <div class="row__desc">Confirmação + ações (ex: desfazer).</div>
         </div>
         <div class="row">
-          <div class="row__label">Warning</div>
+          <div class="row__label">
+            {{ 'ui.components.toast.warning' | translate }}:
+          </div>
           <div class="row__desc">Atenção para validação/risco.</div>
         </div>
         <div class="row">
-          <div class="row__label">Error</div>
+          <div class="row__label">
+            {{ 'ui.components.toast.error' | translate }}:
+          </div>
           <div class="row__desc">Erro persistente (duration 0) com ação de retry.</div>
+        </div>
+
+        <div class="row">
+          <div class="row__label">
+            {{ 'ui.components.toast.neutral' | translate }}:
+          </div>
+          <div class="row__desc">Mensagem simples para informação.</div>
         </div>
       </div>
     </article>
@@ -45,8 +73,8 @@
     <article class="card">
       <h2 class="card__title">API</h2>
       <p class="card__text">
-        Os métodos seguem o padrão:
-        <code>info/success/warning/error(message, options)</code>.
+        {{ 'sandbox.pages.toast.description' | translate }}
+        <code>{{ 'sandbox.pages.toast.pattern' | translate }}</code>
       </p>
 
       <div class="code">

@@ -2,11 +2,15 @@ import { AtlasToastAction, AtlasToastPosition, AtlasToastSize } from 'atlas-ui-n
 
 export interface AtlasNotifyOptions {
   title?: string;
+  titleKey?: string;
+  titleParams?: Record<string, unknown>;
+  details?: string;
+  detailsKey?: string;
+  detailsParams?: Record<string, unknown>;
+  position?: AtlasToastPosition;
+  actions?: AtlasToastAction[];
   durationMs?: number;
   dismissible?: boolean;
-  details?: string;
-  position?: AtlasToastPosition;
   expanded?: boolean;
   size?: AtlasToastSize;
-  actions?: AtlasToastAction[];
 }

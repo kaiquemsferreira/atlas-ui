@@ -16,24 +16,27 @@ export type TimerState = {
 };
 
 export interface AtlasToastAction {
-  label: string;
+  label: AtlasToastText;
   href?: string;
   onClick?: () => void;
   variant?: 'primary' | 'secondary' | 'ghost';
   closeOnClick?: boolean;
 }
 
+export type AtlasI18nKey = string;
+export type AtlasToastText = | { text: string } | { key: AtlasI18nKey; params?: Record<string, unknown> };
+
 export interface AtlasToast {
   id: string;
   variant: AtlasToastVariant;
-  title?: string;
-  message: string;
-  details?: string;
+  title?: AtlasToastText;
+  message: AtlasToastText;
+  details?: AtlasToastText;
+  position: AtlasToastPosition;
   actions?: AtlasToastAction[];
   durationMs: number;
   dismissible: boolean;
   expanded: boolean;
   size: AtlasToastSize;
   createdAt: number;
-  position: AtlasToastPosition;
 }

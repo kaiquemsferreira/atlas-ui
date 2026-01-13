@@ -1,6 +1,6 @@
-/*
- * Public API Surface of atlas-ui-i18n
- */
-
-export * from './lib/atlas-ui-i18n.service';
-export * from './lib/atlas-ui-i18n.component';
+export * from './lib/api/provide-atlas-i18n-contributions';
+export * from './lib/transloco/transloco.providers';
+export * from './lib/pipes/atlas-translation.pipe';
+export * from './lib/api/atlas-i18n.contributions';
+export * from './lib/api/atlas-i18n.tokens';
+export * from './lib/api/atlas-i18n';

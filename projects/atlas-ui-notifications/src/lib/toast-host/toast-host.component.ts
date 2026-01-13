@@ -1,8 +1,10 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { AsyncPipe, NgClass } from '@angular/common';
 
-import { AtlasToast, AtlasToastAction, AtlasToastPosition, AtlasToastVariant } from '../notification-types';
+import { AtlasToastAction, AtlasToastPosition, AtlasToastText, AtlasToastVariant } from '../notification-types';
 import { AtlasNotificationsService } from '../atlas-notifications.service';
+import { ATLAS_I18N } from 'atlas-ui-i18n';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'atlas-toast-host',
@@ -18,9 +20,8 @@ import { AtlasNotificationsService } from '../atlas-notifications.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AtlasToastHostComponent {
-
-  public readonly notificationService = inject(AtlasNotificationsService);
-
+  protected readonly notificationService = inject(AtlasNotificationsService);
+  protected readonly translationService = inject(ATLAS_I18N);
   protected readonly positions: AtlasToastPosition[] = [
     'top-right',
     'top-center',
@@ -30,21 +31,13 @@ export class AtlasToastHostComponent {
     'bottom-left'
   ];
 
-  protected trackById(_: number, t: AtlasToast): string {
-    return t.id;
-  }
-
-  protected trackByPosition(_: number, p: AtlasToastPosition): AtlasToastPosition {
-    return p;
-  }
-
-  protected iconClass(v: AtlasToastVariant): string {
+  protected iconClass(v: AtlasToastVariant) {
     switch (v) {
-      case 'success': return 'ph-check';
-      case 'error': return 'ph-x';
-      case 'warning': return 'ph-warning';
-      case 'info': return 'ph-exclamation-mark';
-      default: return 'ph-bell';
+      case 'success': return { icon: 'ph-check', color: 'success' };
+      case 'error': return { icon: 'ph-x', color: 'error' };
+      case 'warning': return { icon: 'ph-warning', color: 'warning' };
+      case 'info': return { icon: 'ph-exclamation-mark', color: 'info' };
+      default: return { icon: 'ph-bell', color: 'primary' };
     }
   }
 
@@ -60,7 +53,11 @@ export class AtlasToastHostComponent {
     }
   }
 
-  protected dismiss(id: string): void {
-    this.notificationService.dismiss(id);
+  protected resolveText$(t: AtlasToastText): Observable<string> {
+    if ('text' in t) {
+      return of(t.text);
+    }
+
+    return this.translationService.translate$(t.key, t.params);
   }
 }

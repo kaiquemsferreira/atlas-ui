@@ -21,3 +21,5 @@ body {
   background: var(--atlas-color-bg);
   line-height: var(--atlas-lh-normal);
 }
+
+button { cursor: pointer; background: none; border: none; }

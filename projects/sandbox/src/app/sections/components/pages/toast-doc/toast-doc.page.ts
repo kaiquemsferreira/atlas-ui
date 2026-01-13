@@ -1,29 +1,39 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 
 import { AtlasNotificationsService } from 'atlas-ui-notifications';
+import { AtlasTranslationPipe } from 'atlas-ui-i18n';
 
 @Component({
   selector: 'sandbox-toast-doc-page',
   standalone: true,
+  imports: [
+    AtlasTranslationPipe
+  ],
   templateUrl: './toast-doc.page.html',
-  styleUrls: ['./toast-doc.page.scss'],
+  styleUrls: [
+    './toast-doc.page.scss'
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ToastDocPage {
   private readonly notificationService = inject(AtlasNotificationsService);
 
   protected fireInfo() {
-    this.notificationService.info('Olá mundo', { title: 'Info', durationMs: 4500, position: 'top-right' });
+    this.notificationService.infoKey('sandbox.pages.toast.infoMessage', {
+      titleKey: 'sandbox.pages.toast.info',
+      durationMs: 0,
+      position: 'bottom-center',
+    });
   }
 
   protected fireSuccess() {
-    this.notificationService.success('Arquivo enviado!', {
-      title: 'Upload successful',
-      details: 'invoice.pdf foi enviado e indexado. Você pode desfazer dentro de 30s.',
+    this.notificationService.successKey('sandbox.pages.toast.successMessage', {
+      titleKey: 'sandbox.pages.toast.success',
+      detailsKey: 'sandbox.pages.toast.successDetails',
       position: 'bottom-center',
       actions: [
-        { label: 'Desfazer', variant: 'primary', onClick: () => console.log('undo'), closeOnClick: true },
-        { label: 'Ver detalhes', variant: 'ghost', href: '/logs' },
+        { label: { key: 'ui.common.undo' }, variant: 'primary', onClick: () => console.log('undo'), closeOnClick: true },
+        { label: { key: 'ui.common.details' }, variant: 'ghost', href: '/logs' },
       ],
       durationMs: 6000,
     });
@@ -42,11 +52,16 @@ export class ToastDocPage {
       title: 'Erro',
       details: 'Não foi possível concluir a operação. Tente novamente em alguns instantes.',
       position: 'bottom-center',
-      durationMs: 0,
-      actions: [
-        { label: 'Tentar novamente', variant: 'primary', onClick: () => console.log('retry'), closeOnClick: true },
-        { label: 'Fechar', variant: 'secondary', onClick: () => {}, closeOnClick: true },
-      ],
+      durationMs: 0
+    });
+  }
+
+  protected fireNeutral() {
+    this.notificationService.neutral('Default toast', {
+      title: 'Erro',
+      details: 'Não foi possível concluir a operação. Tente novamente em alguns instantes.',
+      position: 'bottom-center',
+      durationMs: 0
     });
   }
 

@@ -4,13 +4,13 @@
     "baseUrl": ".",
     "paths": {
       "atlas-ui-i18n": [
-        "./dist/atlas-ui-i18n"
+        "projects/atlas-ui-i18n/src/public-api.ts"
       ],
       "atlas-ui-notifications": [
         "projects/atlas-ui-notifications/src/public-api.ts"
       ],
       "atlas-ui-tokens": [
-        "./dist/atlas-ui-tokens"
+        "projects/atlas-ui-tokens/src/public-api.ts"
       ]
     },
     "outDir": "./dist/out-tsc",

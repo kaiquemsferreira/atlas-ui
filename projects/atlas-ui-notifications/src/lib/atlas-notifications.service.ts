@@ -1,32 +1,36 @@
 import { Injectable } from '@angular/core';
 
-import { AtlasToast, AtlasToastVariant, TimerState } from './notification-types';
+import { AtlasToast, AtlasToastText, AtlasToastVariant, TimerState } from './notification-types';
 import { AtlasNotifyOptions } from './notification-interface';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class AtlasNotificationsService {
   private readonly _toasts$ = new BehaviorSubject<AtlasToast[]>([]);
-  readonly toasts$ = this._toasts$.asObservable();
-
+  public readonly toasts$ = this._toasts$.asObservable();
   private readonly timers = new Map<string, TimerState>();
 
-  public info(message: string, options: AtlasNotifyOptions = {}) { return this.notify('info', message, options); }
-  public neutral(message: string, options: AtlasNotifyOptions = {}) { return this.notify('neutral', message, options); }
-  public success(message: string, options: AtlasNotifyOptions = {}) { return this.notify('success', message, options); }
-  public warning(message: string, options: AtlasNotifyOptions = {}) { return this.notify('warning', message, options); }
-  public error(message: string, options: AtlasNotifyOptions = {}) { return this.notify('error', message, options); }
+  public info(message: string, options: AtlasNotifyOptions) { return this.notify('info', { text: message }, options); }
+  public neutral(message: string, options: AtlasNotifyOptions = {}) { return this.notify('neutral', { text: message }, options); }
+  public success(message: string, options: AtlasNotifyOptions = {}) { return this.notify('success', { text: message }, options); }
+  public warning(message: string, options: AtlasNotifyOptions = {}) { return this.notify('warning', { text: message }, options); }
+  public error(message: string, options: AtlasNotifyOptions = {}) { return this.notify('error', { text: message }, options); }
+  public infoKey(key: string, options?: AtlasNotifyOptions, params?: Record<string, unknown>) { return this.notify('info', { key, params }, options); }
+  public neutralKey(key: string, options?: AtlasNotifyOptions, params?: Record<string, unknown>) { return this.notify('neutral', { key, params }, options); }
+  public successKey(key: string, options?: AtlasNotifyOptions, params?: Record<string, unknown>) { return this.notify('success', { key, params }, options); }
+  public warningKey(key: string, options?: AtlasNotifyOptions, params?: Record<string, unknown>) { return this.notify('warning', { key, params }, options); }
+  public errorKey(key: string, options?: AtlasNotifyOptions, params?: Record<string, unknown>) { return this.notify('error', { key, params }, options); }
 
-  public notify(variant: AtlasToastVariant, message: string, options: AtlasNotifyOptions = {}) {
+  private notify(variant: AtlasToastVariant, message: AtlasToastText, options: AtlasNotifyOptions = {}) {
     const id = this.makeId();
     const durationMs = options.durationMs ?? 4500;
 
     const toast: AtlasToast = {
       id,
       variant,
-      title: options.title,
       message,
-      details: options.details,
+      title: this.resolveText(options.title, options.titleKey, options.titleParams),
+      details: this.resolveText(options.details, options.detailsKey, options.detailsParams),
       position: options.position ?? 'bottom-right',
       actions: options.actions,
       durationMs,
@@ -88,6 +92,12 @@ export class AtlasNotificationsService {
     const elapsed = st.paused ? 0 : (Date.now() - st.startedAt);
     const remaining = Math.max(0, st.remainingMs - elapsed);
     return { remainingMs: remaining, paused: st.paused };
+  }
+
+  private resolveText(text?: string, key?: string, params?: Record<string, unknown>): AtlasToastText | undefined {
+    if (key) return { key, params };
+    if (text) return { text };
+    return undefined;
   }
 
   private armTimer(id: string) {

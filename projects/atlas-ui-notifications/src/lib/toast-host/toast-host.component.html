@@ -1,78 +1,83 @@
 <div class="atlas-toast-layer" aria-live="polite" aria-relevant="additions">
   @let toasts = (notificationService.toasts$ | async) ?? [];
 
-  @for (pos of positions; track trackByPosition) {
+  @for (pos of positions; track pos) {
     <div class="atlas-toast-stack" [attr.data-position]="pos">
-      @for (t of toasts; track trackById) {
+      @for (t of toasts; track t.id) {
         @if (t.position === pos) {
-          <output class="atlas-toast" [attr.data-variant]="t.variant" [attr.data-size]="t.size"
-                  [class.is-expanded]="t.expanded" (mouseenter)="notificationService.pause(t.id)"
-                  (mouseleave)="notificationService.resume(t.id)" (focusin)="notificationService.pause(t.id)"
-                  (focusout)="notificationService.resume(t.id)">
-
+          <output class="atlas-toast" [attr.data-variant]="t.variant" [attr.data-size]="t.size" [class.is-expanded]="t.expanded"
+                  (mouseenter)="notificationService.pause(t.id)" (mouseleave)="notificationService.resume(t.id)"
+                  (focusin)="notificationService.pause(t.id)" (focusout)="notificationService.resume(t.id)">
             @if (t.durationMs > 0) {
               <div class="atlas-toast__progress" [style.animation-play-state]="isPaused(t.id) ? 'paused' : 'running'"
                    [style.animation-duration.ms]="t.durationMs">
               </div>
             }
 
+            @let ic = iconClass(t.variant);
             <div class="atlas-toast__left">
-              <div class="atlas-toast__icon" aria-hidden="true">
-                <i class="ph" [ngClass]="iconClass(t.variant)"></i>
+              <div class="atlas-toast__icon" [ngClass]="ic.color" aria-hidden="true">
+                <i class="ph" [ngClass]="ic.icon"></i>
               </div>
             </div>
 
             <div class="atlas-toast__main">
               <div class="atlas-toast__header">
                 @if (t.title) {
-                  <div class="atlas-toast__title">{{ t.title }}</div>
+                  <div class="atlas-toast__title">
+                    @if (t.title) {
+                      {{ resolveText$(t.title) | async }}
+                    }
+                  </div>
                 }
 
-                @if (t.details) {
-                  <button type="button" class="atlas-toast__expand" (click)="notificationService.toggleExpand(t.id)"
-                          [attr.aria-expanded]="t.expanded">
-                    {{ t.expanded ? 'Less' : 'More' }}
-                  </button>
-                }
+                <div class="atlas-toast__header-controls">
+                  @if (t.details) {
+                    <button type="button" class="atlas-toast__expand" (click)="notificationService.toggleExpand(t.id)"
+                            [attr.aria-expanded]="t.expanded">
+                      <i class="ph ph-caret-down" [class.is-rotated]="t.expanded"></i>
+                    </button>
+                  }
+
+                  @if (t.dismissible) {
+                    <button type="button" class="atlas-toast__close" (click)="notificationService.dismiss(t.id)"
+                            aria-label="Close notification">
+                      <i class="ph ph-x"></i>
+                    </button>
+                  }
+                </div>
               </div>
 
-              <div class="atlas-toast__message">{{ t.message }}</div>
+              <div class="atlas-toast__message">
+                {{ resolveText$(t.message) | async }}
+              </div>
 
-              @if (t.details) {
+              @if (t.details && t.expanded) {
                 <div class="atlas-toast__details">
-                  {{ t.details }}
+                  {{ resolveText$(t.details) | async }}
                 </div>
               }
 
               @if (t.actions?.length) {
-                <div class="atlas-toast__actions">
+                <div class="atlas-toast__actions" [class.is-hidden]="!t.actions?.length">
                   @for (a of t.actions; track a) {
                     <ng-container>
                       @if (a.href) {
-                        <a class="atlas-toast__btn" [attr.data-btn]="a.variant ?? 'secondary'"
-                           [href]="a.href" (click)="onAction(t.id, a)">
-                          {{ a.label }}
+                        <a class="atlas-toast__btn" [attr.data-btn]="a.variant ?? 'secondary'" [href]="a.href"
+                           (click)="onAction(t.id, a)">
+                          {{ resolveText$(a.label) | async }}
                         </a>
                       } @else {
-                        <ng-template>
-                          <button type="button" class="atlas-toast__btn" [attr.data-btn]="a.variant ?? 'secondary'"
-                                  (click)="onAction(t.id, a)">
-                            {{ a.label }}
-                          </button>
-                        </ng-template>
+                        <button type="button" class="atlas-toast__btn" [attr.data-btn]="a.variant ?? 'secondary'"
+                                (click)="onAction(t.id, a)">
+                          {{ resolveText$(a.label) | async }}
+                        </button>
                       }
                     </ng-container>
                   }
                 </div>
               }
             </div>
-
-            @if (t.dismissible) {
-              <button type="button" class="atlas-toast__close" (click)="notificationService.dismiss(t.id)"
-                aria-label="Close notification">
-                <i class="ph ph-x"></i>
-              </button>
-            }
           </output>
         }
       }

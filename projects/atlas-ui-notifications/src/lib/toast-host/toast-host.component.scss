@@ -2,44 +2,12 @@ $toast-offset: 1.8rem;
 $toast-gap: 1.2rem;
 
 $toast-positions: (
-  "top-left": (
-    top: $toast-offset,
-    left: $toast-offset,
-    bottom: auto,
-    right: auto
-  ),
-  "top-right": (
-    top: $toast-offset,
-    right: $toast-offset,
-    bottom: auto,
-    left: auto
-  ),
-  "top-center": (
-    top: $toast-offset,
-    left: 50%,
-    right: auto,
-    bottom: auto,
-    transform: translateX(-50%)
-  ),
-  "bottom-left": (
-    bottom: $toast-offset,
-    left: $toast-offset,
-    top: auto,
-    right: auto
-  ),
-  "bottom-right": (
-    bottom: $toast-offset,
-    right: $toast-offset,
-    top: auto,
-    left: auto
-  ),
-  "bottom-center": (
-    bottom: $toast-offset,
-    left: 50%,
-    right: auto,
-    top: auto,
-    transform: translateX(-50%)
-  )
+  "top-left": (top: $toast-offset, left: $toast-offset, bottom: auto, right: auto),
+  "top-right": (top: $toast-offset, right: $toast-offset, bottom: auto, left: auto),
+  "top-center": (top: $toast-offset, left: 50%, right: auto, bottom: auto, transform: translateX(-50%)),
+  "bottom-left": (bottom: $toast-offset, left: $toast-offset, top: auto, right: auto),
+  "bottom-right": (bottom: $toast-offset, right: $toast-offset, top: auto, left: auto),
+  "bottom-center": (bottom: $toast-offset, left: 50%, right: auto, top: auto, transform: translateX(-50%))
 );
 
 $toast-variants: (
@@ -79,14 +47,16 @@ $toast-variants: (
     }
   }
 
+  opacity: 0;
+  display: grid;
+  padding: 1.2rem;
+  min-width: 30rem;
   position: relative;
   pointer-events: auto;
   overflow: hidden;
-  display: grid;
-  opacity: 0;
-  gap: 1.2rem;
-  padding: 1.2rem;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto 1fr;
+  column-gap: 1.2rem;
+  align-items: start;
   color: var(--atlas-color-text);
   background: var(--atlas-color-surface);
   border-radius: var(--atlas-radius-lg);
@@ -125,64 +95,91 @@ $toast-variants: (
   }
 
   &__left {
-    display: grid;
-    place-items: start center;
-    padding-left: 0.6rem;
+    padding: 0.2rem;
+    align-self: start;
   }
 
   &__icon {
-    width: 2.8rem;
-    height: 2.8rem;
     display: grid;
-    place-items: center;
-    border-radius: 99rem;
+    width: 3.8rem;
+    height: 3.8rem;
     font-weight: 700;
+    place-items: center;
+    border-radius: var(--atlas-radius-md);
     background: var(--atlas-color-border);
     border: 1px solid var(--atlas-color-border);
+
+    i { font-size: var(--atlas-fs-28); }
+
+    &.success { color: var(--atlas-color-success); }
+    &.error { color: var(--atlas-color-error); }
+    &.warning { color: var(--atlas-color-warning); }
+    &.info { color: var(--atlas-color-info); }
+    &.primary { color: var(--atlas-color-primary); }
   }
 
   &__main {
-    display: grid;
-    gap: 0.6rem;
     min-width: 0;
+    align-self: start;
+    display: grid;
+    row-gap: 0.2rem;
   }
 
   &__header {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    justify-content: space-between;
     gap: 1rem;
+
+    &-controls {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.2rem;
+    }
   }
 
   &__title {
+    font-size: var(--atlas-fs-22);
     font-weight: 700;
     line-height: 1.2;
   }
 
   &__expand {
-    margin-left: auto;
     border: 0;
-    background: transparent;
-    color: rgba(255,255,255,.8);
-    cursor: pointer;
-    padding: 0.6rem 0.8rem;
     border-radius: 1rem;
-
-    &:hover { background: rgba(255,255,255,.08); }
+    padding: 0.6rem 0.8rem;
+    font-size: var(--atlas-fs-22);
+    color: color-mix(in srgb, var(--atlas-color-text) 60%, transparent);
+    &:hover { color: color-mix(in srgb, var(--atlas-color-text) 85%, transparent); }
+    i.ph {
+      display: inline-block;
+      transform: rotate(0deg);
+      transform-origin: 50% 50%;
+      transition: all 320ms ease;
+      will-change: transform;
+      &.is-rotated { transform: rotate(-180deg); }
+    }
   }
 
   &__message {
-    opacity: .95;
+    opacity: .75;
     line-height: 1.35;
+    margin-top: -0.6rem;
+    font-size: var(--atlas-fs-20);
   }
 
   &__details {
     display: none;
     opacity: .9;
+    margin-top: 0.5rem;
+    transition: max-height 320ms ease, opacity 240ms ease, margin-top 320ms ease;
     line-height: 1.35;
   }
 
   &.is-expanded &__details {
     display: block;
+    opacity: 0.5;
+    font-size: var(--atlas-fs-18);
   }
 
   &__actions {
@@ -190,6 +187,8 @@ $toast-variants: (
     flex-wrap: wrap;
     gap: 0.8rem;
     margin-top: 4px;
+
+    &.is-hidden { display: none; }
   }
 
   &__btn {
@@ -217,28 +216,35 @@ $toast-variants: (
   }
 
   &__close {
-    width: 3.4rem;
-    height: 3.4rem;
     border-radius: 1.2rem;
-    border: 0;
-    background: color-mix(in srgb, var(--atlas-color-text) 6%, transparent);
-    color: var(--atlas-color-text);
-    transition: background 120ms ease, transform 120ms ease;
-    cursor: pointer;
-
-    &:hover { background: rgba(255,255,255,.14); }
+    padding: 0.6rem 0.8rem;
+    color: color-mix(in srgb, var(--atlas-color-text) 60%, transparent);
 
     i.ph {
-      font-size: 1.6rem;
       line-height: 1;
+      display: inline-block;
+      transform: rotate(0deg);
+      transform-origin: 50% 50%;
+      font-size: var(--atlas-fs-22);
+      transition: transform 180ms ease;
     }
+
+    &:hover i.ph { transform: rotate(-90deg); }
+    &:active i.ph { transform: rotate(90deg) scale(0.95); }
+    &:hover { color: color-mix(in srgb, var(--atlas-color-text) 85%, transparent); }
   }
 }
 
 @keyframes atlas-toast-in {
   to { transform: translateY(0) scale(1); opacity: 1; }
 }
-
 @keyframes atlas-toast-progress {
-  from { transform: scaleX(1); } to { transform: scaleX(0); }
+  from { transform: scaleX(1); }
+  to { transform: scaleX(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .atlas-toast__expand i.ph,
+  .atlas-toast__close i.ph {
+    transition: none;
+  }
 }
