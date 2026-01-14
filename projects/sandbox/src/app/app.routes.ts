@@ -10,6 +10,10 @@ export const routes: Routes = [
         path: 'components',
         loadChildren: () => import('./sections/components/components.routes').then(m => m.COMPONENTS_ROUTES),
       },
+      {
+        path: 'services',
+        loadChildren: () => import('./sections/services/services.routes').then(m => m.SERVICES_ROUTES),
+      },
     ]
   }
 ];

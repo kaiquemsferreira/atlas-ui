@@ -1,0 +1,82 @@
+:host.atlas-card {
+  display: block;
+  border-radius: var(--atlas-radius-lg);
+  border: 1px solid var(--atlas-color-border);
+  background: var(--atlas-color-surface);
+  box-shadow: var(--atlas-shadow-sm);
+  overflow: visible;
+}
+
+.atlas-card__inner {
+  border-radius: inherit;
+  overflow: hidden;
+  display: grid;
+}
+
+.atlas-card__header,
+.atlas-card__footer {
+  padding: 1.2rem 1.4rem;
+  color: var(--atlas-color-text);
+  background: color-mix(in srgb, var(--atlas-color-surface) 92%, transparent);
+}
+
+.atlas-card__header {
+  border-bottom: 1px solid var(--atlas-color-border);
+}
+
+.atlas-card__footer {
+  border-top: 1px solid var(--atlas-color-border);
+}
+
+.atlas-card__body {
+  padding: 1.4rem;
+}
+
+:host([data-padding="none"]) .atlas-card__body { padding: 0; }
+:host([data-padding="sm"]) .atlas-card__body { padding: 1.1rem; }
+:host([data-padding="md"]) .atlas-card__body { padding: 1.4rem; }
+:host([data-padding="lg"]) .atlas-card__body { padding: 2rem; }
+
+:host([data-variant="outlined"]) {
+  background: transparent;
+  box-shadow: none;
+}
+
+:host([data-variant="muted"]) {
+  background: color-mix(in srgb, var(--atlas-color-surface-2) 75%, transparent);
+}
+
+:host([data-variant="elevated"]) {
+  box-shadow: var(--atlas-shadow-md);
+}
+
+:host([data-variant="glass"]) {
+  background: color-mix(in srgb, var(--atlas-color-surface) 70%, transparent);
+  backdrop-filter: blur(1rem);
+}
+
+.is-interactive {
+  cursor: pointer;
+  transition: transform 120ms ease, box-shadow 120ms ease, border-color 120ms ease, background 120ms ease;
+}
+
+:host([data-variant="outlined"]) .is-interactive:hover,
+:host([data-variant="default"]) .is-interactive:hover,
+:host([data-variant="muted"]) .is-interactive:hover,
+:host([data-variant="glass"]) .is-interactive:hover {
+  border-color: color-mix(in srgb, var(--atlas-color-primary) 30%, var(--atlas-color-border));
+}
+
+.is-interactive:active {
+  transform: translateY(1px);
+}
+
+:host(:focus-visible) {
+  outline: 2px solid color-mix(in srgb, var(--atlas-color-primary) 55%, transparent);
+  outline-offset: 2px;
+}
+
+.atlas-card__header:empty,
+.atlas-card__footer:empty {
+  display: none;
+}

@@ -3,16 +3,14 @@ export type SidebarBadge = 'new' | 'updated' | 'beta';
 export type SidebarItem =
   | {
   kind: 'link';
-  label: string;
+  labelKey: string;
   path: string;
-  icon?: string;
   badge?: SidebarBadge;
   keywords?: string[];
 }
   | {
   kind: 'group';
-  label: string;
-  icon?: string;
+  labelKey: string;
   children: SidebarItem[];
   keywords?: string[];
 };
@@ -20,55 +18,53 @@ export type SidebarItem =
 export const SIDEBAR_NAV: SidebarItem[] = [
   {
     kind: 'link',
-    label: 'Home',
+    labelKey: 'sandbox.nav.home',
     path: '/',
-    keywords: ['home', 'atlas', 'sandbox'],
+    keywords: [
+      'home',
+      'atlas',
+      'sandbox'
+    ]
   },
   {
     kind: 'group',
-    label: 'Get Started',
-    keywords: ['getting started', 'install', 'usage', 'setup'],
+    labelKey: 'sandbox.nav.getStarted',
     children: [
-      {
-        kind: 'link',
-        label: 'Installation',
-        path: '/get-started/installation',
-        keywords: ['install', 'npm', 'setup'],
-      },
-      {
-        kind: 'link',
-        label: 'Usage',
-        path: '/get-started/usage',
-        keywords: ['usage', 'how to', 'providers'],
-      },
+      { kind: 'link', labelKey: 'sandbox.nav.installation', path: '/get-started/installation' },
+      { kind: 'link', labelKey: 'sandbox.nav.usage', path: '/get-started/usage' },
     ],
   },
   {
     kind: 'group',
-    label: 'Components',
-    keywords: ['components', 'ui', 'widgets'],
+    labelKey: 'sandbox.nav.components',
     children: [
       {
         kind: 'group',
-        label: 'Notifications',
-        keywords: ['toast', 'notification', 'snackbar'],
+        labelKey: 'sandbox.nav.notifications',
         children: [
-          {
-            kind: 'link',
-            label: 'Toast',
-            path: '/components/notifications/toast',
-            badge: 'new',
-            keywords: ['toast', 'notification', 'overlay', 'duration', 'actions'],
-          },
+          { kind: 'link', labelKey: 'sandbox.nav.toast', path: '/components/notifications/toast', badge: 'new' },
         ],
       },
     ],
   },
   {
+    kind: 'group',
+    labelKey: 'sandbox.nav.services',
+    keywords: ['services', 'service', 'i18n', 'translation'],
+    children: [
+      {
+        kind: 'link',
+        labelKey: 'sandbox.nav.translation',
+        path: '/services/translation',
+        badge: 'new',
+        keywords: ['translation', 'i18n', 'transloco', 'atlas', 'keys'],
+      },
+    ],
+  },
+  {
     kind: 'link',
-    label: 'Updates',
-    path: '/updates',
-    keywords: ['changelog', 'releases', 'updates'],
+    labelKey: 'sandbox.nav.updates',
+    path: '/updates'
   },
 ];
 
@@ -86,14 +82,14 @@ export function flattenSidebar(items: SidebarItem[], trail: string[] = []): Side
   for (const item of items) {
     if (item.kind === 'link') {
       out.push({
-        label: item.label,
+        label: item.labelKey,
         path: item.path,
         badge: item.badge,
-        keywords: [item.label, ...(item.keywords ?? [])].map(s => s.toLowerCase()),
+        keywords: [item.labelKey, ...(item.keywords ?? [])].map(s => s.toLowerCase()),
         sectionTrail: trail,
       });
     } else {
-      out.push(...flattenSidebar(item.children, [...trail, item.label]));
+      out.push(...flattenSidebar(item.children, [...trail, item.labelKey]));
     }
   }
 

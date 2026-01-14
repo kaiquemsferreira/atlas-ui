@@ -10,18 +10,23 @@
       <button class="btn" type="button" (click)="fireInfo()">
         {{ 'ui.components.toast.info' | translate }}
       </button>
+
       <button class="btn" type="button" (click)="fireSuccess()">
         {{ 'ui.components.toast.success' | translate }}
       </button>
+
       <button class="btn" type="button" (click)="fireWarning()">
         {{ 'ui.components.toast.warning' | translate }}
       </button>
+
       <button class="btn" type="button" (click)="fireErrorSticky()">
         {{ 'ui.components.toast.error' | translate }}
       </button>
+
       <button class="btn" type="button" (click)="fireNeutral()">
         {{ 'ui.components.toast.neutral' | translate }}
       </button>
+
       <button class="btn btn--ghost" type="button" (click)="clear()">
         {{ 'ui.common.clear' | translate }}
       </button>
@@ -29,56 +34,62 @@
   </header>
 
   <div class="doc__grid">
-    <article class="card">
-      <h2 class="card__title">{{ 'ui.common.examples' | translate }}</h2>
-      <p class="card__text">
-        {{ 'sandbox.pages.toast.resume' | translate }}
-      </p>
+    <atlas-card variant="default" padding="lg">
+      <div atlasCardHeader class="card__head">
+        <h2 class="card__title">{{ 'ui.common.examples' | translate }}</h2>
+        <p class="card__text">
+          {{ 'sandbox.pages.toast.resume' | translate }}
+        </p>
+      </div>
 
       <div class="card__list">
         <div class="row">
-          <div class="row__label">
-            {{ 'ui.components.toast.info' | translate }}:
-          </div>
+          <div class="row__label">{{ 'ui.components.toast.info' | translate }}:</div>
           <div class="row__desc">Mensagem simples para informação.</div>
         </div>
+
         <div class="row">
-          <div class="row__label">
-            {{ 'ui.components.toast.success' | translate }}:
-          </div>
+          <div class="row__label">{{ 'ui.components.toast.success' | translate }}:</div>
           <div class="row__desc">Confirmação + ações (ex: desfazer).</div>
         </div>
+
         <div class="row">
-          <div class="row__label">
-            {{ 'ui.components.toast.warning' | translate }}:
-          </div>
+          <div class="row__label">{{ 'ui.components.toast.warning' | translate }}:</div>
           <div class="row__desc">Atenção para validação/risco.</div>
         </div>
+
         <div class="row">
-          <div class="row__label">
-            {{ 'ui.components.toast.error' | translate }}:
-          </div>
+          <div class="row__label">{{ 'ui.components.toast.error' | translate }}:</div>
           <div class="row__desc">Erro persistente (duration 0) com ação de retry.</div>
         </div>
 
         <div class="row">
-          <div class="row__label">
-            {{ 'ui.components.toast.neutral' | translate }}:
-          </div>
+          <div class="row__label">{{ 'ui.components.toast.neutral' | translate }}:</div>
           <div class="row__desc">Mensagem simples para informação.</div>
         </div>
       </div>
-    </article>
 
-    <article class="card">
-      <h2 class="card__title">API</h2>
-      <p class="card__text">
-        {{ 'sandbox.pages.toast.description' | translate }}
-        <code>{{ 'sandbox.pages.toast.pattern' | translate }}</code>
-      </p>
+      <div atlasCardFooter class="card__foot">
+        <span class="hint">
+          Dica: passe o mouse sobre o toast para pausar a barra de duração.
+        </span>
+      </div>
+    </atlas-card>
+
+    <atlas-card variant="default" padding="lg">
+      <div atlasCardHeader class="card__head">
+        <h2 class="card__title">API</h2>
+
+        <p class="card__text">
+          {{ 'sandbox.pages.toast.description' | translate }}
+          <code class="inline-code">{{ 'sandbox.pages.toast.pattern' | translate }}</code>
+        </p>
+      </div>
 
       <div class="code">
-        <pre><code>notifications.success('Arquivo enviado!', &#123;
+        <pre>
+          <code>
+this.notifications.success('Arquivo enviado!', &#123;
           title: 'Upload successful',
           details: 'invoice.pdf foi enviado e indexado...',
           position: 'bottom-center',
@@ -86,8 +97,9 @@
     &#123; label: 'Desfazer', variant: 'primary', onClick: () => ..., closeOnClick: true &#125;
   ],
   durationMs: 6000
-&#125;);</code></pre>
+&#125;);</code>
+        </pre>
       </div>
-    </article>
+    </atlas-card>
   </div>
 </section>

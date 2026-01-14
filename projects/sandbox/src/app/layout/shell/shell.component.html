@@ -8,8 +8,8 @@
 
       <a class="brand" routerLink="/" (click)="closeMobileNavigation()">
         <span class="brand__dot"></span>
-        <span class="brand__text">Atlas UI</span>
-        <span class="brand__badge">Sandbox</span>
+        <span class="brand__text">Atlas</span>
+        <span class="brand__badge">sandbox</span>
       </a>
     </div>
 
@@ -19,7 +19,7 @@
           <i class="ph ph-magnifying-glass"></i>
         </span>
         <input class="search__input" type="search" [value]="query()" (input)="query.set(($any($event.target)).value)"
-          placeholder="Search docs…" aria-label="Search docs"/>
+          [placeholder]="'sandbox.pages.shell.search' | translate" aria-label="Search docs"/>
       </div>
     </div>
 
@@ -35,79 +35,62 @@
   <div class="body">
     <aside class="sidebar" [class.sidebar--open]="this.mobileNavigationOpen()">
       <nav class="nav" aria-label="Documentation navigation">
-        @for (item of filteredNavigation(); track item.label) {
+        @for (item of filteredNavigation(); track item.labelKey) {
 
           @if (item.kind === 'link') {
-            <a
-              class="nav__link nav__link--root"
-              routerLinkActive="is-active"
-              [routerLink]="item.path"
-              (click)="closeMobileNavigation()"
-            >
-              {{ item.label }}
+            <a class="nav__link nav__link--root" routerLinkActive="is-active" [routerLink]="item.path"
+               (click)="closeMobileNavigation()">
+              {{ item.labelKey | translate }}
 
               @if (item.badge) {
                 <span class="nav__badge" [attr.data-badge]="item.badge">
-            {{ item.badge }}
-          </span>
+                  {{ item.badge }}
+                </span>
               }
             </a>
           } @else {
             <div class="nav__group">
-              <div class="nav__title">{{ item.label }}</div>
+              <div class="nav__title">{{ item.labelKey | translate }}</div>
 
               <div class="nav__items">
-                @for (child of item.children; track child.label) {
-
+                @for (child of item.children; track child.labelKey) {
                   @if (child.kind === 'link') {
-                    <a
-                      class="nav__link"
-                      routerLinkActive="is-active"
-                      [routerLink]="child.path"
-                      (click)="closeMobileNavigation()"
-                    >
-                      {{ child.label }}
+                    <a class="nav__link" routerLinkActive="is-active" [routerLink]="child.path"
+                       (click)="closeMobileNavigation()">
+                      {{ child.labelKey | translate }}
 
                       @if (child.badge) {
                         <span class="nav__badge" [attr.data-badge]="child.badge">
-                    {{ child.badge }}
-                  </span>
+                          {{ child.badge }}
+                        </span>
                       }
                     </a>
                   } @else {
-                    <div class="nav__subtitle">{{ child.label }}</div>
+                    <div class="nav__subtitle">{{ child.labelKey | translate }}</div>
 
                     <div class="nav__items nav__items--nested">
-                      @for (leaf of child.children; track leaf.label) {
-
+                      @for (leaf of child.children; track leaf.labelKey) {
                         @if (leaf.kind === 'link') {
-                          <a
-                            class="nav__link"
-                            routerLinkActive="is-active"
-                            [routerLink]="leaf.path"
-                            (click)="closeMobileNavigation()"
-                          >
-                            {{ leaf.label }}
+                          <a class="nav__link" routerLinkActive="is-active" [routerLink]="leaf.path"
+                             (click)="closeMobileNavigation()">
+                            {{ leaf.labelKey | translate }}
 
                             @if (leaf.badge) {
                               <span class="nav__badge" [attr.data-badge]="leaf.badge">
-                          {{ leaf.badge }}
-                        </span>
+                                {{ leaf.badge }}
+                              </span>
                             }
                           </a>
                         } @else {
-                          <div class="nav__subtitle">{{ leaf.label }}</div>
+                          <div class="nav__subtitle">{{ leaf.labelKey | translate }}</div>
                         }
-
                       }
                     </div>
                   }
-
                 }
               </div>
             </div>
           }
-
         }
       </nav>
     </aside>

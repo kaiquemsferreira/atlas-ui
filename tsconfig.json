@@ -6,6 +6,9 @@
       "atlas-ui-i18n": [
         "projects/atlas-ui-i18n/src/public-api.ts"
       ],
+      "atlas-ui-layout": [
+        "projects/atlas-ui-layout/src/public-api.ts"
+      ],
       "atlas-ui-notifications": [
         "projects/atlas-ui-notifications/src/public-api.ts"
       ],

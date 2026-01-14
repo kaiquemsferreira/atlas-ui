@@ -110,15 +110,15 @@
 }
 
 .code {
+  overflow: auto;
   border-radius: 1.2rem;
   border: 1px solid var(--atlas-color-border);
   background: color-mix(in srgb, var(--atlas-color-surface-2) 70%, transparent);
-  overflow: auto;
 }
 .code pre {
   margin: 0;
   padding: 1.2rem;
-  font-family: var(--atlas-font-mono), system-ui;
   font-size: 1.2rem;
   line-height: 1.55;
+  font-family: var(--atlas-font-mono), system-ui;
 }

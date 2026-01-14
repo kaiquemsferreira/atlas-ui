@@ -2,12 +2,14 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 
 import { AtlasNotificationsService } from 'atlas-ui-notifications';
 import { AtlasTranslationPipe } from 'atlas-ui-i18n';
+import { AtlasCardComponent } from 'atlas-ui-layout';
 
 @Component({
   selector: 'sandbox-toast-doc-page',
   standalone: true,
   imports: [
-    AtlasTranslationPipe
+    AtlasTranslationPipe,
+    AtlasCardComponent
   ],
   templateUrl: './toast-doc.page.html',
   styleUrls: [
