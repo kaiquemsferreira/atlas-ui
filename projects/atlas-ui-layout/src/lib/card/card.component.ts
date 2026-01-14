@@ -1,15 +1,10 @@
 import { ChangeDetectionStrategy, Component, ContentChild, HostBinding, Input, inject, } from '@angular/core';
 
-import { AtlasCardFooterDirective, AtlasCardHeaderDirective } from './model/card.parts';
+import { AtlasCardBodySlotDirective, AtlasCardContentSlotDirective, AtlasCardFooterSlotDirective,
+  AtlasCardHeaderSlotDirective } from './directives/card-slots.directive';
 import { AtlasCardVariant } from './model/atlas-card-variant';
 import { AtlasCardPadding } from './model/atlas-card-padding';
 import { ATLAS_CARD_DEFAULTS } from './model/card.token';
-import {
-  AtlasCardBodySlotDirective,
-  AtlasCardContentSlotDirective,
-  AtlasCardFooterSlotDirective,
-  AtlasCardHeaderSlotDirective
-} from './directives/card-slots.directive';
 
 @Component({
   selector: 'atlas-card',
