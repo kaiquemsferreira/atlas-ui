@@ -4,7 +4,9 @@ export const ATLAS_UI_EN_US = {
     examples: 'Examples',
     components: 'Components',
     undo: 'Undo',
-    details: 'Details'
+    details: 'Details',
+    copyCode: 'Copy code',
+    copied: 'Copied',
   },
   components: {
     toast: {

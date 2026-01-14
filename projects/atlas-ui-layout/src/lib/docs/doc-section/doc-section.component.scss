@@ -1,0 +1,45 @@
+.atlas-doc-section {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.atlas-doc-section__title.has-divider {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--atlas-color-border);
+}
+
+.atlas-doc-section__desc.has-divider {
+  padding-top: 0.5rem;
+}
+
+.atlas-doc-section__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.6rem;
+}
+
+.atlas-doc-section__head-left {
+  width: 100%;
+}
+
+.atlas-doc-section__title {
+  margin: 0;
+  font-size: var(--atlas-h-4);
+  letter-spacing: -0.01em;
+}
+
+.atlas-doc-section__desc {
+  margin: .6rem 0 0;
+  color: var(--atlas-color-text-muted);
+  line-height: var(--atlas-lh-relaxed);
+  max-width: 90ch;
+}
+
+.atlas-doc-section__head-right {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+
+  &:empty { display: none; }
+}

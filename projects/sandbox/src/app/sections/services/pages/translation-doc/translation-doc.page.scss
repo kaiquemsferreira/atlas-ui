@@ -51,24 +51,3 @@
   color: var(--atlas-color-text-muted);
   line-height: var(--atlas-lh-relaxed);
 }
-
-.code {
-  border-radius: 1.2rem;
-  border: 1px solid var(--atlas-color-border);
-  background: color-mix(in srgb, var(--atlas-color-surface-2) 70%, transparent);
-  overflow: auto;
-}
-
-.code pre {
-  margin: 0;
-  padding: 1.2rem;
-  font-family: var(--atlas-font-mono), system-ui;
-  font-size: 1.2rem;
-  line-height: 1.6;
-  overflow: auto;
-  max-width: 100%;
-}
-
-.code code {
-  white-space: pre;
-}

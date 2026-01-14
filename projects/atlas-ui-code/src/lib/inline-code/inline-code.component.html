@@ -1,0 +1,17 @@
+@let value = (text ?? '').trim();
+
+<code class="atlas-inline-code" [attr.data-variant]="variant" [class.is-copyable]="copyable"
+      (click)="value && copyable ? copy(value) : null" [attr.role]="copyable ? 'button' : null"
+      [attr.tabindex]="copyable ? 0 : null" [attr.aria-label]="copyable ? (copied() ? 'Copied' : 'Copy code') : null">
+  @if (text) {
+    {{ value }}
+  } @else {
+    <ng-content></ng-content>
+  }
+
+  @if (copyable) {
+    <span class="atlas-inline-code__icon" aria-hidden="true">
+      <i class="ph" [class.ph-clipboard]="!copied()" [class.ph-check]="copied()"></i>
+    </span>
+  }
+</code>

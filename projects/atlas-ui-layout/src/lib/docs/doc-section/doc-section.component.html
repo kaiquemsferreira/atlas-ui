@@ -1,0 +1,35 @@
+<section class="atlas-doc-section">
+  <div class="atlas-doc-section__head">
+    <div class="atlas-doc-section__head-left">
+      @if (titleKey || title) {
+        <h2 class="atlas-doc-section__title" [class.has-divider]="divider">
+          @if (titleKey) { {{ titleKey | translate }} } @else { {{ title }} }
+        </h2>
+      }
+
+      @if (descriptionKey || description) {
+        <p class="atlas-doc-section__desc" [class.has-divider]="divider">
+          @if (descriptionKey) { {{ descriptionKey | translate }} } @else { {{ description }} }
+        </p>
+      }
+    </div>
+
+    <div class="atlas-doc-section__head-right">
+      <ng-content select="[sectionActions]"></ng-content>
+    </div>
+  </div>
+
+  <ng-template #sectionContent>
+    <ng-content></ng-content>
+  </ng-template>
+
+  <div class="atlas-doc-section__body">
+    @if (surface === 'card') {
+      <atlas-card [variant]="cardVariant" [padding]="cardPadding">
+        <ng-container [ngTemplateOutlet]="sectionContent"></ng-container>
+      </atlas-card>
+    } @else {
+      <ng-container [ngTemplateOutlet]="sectionContent"></ng-container>
+    }
+  </div>
+</section>

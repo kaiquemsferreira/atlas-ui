@@ -1,0 +1,96 @@
+.atlas-snippet-tabs {
+  border-radius: var(--atlas-radius-lg);
+  border: 1px solid var(--atlas-color-border);
+  background: var(--atlas-color-surface);
+  box-shadow: var(--atlas-shadow-sm);
+  overflow: hidden;
+}
+
+.atlas-snippet-tabs__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+
+  padding: 0.6rem 0.7rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--atlas-color-border) 85%, transparent);
+  background: inherit;
+}
+
+.atlas-snippet-tabs__tablist {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-width: 0;
+}
+
+.atlas-snippet-tabs__tab {
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--atlas-color-text-muted);
+
+  border-radius: 0.9rem;
+  padding: 0.45rem 0.7rem;
+  cursor: pointer;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+
+  transition: background 120ms ease, border-color 120ms ease, color 120ms ease;
+
+  &:hover {
+    background: color-mix(in srgb, var(--atlas-color-surface) 10%, transparent);
+    color: var(--atlas-color-text);
+  }
+
+  &.is-active {
+    background: color-mix(in srgb, var(--atlas-color-surface) 16%, transparent);
+    border-color: color-mix(in srgb, var(--atlas-color-border) 85%, transparent);
+    color: var(--atlas-color-text);
+  }
+}
+
+.atlas-snippet-tabs__tab-label {
+  font-weight: 650;
+  letter-spacing: 0.02em;
+}
+
+.atlas-snippet-tabs__tab-hint {
+  font-size: 1rem;
+  padding: 0.1rem 0.45rem;
+  border-radius: 999rem;
+  border: 1px solid color-mix(in srgb, var(--atlas-color-border) 85%, transparent);
+  background: color-mix(in srgb, var(--atlas-color-surface) 12%, transparent);
+  color: var(--atlas-color-text-muted);
+}
+
+.atlas-snippet-tabs__copy {
+  color: var(--atlas-color-text-muted);
+  padding: 0.45rem 0.55rem;
+  transition: background 120ms ease, transform 120ms ease, color 300ms ease;
+
+  &:hover {
+    background: color-mix(in srgb, var(--atlas-color-surface) 12%, transparent);
+    color: var(--atlas-color-text);
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+.atlas-snippet-tabs__body {
+  padding: 0.8rem 1rem;
+}
+
+.atlas-snippet-tabs__code {
+  display: block;
+  font-family: var(--atlas-font-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 1.15rem;
+  line-height: 1.5;
+  color: var(--atlas-color-text);
+
+  white-space: nowrap;
+  overflow: auto;
+}

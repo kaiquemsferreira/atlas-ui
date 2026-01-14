@@ -1,13 +1,18 @@
 <div class="atlas-card__inner" [class.is-interactive]="interactive">
-  <header class="atlas-card__header">
-    <ng-content select="[atlasCardHeader]"></ng-content>
-  </header>
+  @if (hasHeader()) {
+    <header class="atlas-card__header">
+      <ng-content select="[atlasCardHeader]"></ng-content>
+    </header>
+  }
 
   <div class="atlas-card__body">
+    <ng-content select="[atlasCardContent], [atlasCardBody]"></ng-content>
     <ng-content></ng-content>
   </div>
 
-  <footer class="atlas-card__footer">
-    <ng-content select="[atlasCardFooter]"></ng-content>
-  </footer>
+  @if (hasFooter()) {
+    <footer class="atlas-card__footer">
+      <ng-content select="[atlasCardFooter]"></ng-content>
+    </footer>
+  }
 </div>

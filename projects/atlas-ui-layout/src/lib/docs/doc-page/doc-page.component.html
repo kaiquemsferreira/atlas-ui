@@ -1,0 +1,25 @@
+<section class="atlas-doc-page" [attr.data-width]="maxWidth">
+  <header class="atlas-doc-page__header">
+    @if (breadcrumb) {
+      <div class="atlas-doc-page__breadcrumb">{{ breadcrumb }}</div>
+    }
+
+    <h1 class="atlas-doc-page__title">
+      @if (titleKey) { {{ titleKey | translate }} } @else { {{ title }} }
+    </h1>
+
+    @if (subtitleKey || subtitle) {
+      <p class="atlas-doc-page__subtitle">
+        @if (subtitleKey) { {{ subtitleKey | translate }} } @else { {{ subtitle }} }
+      </p>
+    }
+
+    <div class="atlas-doc-page__actions">
+      <ng-content select="[docActions]"></ng-content>
+    </div>
+  </header>
+
+  <div class="atlas-doc-page__content">
+    <ng-content></ng-content>
+  </div>
+</section>

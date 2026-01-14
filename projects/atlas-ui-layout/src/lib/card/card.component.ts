@@ -4,6 +4,12 @@ import { AtlasCardFooterDirective, AtlasCardHeaderDirective } from './model/card
 import { AtlasCardVariant } from './model/atlas-card-variant';
 import { AtlasCardPadding } from './model/atlas-card-padding';
 import { ATLAS_CARD_DEFAULTS } from './model/card.token';
+import {
+  AtlasCardBodySlotDirective,
+  AtlasCardContentSlotDirective,
+  AtlasCardFooterSlotDirective,
+  AtlasCardHeaderSlotDirective
+} from './directives/card-slots.directive';
 
 @Component({
   selector: 'atlas-card',
@@ -19,10 +25,15 @@ export class AtlasCardComponent {
   @HostBinding('attr.data-variant') get dataVariant() { return this.variant; }
   @HostBinding('attr.data-padding') get dataPadding() { return this.padding; }
   @HostBinding('class.atlas-card') readonly hostClass = true;
-  @ContentChild(AtlasCardHeaderDirective) header?: AtlasCardHeaderDirective;
-  @ContentChild(AtlasCardFooterDirective) footer?: AtlasCardFooterDirective;
+  @ContentChild(AtlasCardContentSlotDirective) contentSlot?: AtlasCardContentSlotDirective;
+  @ContentChild(AtlasCardHeaderSlotDirective) headerSlot?: AtlasCardHeaderSlotDirective;
+  @ContentChild(AtlasCardFooterSlotDirective) footerSlot?: AtlasCardFooterSlotDirective;
+  @ContentChild(AtlasCardBodySlotDirective) bodySlot?: AtlasCardBodySlotDirective;
   private readonly defaults = inject(ATLAS_CARD_DEFAULTS);
   @Input() variant: AtlasCardVariant = this.defaults.variant;
   @Input() padding: AtlasCardPadding = this.defaults.padding;
   @Input() interactive = false;
+
+  protected hasHeader() { return !!this.headerSlot; }
+  protected hasFooter() { return !!this.footerSlot; }
 }

@@ -1,0 +1,25 @@
+<div class="atlas-code-block">
+  @if (title || language || copyable) {
+    <header class="atlas-code-block__header">
+      <div class="atlas-code-block__meta">
+        @if (title) {
+          <span class="atlas-code-block__title">{{ title }}</span>
+        }
+        @if (language) {
+          <span class="atlas-code-block__lang">{{ language }}</span>
+        }
+      </div>
+
+      @if (copyable && code) {
+        <button type="button" class="atlas-code-block__copy" (click)="copy()" aria-label="Copy code">
+          <i class="ph" [class.ph-clipboard]="!copied()" [class.ph-check]="copied()"></i>
+          <span>
+            {{ copied() ? ('ui.common.copied' | translate) : ('ui.common.copyCode' | translate) }}
+          </span>
+        </button>
+      }
+    </header>
+  }
+
+  <div class="atlas-code-block__body" [class.is-wrap]="wrap" [innerHTML]="highlighted()"></div>
+</div>

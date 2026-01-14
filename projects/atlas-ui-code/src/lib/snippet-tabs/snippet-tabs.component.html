@@ -1,0 +1,30 @@
+<div class="atlas-snippet-tabs">
+  <div class="atlas-snippet-tabs__top">
+    <div class="atlas-snippet-tabs__tablist" role="tablist" aria-label="Code snippet options"
+         (keydown)="onKeydown($event)">
+      @for (t of tabs; track t.label; let i = $index) {
+        <button type="button" class="atlas-snippet-tabs__tab" role="tab" [attr.aria-selected]="activeIndex() === i"
+                [class.is-active]="activeIndex() === i" (click)="select(i)">
+          <span class="atlas-snippet-tabs__tab-label">{{ t.label }}</span>
+
+          @if (t.hint) {
+            <span class="atlas-snippet-tabs__tab-hint">{{ t.hint }}</span>
+          }
+        </button>
+      }
+    </div>
+
+    @if (copyable) {
+      <button type="button" class="atlas-snippet-tabs__copy" (click)="copy()"
+              [attr.aria-label]="copied() ? 'Copied' : 'Copy command'">
+        <i class="ph" [class.ph-clipboard]="!copied()" [class.ph-check]="copied()"></i>
+      </button>
+    }
+  </div>
+
+  @if (active(); as a) {
+    <div class="atlas-snippet-tabs__body">
+      <code class="atlas-snippet-tabs__code">{{ a.value }}</code>
+    </div>
+  }
+</div>

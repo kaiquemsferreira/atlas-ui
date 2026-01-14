@@ -1,0 +1,93 @@
+.atlas-code-tabs {
+  overflow: hidden;
+  box-shadow: var(--atlas-shadow-sm);
+  border-radius: var(--atlas-radius-lg);
+  background: var(--atlas-color-bg);
+  border: 1px solid var(--atlas-color-border);
+}
+
+.atlas-code-tabs__header {
+  gap: 1rem;
+  display: flex;
+  align-items: center;
+  padding: 0.6rem 1.5rem;
+  justify-content: space-between;
+  border-bottom: 1px solid color-mix(in srgb, var(--atlas-color-border) 85%, transparent);
+}
+
+.atlas-code-tabs__title {
+  font-weight: 650;
+  font-size: 1.2rem;
+}
+
+.atlas-code-tabs__right {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.atlas-code-tabs__tablist {
+  gap: 0.4rem;
+  align-items: center;
+  display: inline-flex;
+  button {
+    font-weight: 600;
+    font-family: "GeistMono", system-ui;
+  }
+}
+
+.atlas-code-tabs__tab {
+  border-radius: var(--atlas-radius-sm);
+  padding: 0.45rem 0.7rem;
+  border: 1px solid transparent;
+  color: var(--atlas-color-text-muted);
+  transition: background 120ms ease, border-color 120ms ease, color 300ms ease;
+
+  &:hover {
+    background: color-mix(in srgb, var(--atlas-color-surface) 10%, transparent);
+    color: var(--atlas-color-text);
+  }
+
+  &.is-active {
+    background: color-mix(in srgb, var(--atlas-color-surface) 16%, transparent);
+    border-color: color-mix(in srgb, var(--atlas-color-border) 85%, transparent);
+    color: var(--atlas-color-text);
+  }
+}
+
+.atlas-code-tabs__copy {
+  gap: 0.35rem;
+  display: flex;
+  align-items: flex-end;
+  padding: 0.45rem 0.55rem;
+  font-size: var(--atlas-fs-20);
+  color: var(--atlas-color-text-muted);
+  transition: background 120ms ease, transform 120ms ease, color 200ms ease;
+
+  i.ph {
+    font-size: var(--atlas-fs-22);
+  }
+
+  &:hover { color: var(--atlas-color-text); }
+  &:active { transform: translateY(1px); }
+}
+
+.atlas-code-tabs__body {
+  overflow: auto;
+}
+
+:host ::ng-deep .atlas-code-tabs__body pre.shiki {
+  margin: 0 !important;
+  padding: 1rem 1.5rem;
+  background: transparent !important;
+  border-radius: calc(var(--atlas-radius-lg) - 0.6rem);
+
+  font-family: var(--atlas-font-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace !important;
+  font-size: 1.15rem !important;
+  line-height: 1.55 !important;
+}
+
+:host ::ng-deep .atlas-code-tabs__body.is-wrap pre.shiki {
+  white-space: pre-wrap !important;
+  word-break: break-word;
+}

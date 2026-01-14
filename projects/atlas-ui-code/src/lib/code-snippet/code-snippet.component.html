@@ -1,0 +1,13 @@
+<div class="atlas-snippet" [attr.data-variant]="variant">
+  @if (label) {
+    <span class="atlas-snippet__label">{{ label }}</span>
+  }
+
+  <code class="atlas-snippet__code">{{ text }}</code>
+
+  @if (copyable) {
+    <button type="button" class="atlas-snippet__copy" (click)="copy()" aria-label="Copy snippet">
+      <i class="ph" [class.ph-clipboard]="!copied()" [class.ph-check]="copied()"></i>
+    </button>
+  }
+</div>

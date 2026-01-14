@@ -1,0 +1,89 @@
+.atlas-code-block {
+  overflow: hidden;
+  border-radius: var(--atlas-radius-lg);
+  border: 1px solid var(--atlas-color-border);
+  box-shadow: var(--atlas-shadow-sm);
+
+  background: var(--atlas-color-bg);
+}
+
+.atlas-code-block__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+
+  padding: 0.7rem 1.5rem;
+  border-bottom: 1px solid var(--atlas-color-border);
+  background: inherit;
+}
+
+.atlas-code-block__meta {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  min-width: 0;
+}
+
+.atlas-code-block__title {
+  max-width: 52ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  font-weight: 650;
+  font-size: 1.2rem;
+}
+
+.atlas-code-block__lang {
+  padding: 0.15rem 0.55rem;
+  border-radius: 999rem;
+
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+
+  background: color-mix(in srgb, var(--atlas-color-border) 70%, transparent);
+  color: var(--atlas-color-text-muted);
+}
+
+.atlas-code-block__copy {
+  display: flex;
+  gap: 0.35rem;
+  align-items: flex-end;
+  font-size: var(--atlas-fs-20);
+  padding: 0.45rem 0.55rem;
+  color: var(--atlas-color-text-muted);
+  transition: background 120ms ease, transform 120ms ease, color 200ms ease;
+
+  i.ph {
+    font-size: var(--atlas-fs-22);
+  }
+
+  &:hover { color: var(--atlas-color-text); }
+  &:active { transform: translateY(1px); }
+}
+
+.atlas-code-block__body { overflow: auto; }
+
+:host ::ng-deep .atlas-code-block__body pre.shiki {
+  margin: 0 !important;
+  padding: 1rem 1.5rem;
+  border-radius: calc(var(--atlas-radius-lg) - 0.6rem);
+
+  background: transparent !important;
+
+  font-family: var(--atlas-font-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace !important;
+  font-size: 1.15rem !important;
+  line-height: 1.55 !important;
+}
+
+:host ::ng-deep .atlas-code-block__body pre.shiki code {
+  font-family: inherit !important;
+}
+
+:host ::ng-deep .atlas-code-block__body.is-wrap pre.shiki {
+  white-space: pre-wrap !important;
+  word-break: break-word;
+}

@@ -1,42 +1,17 @@
-<section class="doc">
-  <header class="doc__header">
-    <div class="doc__breadcrumb">Services</div>
-    <h1 class="doc__title">{{ 'sandbox.pages.translation.title' | translate }}</h1>
-    <p class="doc__subtitle">{{ 'sandbox.pages.translation.subtitle' | translate }}</p>
-  </header>
+<atlas-doc-page breadcrumb="Services" titleKey="sandbox.pages.translation.title"
+                subtitleKey="sandbox.pages.translation.subtitle" maxWidth="lg">
+  <atlas-doc-section titleKey="sandbox.pages.translation.installTitle"
+                     descriptionKey="sandbox.pages.translation.installDesc" surface="plain">
+    <atlas-snippet-tabs [tabs]="installTabs" initialLabel="npm"/>
+  </atlas-doc-section>
 
-  <div class="doc__grid">
-    <atlas-card variant="default" padding="lg">
-      <div atlasCardHeader class="card__head">
-        <h2 class="card__title">{{ 'sandbox.pages.translation.installTitle' | translate }}</h2>
-        <p class="card__text">{{ 'sandbox.pages.translation.installDesc' | translate }}</p>
-      </div>
+  <atlas-doc-section titleKey="sandbox.pages.translation.setupTitle"
+                     descriptionKey="sandbox.pages.translation.setupDesc" surface="plain">
+    <atlas-code-block title="Atlas i18n setup" language="ts" [code]="setupCode" />
+  </atlas-doc-section>
 
-      <div class="code">
-        <pre><code>{{ installCode }}</code></pre>
-      </div>
-    </atlas-card>
-
-    <atlas-card variant="default" padding="lg">
-      <div atlasCardHeader class="card__head">
-        <h2 class="card__title">{{ 'sandbox.pages.translation.setupTitle' | translate }}</h2>
-        <p class="card__text">{{ 'sandbox.pages.translation.setupDesc' | translate }}</p>
-      </div>
-
-      <div class="code">
-        <pre><code>{{ setupCode }}</code></pre>
-      </div>
-    </atlas-card>
-
-    <atlas-card variant="default" padding="lg">
-      <div atlasCardHeader class="card__head">
-        <h2 class="card__title">{{ 'sandbox.pages.translation.usageTitle' | translate }}</h2>
-        <p class="card__text">{{ 'sandbox.pages.translation.usageDesc' | translate }}</p>
-      </div>
-
-      <div class="code">
-        <pre><code>{{ usageCode }}</code></pre>
-      </div>
-    </atlas-card>
-  </div>
-</section>
+  <atlas-doc-section titleKey="sandbox.pages.translation.usageTitle"
+                     descriptionKey="sandbox.pages.translation.usageDesc" surface="plain">
+    <atlas-code-tabs title="Examples" [tabs]="usageTabs" initialLabel="HTML" />
+  </atlas-doc-section>
+</atlas-doc-page>

@@ -1,18 +1,26 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { AtlasCardComponent } from 'atlas-ui-layout';
-import { AtlasTranslationPipe } from 'atlas-ui-i18n';
+
+import { AtlasCodeBlockComponent, AtlasCodeTabsComponent, AtlasSnippetTabsComponent } from 'atlas-ui-code';
+import { AtlasDocPageComponent, AtlasDocSectionComponent } from 'atlas-ui-layout';
 
 @Component({
   selector: 'sandbox-translation-doc-page',
   standalone: true,
-  imports: [AtlasCardComponent, AtlasTranslationPipe],
+  imports: [
+    AtlasCodeBlockComponent,
+    AtlasCodeTabsComponent,
+    AtlasDocSectionComponent,
+    AtlasSnippetTabsComponent,
+    AtlasDocPageComponent
+  ],
   templateUrl: './translation-doc.page.html',
   styleUrls: ['./translation-doc.page.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TranslationDocPage {
-  protected readonly installCode = `npm i @jsverse/transloco`;
-  protected readonly setupCode = `import { provideAtlasI18nTransloco, provideAtlasI18nContributions } from 'atlas-ui-i18n';
+  protected readonly setupCode =`import { provideAtlasI18nTransloco, provideAtlasI18nContributions } from 'atlas-ui-i18n';
+
+...
 
 provideAtlasI18nTransloco({
   availableLangs: ['pt-BR', 'en-US'],
@@ -26,14 +34,28 @@ provideAtlasI18nContributions({
   'pt-BR': { sandbox: { ... } },
   'en-US': { sandbox: { ... } },
 });`;
-  protected readonly usageCode = `// TS
-this.notifications.successKey('sandbox.pages.toast.successMessage', {
+  protected readonly usageTabs = [
+    {
+      label: 'HTML',
+      language: 'html',
+      code: `{{ 'sandbox.pages.toast.title' | translate }}`,
+    },
+    {
+      label: 'TS',
+      language: 'ts',
+      code:
+        `this.notifications.successKey('sandbox.pages.toast.successMessage', {
   titleKey: 'ui.components.toast.success',
   actions: [
     { label: { key: 'ui.common.undo' }, closeOnClick: true }
   ]
-});
-
-// HTML
-{{ 'sandbox.pages.toast.title' | translate }}`;
+});`,
+    }
+  ];
+  protected readonly installTabs = [
+    { label: 'npm',  value: 'npm i @jsverse/transloco' },
+    { label: 'pnpm', value: 'pnpm add @jsverse/transloco' },
+    { label: 'yarn', value: 'yarn add @jsverse/transloco' },
+    { label: 'bun',  value: 'bun add @jsverse/transloco' },
+  ];
 }
