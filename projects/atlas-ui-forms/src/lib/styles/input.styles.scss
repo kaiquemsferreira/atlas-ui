@@ -1,0 +1,7 @@
+:is(input[atlas-input], textarea[atlas-input]) {
+  width: 100%;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: var(--atlas-color-text);
+}

@@ -1,0 +1,160 @@
+.atlas-field {
+  display: grid;
+  gap: var(--atlas-space-2);
+}
+
+.atlas-field__label {
+  font-weight: 600;
+  margin-left: 0.5rem;
+  font-size: var(--atlas-fs-20);
+  color: var(--atlas-color-text);
+}
+
+.atlas-field__control {
+  --_control-px: var(--atlas-space-3);
+  --_prefix-slot: 0rem;
+  --_prefix-gap: var(--atlas-space-2);
+  --_divider-x: var(--_control-px);
+
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--atlas-space-8);
+
+  min-height: 3.8rem;
+  padding: 0 var(--_control-px);
+
+  border-radius: var(--atlas-radius-md);
+  border: 1px solid var(--atlas-color-border);
+  background: color-mix(in srgb, var(--atlas-color-surface-2) 95%, transparent);
+
+  transition: border-color 120ms ease, box-shadow 120ms ease, background 120ms ease;
+
+  &:focus-within {
+    border-color: color-mix(in srgb, var(--atlas-color-primary) 30%, var(--atlas-color-border));
+    box-shadow: 0 0 0 0.3rem color-mix(in srgb, var(--atlas-color-primary) 5%, transparent);
+  }
+}
+
+.atlas-field__control:has([atlasPrefixIcon]) {
+  --_prefix-slot: 2.2rem;
+  --_divider-x: calc(var(--_control-px) + var(--_prefix-slot) + var(--_prefix-gap));
+}
+
+[atlasPrefixIcon] {
+  width: var(--_prefix-slot);
+  flex: 0 0 var(--_prefix-slot);
+
+  display: grid;
+  place-items: center;
+
+  height: 100%;
+  align-self: stretch;
+
+  color: var(--atlas-color-text-muted);
+
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+[atlasPrefixIcon] i.ph,
+[atlasPrefixIcon] svg {
+  display: block;
+  line-height: 1;
+  transform: translateY(0.02em);
+}
+
+.atlas-field__control:has([atlasPrefixIcon])::before {
+  content: '';
+  position: absolute;
+  top: 0.8rem;
+  bottom: 0.8rem;
+  width: 1px;
+  opacity: 0.7;
+  background: var(--atlas-color-border);
+  left: var(--_divider-x);
+}
+
+.atlas-field__control :is(input[atlas-input], textarea[atlas-input]) {
+  flex: 1 1 auto;
+  width: 100%;
+
+  border: 0;
+  outline: none;
+  background: transparent;
+
+  font-size: var(--atlas-fs-20);
+  color: var(--atlas-color-text);
+  line-height: var(--atlas-lh-normal);
+
+  padding: 0.9rem 0;
+  margin: 0;
+}
+
+.atlas-field__control:has([atlasPrefixIcon]) :is(input[atlas-input], textarea[atlas-input]) {
+  padding-left: var(--atlas-space-3);
+}
+
+.atlas-field__control :is(input[atlas-input], textarea[atlas-input])::placeholder {
+  opacity: 0.9;
+  color: var(--atlas-color-text-muted);
+}
+
+.atlas-field__hint {
+  font-size: var(--atlas-fs-16);
+  color: var(--atlas-color-text-muted);
+}
+
+.atlas-field[data-float-label='true'] {
+  .atlas-field__control {
+    padding-top: 1.2rem;
+  }
+
+  .atlas-field__floating {
+    position: absolute;
+    pointer-events: none;
+
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.85;
+
+    left: var(--_control-px);
+
+    font-size: var(--atlas-fs-20);
+    color: var(--atlas-color-text-muted);
+
+    transition: transform 140ms ease, top 140ms ease, left 140ms ease, opacity 140ms ease;
+  }
+
+  .atlas-field__control:has([atlasPrefixIcon]) .atlas-field__floating {
+    left: calc(var(--_divider-x) + var(--atlas-space-3));
+  }
+
+  .atlas-field__control:focus-within .atlas-field__floating,
+  .atlas-field__control:has(input[atlas-input]:not(:placeholder-shown)) .atlas-field__floating,
+  .atlas-field__control:has(textarea[atlas-input]:not(:placeholder-shown)) .atlas-field__floating {
+    top: -0.85rem;
+    left: var(--_control-px);
+    transform: none;
+    opacity: 1;
+
+    padding: 0 0.6rem;
+    border-radius: var(--atlas-radius-pill);
+    background: color-mix(in srgb, var(--atlas-color-surface-2) 98%, transparent);
+  }
+}
+
+.atlas-field__control:has(:is(input[atlas-input], textarea[atlas-input])[disabled]) {
+  opacity: 0.75;
+
+  .atlas-field__floating,
+  .atlas-field__label,
+  [atlasPrefixIcon] {
+    color: var(--atlas-color-text-muted);
+  }
+}
+
+.atlas-field[data-invalid='true'] .atlas-field__control {
+  box-shadow: 0 0 0 0.3rem color-mix(in srgb, var(--atlas-color-error) 10%, transparent);
+  border-color: color-mix(in srgb, var(--atlas-color-error) 45%, var(--atlas-color-border));
+}

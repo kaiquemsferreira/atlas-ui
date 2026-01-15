@@ -1,0 +1,24 @@
+<div class="atlas-field" [attr.data-float-label]="floatLabel ? 'true' : null">
+  @if (!floatLabel && (label || labelKey)) {
+    <label class="atlas-field__label">
+      @if (labelKey) { {{ labelKey | translate }} } @else { {{ label }} }
+    </label>
+  }
+
+  <div class="atlas-field__control">
+    @if (floatLabel && (label || labelKey)) {
+      <label class="atlas-field__floating">
+        @if (labelKey) { {{ labelKey | translate }} } @else { {{ label }} }
+      </label>
+    }
+
+    <ng-content select="[atlasPrefixIcon]"></ng-content>
+    <ng-content></ng-content>
+  </div>
+
+  @if (hint || hintKey) {
+    <div class="atlas-field__hint">
+      @if (hintKey) { {{ hintKey | translate }} } @else { {{ hint }} }
+    </div>
+  }
+</div>

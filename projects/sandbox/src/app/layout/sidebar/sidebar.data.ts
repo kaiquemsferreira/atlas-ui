@@ -51,6 +51,12 @@ export const SIDEBAR_NAV: SidebarItem[] = [
         badge: 'new',
       },
       {
+        kind: 'link',
+        labelKey: 'sandbox.pages.inputs.title',
+        path: '/components/inputs',
+        badge: 'new',
+      },
+      {
         kind: 'group',
         labelKey: 'sandbox.nav.notifications',
         children: [

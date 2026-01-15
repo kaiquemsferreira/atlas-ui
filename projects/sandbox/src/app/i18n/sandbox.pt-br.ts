@@ -66,6 +66,35 @@ export const SANDBOX_PT_BR = {
           fullWidth: 'Largura total',
         },
       },
+      inputs: {
+        title: 'Inputs',
+        subtitle: 'Campos de texto com label, ícone e variações de comportamento.',
+        examplesDesc: 'Exemplos de composição do Atlas Form Field e Atlas Input.',
+        apiDesc: 'API e exemplos de uso.',
+        actions: {
+          toggleDisabled: 'Alternar disabled',
+          toggleInvalid: 'Alternar invalid'
+        },
+        examples: {
+          basic: 'Básico',
+          prefixIcon: 'Ícone à esquerda + divisor',
+          floatLabel: 'Label flutuante',
+          floatLabelIcon: 'Label flutuante + ícone',
+          disabled: 'Disabled',
+          invalid: 'Invalid (preview)'
+        },
+        fields: {
+          email: 'Email',
+          search: 'Buscar',
+          name: 'Nome',
+          company: 'Empresa',
+          password: 'Senha'
+        },
+        hints: {
+          floatLabel: 'A label vira placeholder e sobe ao focar ou ao preencher.',
+          invalid: 'Estado inválido será integrado ao Reactive Forms.'
+        }
+      },
       translation: {
         title: 'Tradução (i18n)',
         subtitle: 'Integração de internacionalização no Atlas UI com Transloco + contribuições por app.',

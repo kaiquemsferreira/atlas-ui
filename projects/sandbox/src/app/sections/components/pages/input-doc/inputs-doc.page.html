@@ -1,0 +1,77 @@
+<atlas-doc-page [breadcrumbItems]="breadcrumbs" breadcrumbAriaLabelKey="ui.breadcrumb.aria"
+                titleKey="sandbox.pages.inputs.title" subtitleKey="sandbox.pages.inputs.subtitle" maxWidth="lg">
+  <div docActions class="doc-actions">
+    <button atlas-button variant="outline" color="surface" (click)="toggleDisabled()">
+      {{ 'sandbox.pages.inputs.actions.toggleDisabled' | translate }}
+    </button>
+
+    <button atlas-button variant="outline" color="surface" (click)="toggleInvalid()">
+      {{ 'sandbox.pages.inputs.actions.toggleInvalid' | translate }}
+    </button>
+  </div>
+
+  <atlas-doc-section titleKey="ui.common.examples" descriptionKey="sandbox.pages.inputs.examplesDesc">
+    <div class="grid">
+      <div class="cell">
+        <div class="cell__title">{{ 'sandbox.pages.inputs.examples.basic' | translate }}</div>
+
+        <atlas-form-field labelKey="sandbox.pages.inputs.fields.email">
+          <input atlas-input type="email" [disabled]="isDisabled" placeholder="email@dominio.com"/>
+        </atlas-form-field>
+      </div>
+
+      <div class="cell">
+        <div class="cell__title">{{ 'sandbox.pages.inputs.examples.prefixIcon' | translate }}</div>
+
+        <atlas-form-field labelKey="sandbox.pages.inputs.fields.search">
+          <i atlasPrefixIcon class="ph ph-magnifying-glass"></i>
+          <input atlas-input type="text" [disabled]="isDisabled" placeholder="Buscar..."/>
+        </atlas-form-field>
+      </div>
+
+      <div class="cell">
+        <div class="cell__title">{{ 'sandbox.pages.inputs.examples.floatLabel' | translate }}</div>
+
+        <atlas-form-field labelKey="sandbox.pages.inputs.fields.name" [floatLabel]="true"
+                          hintKey="sandbox.pages.inputs.hints.floatLabel">
+          <input atlas-input type="text" [disabled]="isDisabled" placeholder=" " />
+        </atlas-form-field>
+      </div>
+
+      <div class="cell">
+        <div class="cell__title">{{ 'sandbox.pages.inputs.examples.floatLabelIcon' | translate }}</div>
+
+        <atlas-form-field labelKey="sandbox.pages.inputs.fields.company" [floatLabel]="true">
+          <i atlasPrefixIcon class="ph ph-buildings"></i>
+          <input atlas-input type="text" [disabled]="isDisabled" placeholder=" " />
+        </atlas-form-field>
+      </div>
+
+      <div class="cell">
+        <div class="cell__title">{{ 'sandbox.pages.inputs.examples.disabled' | translate }}</div>
+
+        <atlas-form-field label="Disabled">
+          <input atlas-input type="text" disabled value="Somente leitura" />
+        </atlas-form-field>
+      </div>
+
+      <div class="cell">
+        <div class="cell__title">{{ 'sandbox.pages.inputs.examples.invalid' | translate }}</div>
+
+        <atlas-form-field labelKey="sandbox.pages.inputs.fields.password" hintKey="sandbox.pages.inputs.hints.invalid"
+                          [attr.data-invalid]="isInvalid ? 'true' : null">
+          <i atlasPrefixIcon class="ph ph-lock"></i>
+          <input atlas-input type="password" [disabled]="isDisabled" placeholder=" " />
+        </atlas-form-field>
+      </div>
+    </div>
+  </atlas-doc-section>
+
+  <atlas-doc-section title="API" descriptionKey="sandbox.pages.inputs.apiDesc" surface="plain">
+    <p class="api-text">
+      <atlas-inline-code>&lt;atlas-form-field&gt; + &lt;input atlas-input&gt;</atlas-inline-code>
+    </p>
+
+    <atlas-code-block title="Usage" language="html" [code]="usageHtml"></atlas-code-block>
+  </atlas-doc-section>
+</atlas-doc-page>
