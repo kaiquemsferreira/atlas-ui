@@ -1,33 +1,32 @@
-<atlas-doc-page breadcrumb="Components / Notifications" titleKey="sandbox.pages.toast.title"
+<atlas-doc-page [breadcrumbItems]="breadcrumbs" titleKey="sandbox.pages.toast.title"
                 subtitleKey="sandbox.pages.toast.subtitle" maxWidth="lg">
   <div docActions class="doc-actions">
-    <button class="btn" type="button" (click)="fireInfo()">
+    <button atlas-button type="button" color="gradient" (click)="fireInfo()">
       {{ 'ui.components.toast.info' | translate }}
     </button>
 
-    <button class="btn" type="button" (click)="fireSuccess()">
+    <button atlas-button type="button" color="gradient" (click)="fireSuccess()">
       {{ 'ui.components.toast.success' | translate }}
     </button>
 
-    <button class="btn" type="button" (click)="fireWarning()">
+    <button atlas-button type="button" color="gradient" (click)="fireWarning()">
       {{ 'ui.components.toast.warning' | translate }}
     </button>
 
-    <button class="btn" type="button" (click)="fireErrorSticky()">
+    <button atlas-button type="button" color="gradient" (click)="fireErrorSticky()">
       {{ 'ui.components.toast.error' | translate }}
     </button>
 
-    <button class="btn" type="button" (click)="fireNeutral()">
+    <button atlas-button type="button" color="gradient" (click)="fireNeutral()">
       {{ 'ui.components.toast.neutral' | translate }}
     </button>
 
-    <button class="btn btn--ghost" type="button" (click)="clear()">
+    <button atlas-button type="button" color="surface" (click)="clear()">
       {{ 'ui.common.clear' | translate }}
     </button>
   </div>
 
-  <atlas-doc-section titleKey="ui.common.examples" descriptionKey="sandbox.pages.toast.resume"
-                     [divider]="false" surface="plain">
+  <atlas-doc-section titleKey="ui.common.examples" descriptionKey="sandbox.pages.toast.resume" surface="plain">
     <div class="examples">
       <div class="row">
         <div class="row__label">{{ 'ui.components.toast.info' | translate }}:</div>

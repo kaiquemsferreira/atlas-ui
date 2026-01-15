@@ -1,0 +1,57 @@
+:host { display: block; }
+
+.atlas-breadcrumb {
+  line-height: 1.2;
+  font-weight: 700;
+  font-size: var(--atlas-fs-18);
+}
+
+.atlas-breadcrumb__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.atlas-breadcrumb__item,
+.atlas-breadcrumb__sep {
+  min-height: 2.4rem;
+  align-items: center;
+  display: inline-flex;
+  transition: all 300ms ease;
+  &:hover { filter: brightness(1.5) }
+}
+
+.atlas-breadcrumb__sep {
+  opacity: 0.8;
+  color: var(--atlas-color-text-muted);
+
+  .ph {
+    font-weight: 700;
+    font-size: var(--atlas-fs-16);
+  }
+}
+
+.atlas-breadcrumb__link {
+  color: var(--atlas-text-secondary, var(--text-secondary));
+  text-decoration: none;
+  border-radius: 0.4rem;
+  padding: 0.2rem 0.4rem;
+
+  &:hover {
+    color: var(--atlas-text-primary, var(--text-primary));
+    background: var(--atlas-neutral-100, var(--neutral-100));
+  }
+
+  &:focus-visible {
+    outline-offset: 0.2rem;
+    outline: 0.2rem solid var(--atlas-primary-500, var(--primary-500));
+  }
+}
+
+.atlas-breadcrumb__current {
+  color: var(--atlas-color-text);
+}

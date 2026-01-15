@@ -1,21 +1,19 @@
 <div class="atlas-code-tabs">
-  <header class="atlas-code-tabs__header">
-    <div class="atlas-code-tabs__left">
-      @if (title) {
-        <span class="atlas-code-tabs__title">{{ title }}</span>
+  <header class="atlas-code-tabs__header" [class.has-title]="!!title" (keydown)="onKeydown($event)">
+    @if (title) {
+      <span class="atlas-code-tabs__title">{{ title }}</span>
+    }
+
+    <div class="atlas-code-tabs__tablist" role="tablist">
+      @for (t of tabs; track t.label; let i = $index) {
+        <button type="button" class="atlas-code-tabs__tab" role="tab" [attr.aria-selected]="activeIndex() === i"
+                [class.is-active]="activeIndex() === i" (click)="select(i)">
+          {{ t.label }}
+        </button>
       }
     </div>
 
-    <div class="atlas-code-tabs__right">
-      <div class="atlas-code-tabs__tablist" role="tablist" (keydown)="onKeydown($event)">
-        @for (t of tabs; track t.label; let i = $index) {
-          <button type="button" class="atlas-code-tabs__tab" role="tab" [attr.aria-selected]="activeIndex() === i"
-                  [class.is-active]="activeIndex() === i" (click)="select(i)">
-            {{ t.label }}
-          </button>
-        }
-      </div>
-
+    <div class="atlas-code-tabs__actions">
       @if (copyable) {
         <button type="button" class="atlas-code-tabs__copy" (click)="copy()" aria-label="Copy code">
           <i class="ph" [class.ph-clipboard]="!copied()" [class.ph-check]="copied()"></i>

@@ -1,0 +1,227 @@
+[atlas-button] {
+  --_btn-h: 3.4rem;
+  --_btn-px: 1.2rem;
+
+  --_btn-border: transparent;
+  --_btn-bg: var(--atlas-color-primary);
+  --_btn-fg: var(--atlas-color-primary-contrast);
+
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+  gap: var(--atlas-space-2);
+
+  height: var(--_btn-h);
+  padding: 0 var(--_btn-px);
+
+  background: var(--_btn-bg);
+  border: 1px solid var(--_btn-border);
+  border-radius: var(--atlas-radius-sm);
+  color: var(--atlas-color-primary-contrast);
+
+  line-height: 1;
+  font-weight: 600;
+  transition: all 300ms ease;
+  font-size: var(--atlas-fs-20);
+  font-family: var(--atlas-font-sans), system-ui;
+  &:hover { filter: brightness(1.125) }
+
+  &:active {
+    background: color-mix(in srgb, var(--_btn-bg) 86%, black 14%);
+    transform: translateY(0.05rem);
+  }
+
+  &:focus-visible {
+    outline: 0.2rem solid color-mix(in srgb, var(--atlas-color-primary) 55%, white 45%);
+    outline-offset: 0.2rem;
+  }
+
+  &[disabled], &[aria-disabled="true"] {
+    opacity: 0.55;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  i.ph, svg {
+    width: 1.6rem;
+    height: fit-content;
+    flex: 0 0 auto;
+  }
+
+  &[aria-busy="true"] {
+    position: relative;
+    pointer-events: none;
+    color: transparent;
+
+    i.ph, svg {
+      visibility: hidden;
+    }
+
+    &::after {
+      content: '';
+      width: 1.6rem;
+      height: 1.6rem;
+      position: absolute;
+      border-radius: var(--atlas-radius-pill);
+      animation: atlas-spin 0.8s linear infinite;
+      border: 0.2rem solid color-mix(in srgb, var(--_btn-fg) 35%, transparent);
+      border-top-color: var(--_btn-fg);
+    }
+  }
+}
+
+@keyframes atlas-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+[atlas-button][data-size='sm'] {
+  --_btn-px: 1rem;
+  --_btn-h: 2.8rem;
+  font-size: var(--atlas-fs-18);
+}
+
+[atlas-button][data-size='md'] {
+  --_btn-h: 3.4rem;
+  --_btn-px: 1.2rem;
+  font-size: var(--atlas-fs-20);
+}
+
+[atlas-button][data-size='lg'] {
+  --_btn-h: 4rem;
+  --_btn-px: 1.4rem;
+  font-size: var(--atlas-fs-22);
+}
+
+[atlas-button][data-icon-only='true'] {
+  width: var(--_btn-h);
+  padding: 0;
+}
+
+[atlas-button][data-full-width='true'] {
+  width: 100%;
+}
+
+[atlas-button][data-color='primary'] {
+  --_btn-bg: var(--atlas-color-primary);
+  --_btn-border: var(--atlas-color-primary-tint);
+  --_btn-fg: var(--atlas-color-primary-contrast);
+}
+
+[atlas-button][data-color='surface'] {
+  --_btn-fg: var(--atlas-color-text);
+  --_btn-bg: var(--atlas-color-surface-2);
+  --_btn-border: var(--atlas-color-border);
+}
+
+[atlas-button][data-color='success'] {
+  --_btn-fg: #fff;
+  --_btn-border: var(--atlas-color-success);
+  --_btn-bg: color-mix(in srgb, var(--atlas-color-success) 70%, #2f426b);
+}
+
+[atlas-button][data-color='warning'] {
+  --_btn-fg: #fff;
+  --_btn-border: var(--atlas-color-warning);
+  --_btn-bg: color-mix(in srgb, var(--atlas-color-warning) 80%, #94913e);
+}
+
+[atlas-button][data-color='error'] {
+  --_btn-fg: #fff;
+  --_btn-border: var(--atlas-color-error);
+  --_btn-bg: color-mix(in srgb, var(--atlas-color-error) 80%, #662931);
+}
+
+[atlas-button][data-color='info'] {
+  --_btn-bg: var(--atlas-color-info);
+  --_btn-fg: #fff;
+  --_btn-border: transparent;
+}
+
+[atlas-button][data-color='gradient'] {
+  transition: all 300ms ease;
+  &:hover { filter: brightness(1.125) }
+  background: var(--atlas-color-gradient);
+  &:active { transform: translateY(0.05rem)}
+  border-color: var(--atlas-color-primary-tint);
+}
+
+[atlas-button][data-variant='outline'] {
+  --_btn-bg: transparent;
+  --_btn-fg: var(--atlas-color-text);
+  --_btn-border: var(--atlas-color-border);
+
+  &:hover {
+    background: color-mix(in srgb, var(--atlas-color-surface) 85%, transparent);
+  }
+
+  &:active {
+    background: color-mix(in srgb, var(--atlas-color-surface) 75%, transparent);
+  }
+
+  &[data-color='primary'] {
+    --_btn-fg: var(--atlas-color-primary);
+    --_btn-border: color-mix(in srgb, var(--atlas-color-primary) 40%, var(--atlas-color-border));
+
+    &:hover { filter: brightness(1.125) }
+    &:active { background: color-mix(in srgb, var(--atlas-color-primary) 16%, transparent) }
+  }
+}
+
+[atlas-button][data-variant='ghost'] {
+  --_btn-bg: transparent;
+  --_btn-fg: var(--atlas-color-text);
+  --_btn-border: transparent;
+
+  &:hover {
+    background: color-mix(in srgb, var(--atlas-color-surface-2) 80%, transparent);
+  }
+
+  &:active {
+    background: color-mix(in srgb, var(--atlas-color-surface-2) 70%, transparent);
+  }
+}
+
+[atlas-button][data-variant='soft'] {
+  --_btn-border: transparent;
+  color: var(--atlas-color-text);
+  background: color-mix(in srgb, var(--_btn-bg) 14%, var(--atlas-color-surface));
+
+  &:hover {
+    background: color-mix(in srgb, var(--_btn-bg) 18%, var(--atlas-color-surface));
+  }
+
+  &:active {
+    background: color-mix(in srgb, var(--_btn-bg) 22%, var(--atlas-color-surface));
+    transform: translateY(0.05rem);
+  }
+}
+
+[atlas-button-group] {
+  display: inline-flex;
+  align-items: stretch;
+}
+
+[atlas-button-group] > [atlas-button] {
+  border-radius: 0;
+}
+
+[atlas-button-group] > [atlas-button]:first-child {
+  border-top-left-radius: var(--atlas-radius-pill);
+  border-bottom-left-radius: var(--atlas-radius-pill);
+}
+
+[atlas-button-group] > [atlas-button]:last-child {
+  border-top-right-radius: var(--atlas-radius-pill);
+  border-bottom-right-radius: var(--atlas-radius-pill);
+}
+
+[atlas-button-group] > [atlas-button] + [atlas-button] {
+  margin-left: -1px;
+}
+
+[atlas-button-group] > [atlas-button]:hover, [atlas-button-group] > [atlas-button]:focus-visible {
+  position: relative;
+  z-index: 1;
+}

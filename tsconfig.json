@@ -3,8 +3,14 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "atlas-ui-button": [
+        "projects/atlas-ui-button/src/public-api.ts"
+      ],
       "atlas-ui-code": [
         "projects/atlas-ui-code/src/public-api.ts"
+      ],
+      "atlas-ui-forms": [
+        "projects/atlas-ui-forms/src/public-api.ts"
       ],
       "atlas-ui-i18n": [
         "projects/atlas-ui-i18n/src/public-api.ts"

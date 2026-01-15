@@ -1,8 +1,8 @@
-<atlas-doc-page breadcrumb="Services" titleKey="sandbox.pages.translation.title"
+<atlas-doc-page [breadcrumbItems]="breadcrumbs" titleKey="sandbox.pages.translation.title"
                 subtitleKey="sandbox.pages.translation.subtitle" maxWidth="lg">
   <atlas-doc-section titleKey="sandbox.pages.translation.installTitle"
                      descriptionKey="sandbox.pages.translation.installDesc" surface="plain">
-    <atlas-snippet-tabs [tabs]="installTabs" initialLabel="npm"/>
+    <atlas-snippet-tabs [tabs]="installTabs" initialLabel="pnpm"/>
   </atlas-doc-section>
 
   <atlas-doc-section titleKey="sandbox.pages.translation.setupTitle"
@@ -10,7 +10,7 @@
     <atlas-code-block title="Atlas i18n setup" language="ts" [code]="setupCode" />
   </atlas-doc-section>
 
-  <atlas-doc-section titleKey="sandbox.pages.translation.usageTitle"
+  <atlas-doc-section titleKey="sandbox.nav.usage"
                      descriptionKey="sandbox.pages.translation.usageDesc" surface="plain">
     <atlas-code-tabs title="Examples" [tabs]="usageTabs" initialLabel="HTML" />
   </atlas-doc-section>

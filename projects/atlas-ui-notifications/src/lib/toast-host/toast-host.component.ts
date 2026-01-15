@@ -3,6 +3,7 @@ import { AsyncPipe, NgClass } from '@angular/common';
 
 import { AtlasToastAction, AtlasToastPosition, AtlasToastText, AtlasToastVariant } from '../notification-types';
 import { AtlasNotificationsService } from '../atlas-notifications.service';
+import { AtlasButtonDirective } from 'atlas-ui-button';
 import { ATLAS_I18N } from 'atlas-ui-i18n';
 import { Observable, of } from 'rxjs';
 
@@ -10,6 +11,7 @@ import { Observable, of } from 'rxjs';
   selector: 'atlas-toast-host',
   standalone: true,
   imports: [
+    AtlasButtonDirective,
     AsyncPipe,
     NgClass
   ],

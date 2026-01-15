@@ -63,12 +63,12 @@
                   @for (a of t.actions; track a) {
                     <ng-container>
                       @if (a.href) {
-                        <a class="atlas-toast__btn" [attr.data-btn]="a.variant ?? 'secondary'" [href]="a.href"
+                        <a atlas-button [color]="a.variant ?? 'primary'" [href]="a.href"
                            (click)="onAction(t.id, a)">
                           {{ resolveText$(a.label) | async }}
                         </a>
                       } @else {
-                        <button type="button" class="atlas-toast__btn" [attr.data-btn]="a.variant ?? 'secondary'"
+                        <button type="button" atlas-button [color]="a.variant ?? 'primary'"
                                 (click)="onAction(t.id, a)">
                           {{ resolveText$(a.label) | async }}
                         </button>

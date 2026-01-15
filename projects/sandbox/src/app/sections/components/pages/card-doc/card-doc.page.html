@@ -1,0 +1,22 @@
+<atlas-doc-page [breadcrumbItems]="breadcrumbs" titleKey="sandbox.pages.cards.title"
+                subtitleKey="sandbox.pages.cards.subtitle" maxWidth="lg">
+  <atlas-doc-section titleKey="sandbox.pages.cards.usageTitle" descriptionKey="sandbox.pages.cards.usageDesc">
+    <atlas-code-tabs [tabs]="basicUsageTabs"></atlas-code-tabs>
+  </atlas-doc-section>
+
+  <atlas-doc-section title="API" descriptionKey="sandbox.pages.cards.description">
+    <p class="api-text">
+      <atlas-inline-code>&lt;atlas-card [variant] [padding] [interactive]&gt;</atlas-inline-code>
+    </p>
+
+    <atlas-code-tabs [tabs]="slotsTabs"></atlas-code-tabs>
+  </atlas-doc-section>
+
+  <atlas-doc-section titleKey="sandbox.pages.cards.variantsTitle" descriptionKey="sandbox.pages.cards.variantsDesc">
+    <atlas-code-tabs [tabs]="variantTabs"></atlas-code-tabs>
+  </atlas-doc-section>
+
+  <atlas-doc-section titleKey="sandbox.pages.cards.a11yTitle" descriptionKey="sandbox.pages.cards.a11yDesc">
+    <atlas-code-block title="Accessibility" language="ts" [code]="a11yCode"></atlas-code-block>
+  </atlas-doc-section>
+</atlas-doc-page>

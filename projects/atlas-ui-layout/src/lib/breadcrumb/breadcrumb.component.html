@@ -1,0 +1,24 @@
+<nav class="atlas-breadcrumb" [attr.aria-label]="ariaLabelKey ? (ariaLabelKey | translate) : (ariaLabel ?? null)">
+  <ol class="atlas-breadcrumb__list">
+    @for (item of items; track $index) {
+      <li class="atlas-breadcrumb__item" [class.is-current]="isLast($index)">
+        @if (!isLast($index) && item.path) {
+          <a class="atlas-breadcrumb__link" [routerLink]="item.path" [queryParams]="item.queryParams"
+             [fragment]="item.fragment">
+            @if (item.labelKey) { {{ item.labelKey | translate }} } @else { {{ item.label }} }
+          </a>
+        } @else {
+          <span class="atlas-breadcrumb__current" aria-current="page">
+            @if (item.labelKey) { {{ item.labelKey | translate }} } @else { {{ item.label }} }
+          </span>
+        }
+      </li>
+
+      @if (!$last) {
+        <li class="atlas-breadcrumb__sep" aria-hidden="true">
+          <i class="ph ph-caret-right"></i>
+        </li>
+      }
+    }
+  </ol>
+</nav>

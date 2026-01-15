@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 import { AtlasCodeBlockComponent, AtlasCodeTabsComponent, AtlasSnippetTabsComponent } from 'atlas-ui-code';
-import { AtlasDocPageComponent, AtlasDocSectionComponent } from 'atlas-ui-layout';
+import { AtlasBreadcrumbItem, AtlasDocPageComponent, AtlasDocSectionComponent } from 'atlas-ui-layout';
 
 @Component({
   selector: 'sandbox-translation-doc-page',
@@ -52,9 +52,13 @@ provideAtlasI18nContributions({
 });`,
     }
   ];
+  protected readonly breadcrumbs: AtlasBreadcrumbItem[] = [
+    { labelKey: 'sandbox.nav.services', path: '/services' },
+    { labelKey: 'sandbox.nav.translation', path: '/components/translation' },
+  ];
   protected readonly installTabs = [
-    { label: 'npm',  value: 'npm i @jsverse/transloco' },
     { label: 'pnpm', value: 'pnpm add @jsverse/transloco' },
+    { label: 'npm',  value: 'npm i @jsverse/transloco' },
     { label: 'yarn', value: 'yarn add @jsverse/transloco' },
     { label: 'bun',  value: 'bun add @jsverse/transloco' },
   ];

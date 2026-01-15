@@ -1,6 +1,10 @@
 <section class="atlas-doc-page" [attr.data-width]="maxWidth">
   <header class="atlas-doc-page__header">
-    @if (breadcrumb) {
+    @if (breadcrumbItems?.length) {
+      <div class="atlas-doc-page__breadcrumb">
+        <atlas-breadcrumb [items]="breadcrumbItems!" [ariaLabelKey]="breadcrumbAriaLabelKey" [ariaLabel]="breadcrumbAriaLabel"/>
+      </div>
+    } @else if (breadcrumb) {
       <div class="atlas-doc-page__breadcrumb">{{ breadcrumb }}</div>
     }
 

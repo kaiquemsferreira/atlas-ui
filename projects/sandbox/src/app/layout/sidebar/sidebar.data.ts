@@ -39,12 +39,24 @@ export const SIDEBAR_NAV: SidebarItem[] = [
     labelKey: 'sandbox.nav.components',
     children: [
       {
+        kind: 'link',
+        labelKey: 'sandbox.pages.cards.title',
+        path: '/components/cards',
+        badge: 'new'
+      },
+      {
+        kind: 'link',
+        labelKey: 'sandbox.pages.buttons.title',
+        path: '/components/buttons',
+        badge: 'new',
+      },
+      {
         kind: 'group',
         labelKey: 'sandbox.nav.notifications',
         children: [
-          { kind: 'link', labelKey: 'sandbox.nav.toast', path: '/components/notifications/toast', badge: 'new' },
+          { kind: 'link', labelKey: 'sandbox.pages.toast.title', path: '/components/notifications/toast', badge: 'new' },
         ],
-      },
+      }
     ],
   },
   {

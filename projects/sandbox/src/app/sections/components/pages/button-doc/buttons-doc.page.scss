@@ -1,0 +1,52 @@
+.doc-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cell {
+  border: 1px solid var(--atlas-color-border);
+  background: color-mix(in srgb, var(--atlas-color-surface-2) 70%, transparent);
+  border-radius: 1.2rem;
+  padding: 1rem 1.2rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.cell__title {
+  font-weight: 700;
+  color: var(--atlas-color-text-muted);
+  font-size: var(--atlas-fs-18);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.hint {
+  margin-top: 0.2rem;
+  color: var(--atlas-color-text-muted);
+  font-size: var(--atlas-fs-16);
+}
+
+.api-text {
+  margin: 0 0 1rem;
+  color: var(--atlas-color-text-muted);
+}

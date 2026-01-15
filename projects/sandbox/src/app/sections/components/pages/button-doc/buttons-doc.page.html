@@ -1,0 +1,121 @@
+<atlas-doc-page [breadcrumbItems]="breadcrumbs" breadcrumbAriaLabelKey="ui.breadcrumb.aria"
+  titleKey="sandbox.pages.buttons.title" subtitleKey="sandbox.pages.buttons.subtitle"
+  maxWidth="lg">
+  <div docActions class="doc-actions">
+    <button atlas-button color="gradient" (click)="toggleLoading()">
+      {{ 'sandbox.pages.buttons.actions.toggleLoading' | translate }}
+    </button>
+  </div>
+
+  <atlas-doc-section titleKey="ui.common.examples" descriptionKey="sandbox.pages.buttons.examplesDesc">
+    <div class="grid">
+      <div class="cell">
+        <div class="cell__title">{{ 'sandbox.pages.buttons.examples.textOnly' | translate }}</div>
+        <button atlas-button color="surface" variant="outline">
+          {{ 'ui.common.cancel' | translate }}
+        </button>
+      </div>
+
+      <div class="cell">
+        <div class="cell__title">{{ 'sandbox.pages.buttons.examples.textIcon' | translate }}</div>
+        <button atlas-button color="primary">
+          <i class="ph ph-download"></i>
+          {{ 'ui.common.export' | translate }}
+        </button>
+      </div>
+
+      <div class="cell">
+        <div class="cell__title">{{ 'sandbox.pages.buttons.examples.iconText' | translate }}</div>
+        <button atlas-button variant="soft" color="info">
+          <i class="ph ph-arrow-right"></i>
+          {{ 'ui.common.next' | translate }}
+        </button>
+      </div>
+
+      <div class="cell">
+        <div class="cell__title">{{ 'sandbox.pages.buttons.examples.iconOnly' | translate }}</div>
+        <button atlas-button iconOnly variant="outline" color="surface" aria-label="Edit">
+          <i class="ph ph-pencil"></i>
+        </button>
+      </div>
+
+      <div class="cell">
+        <div class="cell__title">{{ 'sandbox.pages.buttons.examples.colors' | translate }}</div>
+        <div class="row">
+          <button atlas-button color="success">{{ 'ui.components.toast.success' | translate }}</button>
+          <button atlas-button color="warning">{{ 'ui.components.toast.warning' | translate }}</button>
+          <button atlas-button color="error">{{ 'ui.components.toast.error' | translate }}</button>
+          <button atlas-button color="info">{{ 'ui.components.toast.info' | translate }}</button>
+        </div>
+      </div>
+
+      <div class="cell">
+        <div class="cell__title">{{ 'sandbox.pages.buttons.examples.gradient' | translate }}</div>
+        <button atlas-button color="gradient">
+          <i class="ph ph-sparkle"></i>
+          {{ 'ui.common.create' | translate }}
+        </button>
+      </div>
+
+      <div class="cell">
+        <div class="cell__title">{{ 'sandbox.pages.buttons.examples.sizes' | translate }}</div>
+        <div class="row">
+          <button atlas-button size="sm" variant="outline" color="surface">Small</button>
+          <button atlas-button size="md" variant="outline" color="surface">Medium</button>
+          <button atlas-button size="lg" variant="outline" color="surface">Large</button>
+        </div>
+      </div>
+
+      <div class="cell">
+        <div class="cell__title">{{ 'sandbox.pages.buttons.examples.states' | translate }}</div>
+        <div class="row">
+          <button atlas-button variant="outline" color="surface" disabled>
+            {{ 'ui.common.disabled' | translate }}
+          </button>
+
+          <button atlas-button color="primary" [loading]="loading">
+            {{ 'ui.common.loading' | translate }}
+          </button>
+        </div>
+        <div class="hint">
+          {{ 'sandbox.pages.buttons.hints.loading' | translate }}
+        </div>
+      </div>
+
+      <div class="cell">
+        <div class="cell__title">{{ 'sandbox.pages.buttons.examples.grouped' | translate }}</div>
+
+        <div atlas-button-group>
+          <button atlas-button variant="outline" color="surface">
+            {{ 'ui.common.documents' | translate }}
+          </button>
+
+          <button atlas-button variant="outline" color="surface">
+            <i class="ph ph-export"></i>
+            {{ 'ui.common.export' | translate }}
+          </button>
+
+          <button atlas-button variant="outline" color="surface" iconOnly aria-label="More">
+            <i class="ph ph-dots-three"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="cell">
+        <div class="cell__title">{{ 'sandbox.pages.buttons.examples.fullWidth' | translate }}</div>
+        <button atlas-button fullWidth color="primary">
+          {{ 'ui.common.save' | translate }}
+        </button>
+      </div>
+    </div>
+  </atlas-doc-section>
+
+  <atlas-doc-section title="API" descriptionKey="sandbox.pages.buttons.apiDesc" surface="plain">
+    <p class="api-text">
+      <atlas-inline-code>&lt;button atlas-button ...&gt;</atlas-inline-code>
+    </p>
+
+    <atlas-code-block title="Usage" language="html" [code]="usageHtml"></atlas-code-block>
+    <atlas-code-block title="Types" language="ts" [code]="typesTs"></atlas-code-block>
+  </atlas-doc-section>
+</atlas-doc-page>

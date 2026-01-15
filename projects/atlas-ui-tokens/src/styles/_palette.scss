@@ -7,8 +7,9 @@ $atlas-theme-light: (
   color-text-muted: #475569,
   color-border: rgba(15, 23, 42, 0.15),
 
-  color-primary: #46a8e5,
+  color-primary: #4653e5,
   color-primary-contrast: #ffffff,
+  color-gradient: linear-gradient(135deg, #4653e5 0%, #3d40ea 100%),
 
   color-success: #16a34a,
   color-warning: #d97706,
@@ -25,8 +26,11 @@ $atlas-theme-dark: (
   color-text-muted: #9ca3af,
   color-border: rgba(255, 255, 255, 0.05),
 
-  color-primary: #3a8eed,
+  color-primary: #414aff,
+  color-primary-shade: #2f426b,
+  color-primary-tint: #525ed5,
   color-primary-contrast: #ffffff,
+  color-gradient: linear-gradient(135deg, var(--atlas-color-primary) 0%, var(--atlas-color-primary-shade) 100%),
 
   color-success: #34d399,
   color-warning: #fbbf24,
