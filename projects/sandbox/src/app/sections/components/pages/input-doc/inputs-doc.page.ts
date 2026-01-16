@@ -1,6 +1,13 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
-import { AtlasFormFieldComponent, AtlasInputDirective, AtlasPrefixIconDirective } from 'atlas-ui-forms';
+import {
+  AtlasFieldErrorComponent,
+  AtlasFieldHintComponent,
+  AtlasFormFieldComponent,
+  AtlasInputDirective,
+  AtlasPasswordToggleComponent,
+  AtlasPrefixIconDirective, AtlasSuffixDirective
+} from 'atlas-ui-forms';
 import { AtlasBreadcrumbItem, AtlasDocPageComponent, AtlasDocSectionComponent } from 'atlas-ui-layout';
 import { AtlasInlineCodeComponent, AtlasCodeBlockComponent } from 'atlas-ui-code';
 import { AtlasButtonDirective } from 'atlas-ui-button';
@@ -19,6 +26,10 @@ import { AtlasTranslationPipe } from 'atlas-ui-i18n';
     AtlasFormFieldComponent,
     AtlasInputDirective,
     AtlasPrefixIconDirective,
+    AtlasPasswordToggleComponent,
+    AtlasFieldHintComponent,
+    AtlasFieldErrorComponent,
+    AtlasSuffixDirective
   ],
   templateUrl: './inputs-doc.page.html',
   styleUrls: ['./inputs-doc.page.scss'],

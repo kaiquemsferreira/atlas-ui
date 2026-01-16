@@ -58,7 +58,7 @@ export class AtlasButtonDirective {
   }
 
   @HostListener('click', ['$event'])
-  onClick(ev: MouseEvent) {
+  onClick(ev: Event) {
     if (!this.isAnchor()) return;
     if (this._disabled() || this._loading()) {
       ev.preventDefault();

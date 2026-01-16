@@ -1,0 +1,13 @@
+<span class="atlas-tooltip">
+  <span #trigger class="atlas-tooltip__trigger">
+    <ng-content select="[atlasTooltipTrigger]"></ng-content>
+  </span>
+
+  @if (open()) {
+    <span #panel class="atlas-tooltip__panel" [style.left.px]="leftPx()" [style.top.px]="topPx()"
+          [attr.data-placement]="placement()" role="tooltip">
+      <ng-content select="[atlasTooltipContent]"></ng-content>
+      <span class="atlas-tooltip__arrow" aria-hidden="true"></span>
+    </span>
+  }
+</span>

@@ -15,8 +15,12 @@
       <div class="cell">
         <div class="cell__title">{{ 'sandbox.pages.inputs.examples.basic' | translate }}</div>
 
-        <atlas-form-field labelKey="sandbox.pages.inputs.fields.email">
+        <atlas-form-field labelKey="sandbox.pages.inputs.fields.email" [invalid]="isInvalid">
           <input atlas-input type="email" [disabled]="isDisabled" placeholder="email@dominio.com"/>
+          <atlas-field-hint atlasSuffix textKey="sandbox.pages.inputs.examples.hintText"></atlas-field-hint>
+          @if (isInvalid) {
+            <atlas-field-error atlasFieldMessage text="Invalid characters."></atlas-field-error>
+          }
         </atlas-form-field>
       </div>
 
@@ -25,7 +29,7 @@
 
         <atlas-form-field labelKey="sandbox.pages.inputs.fields.search">
           <i atlasPrefixIcon class="ph ph-magnifying-glass"></i>
-          <input atlas-input type="text" [disabled]="isDisabled" placeholder="Buscar..."/>
+          <input atlas-input type="text" [disabled]="isDisabled" [placeholder]="'sandbox.pages.inputs.fields.search' | translate"/>
         </atlas-form-field>
       </div>
 
@@ -42,8 +46,8 @@
         <div class="cell__title">{{ 'sandbox.pages.inputs.examples.floatLabelIcon' | translate }}</div>
 
         <atlas-form-field labelKey="sandbox.pages.inputs.fields.company" [floatLabel]="true">
-          <i atlasPrefixIcon class="ph ph-buildings"></i>
-          <input atlas-input type="text" [disabled]="isDisabled" placeholder=" " />
+          <i atlasPrefixIcon class="ph ph-building"></i>
+          <input atlas-input type="text" [disabled]="isDisabled" placeholder=" "/>
         </atlas-form-field>
       </div>
 
@@ -58,10 +62,13 @@
       <div class="cell">
         <div class="cell__title">{{ 'sandbox.pages.inputs.examples.invalid' | translate }}</div>
 
-        <atlas-form-field labelKey="sandbox.pages.inputs.fields.password" hintKey="sandbox.pages.inputs.hints.invalid"
-                          [attr.data-invalid]="isInvalid ? 'true' : null">
+        <atlas-form-field label="Senha" [invalid]="isInvalid">
+          <input atlas-input type="password" placeholder=" "/>
           <i atlasPrefixIcon class="ph ph-lock"></i>
-          <input atlas-input type="password" [disabled]="isDisabled" placeholder=" " />
+          <atlas-password-toggle></atlas-password-toggle>
+          @if (isInvalid) {
+            <atlas-field-error atlasFieldMessage text="Invalid password."></atlas-field-error>
+          }
         </atlas-form-field>
       </div>
     </div>

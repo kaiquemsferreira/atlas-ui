@@ -81,7 +81,8 @@ export const SANDBOX_PT_BR = {
           floatLabel: 'Label flutuante',
           floatLabelIcon: 'Label flutuante + ícone',
           disabled: 'Disabled',
-          invalid: 'Invalid (preview)'
+          invalid: 'Invalid (preview)',
+          hintText: 'Usaremos seu email apenas para login e recuperação de conta.'
         },
         fields: {
           email: 'Email',
@@ -105,5 +106,5 @@ export const SANDBOX_PT_BR = {
         usageDesc: 'Use o pipe no template e as variantes *Key no TypeScript (toasts, actions, etc.).',
       }
     },
-  },
+  }
 };
