@@ -1,17 +1,12 @@
 .atlas-field-hint {
+  border: 0;
+  opacity: 0.6;
+  display: grid;
   width: 3.8rem;
   height: 3.8rem;
-
-  display: grid;
+  padding-right: 0;
   place-items: center;
-
-  border: 0;
-  background: transparent;
-
   color: var(--atlas-color-text-muted);
-  opacity: 0.6;
-  cursor: pointer;
-
   transition: opacity 160ms ease, filter 160ms ease;
 }
 

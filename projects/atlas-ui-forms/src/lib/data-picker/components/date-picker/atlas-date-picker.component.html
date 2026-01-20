@@ -1,0 +1,45 @@
+<div class="atlas-date-picker" [attr.data-open]="open() ? 'true' : null" [attr.data-disabled]="disabled ? 'true' : null">
+  <div class="atlas-date-picker__control" role="button" tabindex="0" (click)="toggle($event)">
+    <div class="atlas-date-picker__value">
+      @if (!hasValue()) {
+        <span class="atlas-date-picker__placeholder">{{ 'ui.common.selectDate' | translate }}</span>
+      } @else {
+        <span class="atlas-date-picker__text">{{ label() }}</span>
+      }
+    </div>
+
+    <span class="atlas-date-picker__actions" aria-hidden="true">
+      @if (canClear()) {
+        <button class="atlas-date-picker__icon-btn" type="button" (click)="clear($event)">
+          <i class="ph ph-x"></i>
+        </button>
+      }
+      <span class="atlas-date-picker__caret">
+        <i class="ph ph-calendar-dots" [class.is-rotated]="open()"></i>
+      </span>
+    </span>
+  </div>
+
+  @if (open()) {
+    <div class="atlas-date-picker__panel" role="dialog" aria-modal="false">
+      @if (mode === 'single') {
+        <atlas-calendar mode="single" [min]="min" [max]="max" [value]="draftSingle()"
+                        (valueChange)="onDraftSingleChange($event)">
+        </atlas-calendar>
+      } @else {
+        <atlas-calendar mode="range" [min]="min" [max]="max" [range]="draftRange()"
+                        (rangeChange)="onDraftRangeChange($event)">
+        </atlas-calendar>
+      }
+
+      <div class="atlas-date-picker__footer">
+        <button atlas-button variant="outline" color="surface" type="button" (click)="cancel()">
+          {{ 'ui.common.cancel' | translate }}
+        </button>
+        <button atlas-button type="button" (click)="apply()">
+          {{ 'ui.common.apply' | translate }}
+        </button>
+      </div>
+    </div>
+  }
+</div>

@@ -20,18 +20,20 @@
         </label>
       }
       <div class="atlas-field__control-slot">
-        <ng-content select="[atlas-input]"></ng-content>
+        <ng-content></ng-content>
       </div>
 
-      <span class="atlas-field__suffix">
-        @if (invalid) {
-          <span class="atlas-field__status" aria-hidden="true">
-            <i class="ph ph-warning-circle"></i>
-          </span>
-        } @else {
+      @if (hasSuffix || invalid) {
+        <span class="atlas-field__suffix">
           <ng-content select="[atlasSuffix]"></ng-content>
-        }
-      </span>
+
+          @if (invalid) {
+            <span class="atlas-field__status" aria-hidden="true">
+              <i class="ph ph-warning-circle"></i>
+            </span>
+          }
+        </span>
+      }
     </div>
   </div>
 

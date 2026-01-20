@@ -12,7 +12,7 @@ import { fromEvent, merge } from 'rxjs';
   standalone: true,
   templateUrl: './tooltip.component.html',
   styleUrls: ['./tooltip.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AtlasTooltipComponent implements AfterViewInit {
   protected readonly open = signal(false);

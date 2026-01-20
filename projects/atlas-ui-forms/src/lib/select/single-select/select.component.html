@@ -1,0 +1,37 @@
+<div class="atlas-select" [attr.data-open]="open() ? 'true' : null" [attr.data-disabled]="disabled ? 'true' : null">
+  <div class="atlas-select__control" role="button" tabindex="0" (click)="toggle($event)">
+    @if (!filterable) {
+      <span class="atlas-select__value" [class.is-placeholder]="!selected()">
+        @if (selected()?.labelKey) { {{ selected()!.labelKey! | translate }} }
+        @else { {{ selected() ? displayLabel() : ('ui.common.selectOptions' | translate) }} }
+      </span>
+    } @else {
+      <input atlas-input class="atlas-select__filter" type="text" [disabled]="disabled" [value]="query()"
+             (click)="$event.stopPropagation()" (input)="onFilter($event)"
+             [placeholder]="selected() ? displayLabel() : ('ui.common.selectOptions' | translate)"/>
+    }
+
+    <span class="atlas-select__actions" aria-hidden="true">
+      @if (canClear()) {
+        <button class="atlas-select__icon-btn" type="button" (click)="clearValue($event)">
+          <i class="ph ph-x"></i>
+        </button>
+      }
+
+      <span class="atlas-select__caret">
+        <i class="ph ph-caret-down" [class.is-rotated]="open()"></i>
+      </span>
+    </span>
+  </div>
+
+  @if (open()) {
+    <div class="atlas-select__panel">
+      @if (hasOptions()) {
+        <atlas-option-list [items]="filteredItems()" [selected]="value" [activeIndex]="activeIndex()"
+                           [compareWith]="compareWith" (optionClick)="onOptionClick($event)"></atlas-option-list>
+      } @else {
+        <div class="atlas-select__empty">{{ 'ui.common.noResults' | translate }}</div>
+      }
+    </div>
+  }
+</div>

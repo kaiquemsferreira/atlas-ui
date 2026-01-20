@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
-import { AtlasTooltipComponent } from '../../tooltip/tooltip.component';
+import { AtlasTooltipComponent } from '../../../tooltip/tooltip.component';
 import { AtlasTranslationPipe } from 'atlas-ui-i18n';
 
 @Component({

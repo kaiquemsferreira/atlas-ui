@@ -10,7 +10,6 @@ import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, HostBind
 export class AtlasPasswordToggleComponent implements AfterViewInit {
   @Input() public ariaLabelShow = 'Mostrar senha';
   @Input() public ariaLabelHide = 'Ocultar senha';
-
   @HostBinding('attr.atlasSuffix') public readonly atlasSuffix = '';
 
   protected readonly visible = signal(false);

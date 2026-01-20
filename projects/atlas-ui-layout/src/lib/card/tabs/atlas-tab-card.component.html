@@ -1,0 +1,14 @@
+<div class="atlas-tab-card">
+  <div class="atlas-tab-card__tabs" role="tablist">
+    @for (t of tabs; track t.id) {
+      <button type="button" class="atlas-tab-card__tab" role="tab" [attr.aria-selected]="activeId() === t.id ? 'true' : 'false'"
+              [attr.data-active]="activeId() === t.id ? 'true' : null" (click)="setTab(t.id)">
+        @if (t.labelKey) { {{ t.labelKey | translate }} } @else { {{ t.label }} }
+      </button>
+    }
+  </div>
+
+  <div class="atlas-tab-card__body">
+    <ng-container *ngTemplateOutlet="activeTemplate()"></ng-container>
+  </div>
+</div>

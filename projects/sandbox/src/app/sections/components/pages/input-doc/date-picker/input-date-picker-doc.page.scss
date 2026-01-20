@@ -1,0 +1,99 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--atlas-space-6);
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.doc-actions {
+  button {
+    color: var(--atlas-color-text);
+  }
+}
+
+.cell__title {
+  font-size: var(--atlas-fs-14);
+  font-weight: 700;
+  color: var(--atlas-color-text);
+  margin-bottom: 0.8rem;
+}
+
+.example-card {
+  border: 1px solid color-mix(in srgb, var(--atlas-color-border) 85%, transparent);
+  border-radius: var(--atlas-radius-md);
+  background: color-mix(in srgb, var(--atlas-color-surface) 92%, transparent);
+  box-shadow: var(--atlas-shadow-sm);
+  overflow: hidden;
+}
+
+.example-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--atlas-space-3);
+  padding: 1.0rem 1.2rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--atlas-color-border) 85%, transparent);
+  background: color-mix(in srgb, var(--atlas-color-surface-2) 85%, transparent);
+}
+
+.example-card__tabs,
+.example-card__code-tabs {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.example-tab {
+  border: 0;
+  background: transparent;
+  color: var(--atlas-color-text-muted);
+  font-weight: 700;
+  font-size: var(--atlas-fs-14);
+  padding: 0.6rem 0.8rem;
+  border-radius: var(--atlas-radius-sm);
+  cursor: pointer;
+  transition: background 120ms ease, color 120ms ease, filter 120ms ease;
+
+  &:hover {
+    background: color-mix(in srgb, var(--atlas-color-surface) 80%, transparent);
+    filter: brightness(1.05);
+  }
+
+  &.is-active {
+    color: var(--atlas-color-text);
+    background: color-mix(in srgb, var(--atlas-color-surface) 86%, transparent);
+    border: 1px solid color-mix(in srgb, var(--atlas-color-border) 85%, transparent);
+  }
+}
+
+.example-chip {
+  border: 1px solid color-mix(in srgb, var(--atlas-color-border) 85%, transparent);
+  background: transparent;
+  color: var(--atlas-color-text-muted);
+  font-weight: 700;
+  font-size: var(--atlas-fs-12);
+  padding: 0.45rem 0.65rem;
+  border-radius: var(--atlas-radius-pill);
+  cursor: pointer;
+  transition: background 120ms ease, color 120ms ease, filter 120ms ease;
+
+  &:hover {
+    background: color-mix(in srgb, var(--atlas-color-surface) 80%, transparent);
+    filter: brightness(1.05);
+  }
+
+  &.is-active {
+    color: var(--atlas-color-text);
+    background: color-mix(in srgb, var(--atlas-color-primary) 10%, transparent);
+    border-color: color-mix(in srgb, var(--atlas-color-primary) 30%, transparent);
+  }
+}
+
+.example-card__body {
+  padding: 1.2rem;
+}

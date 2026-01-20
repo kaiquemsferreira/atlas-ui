@@ -71,6 +71,10 @@ export const SANDBOX_EN_US = {
         subtitle: 'Text fields with label, icon, and behavior variations.',
         examplesDesc: 'Examples of Atlas Form Field and Atlas Input composition.',
         apiDesc: 'API and usage examples.',
+        children: {
+          text: 'Text',
+          date: 'Date',
+        },
         actions: {
           toggleDisabled: 'Toggle disabled',
           toggleInvalid: 'Toggle invalid'
@@ -89,7 +93,12 @@ export const SANDBOX_EN_US = {
           search: 'Search',
           name: 'Name',
           company: 'Company',
-          password: 'Password'
+          disabled: 'Disabled',
+          password: 'Password',
+          selectOption: 'Select option',
+          selectOptionWithFilter: 'Select option with filter',
+          multiSelect: 'Multi select',
+          multiSelectWithIcon: 'Multi select with icon'
         },
         hints: {
           floatLabel: 'The label becomes a placeholder and floats on focus or when filled.',

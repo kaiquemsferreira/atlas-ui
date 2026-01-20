@@ -16,7 +16,7 @@
         <div class="cell__title">{{ 'sandbox.pages.inputs.examples.basic' | translate }}</div>
 
         <atlas-form-field labelKey="sandbox.pages.inputs.fields.email" [invalid]="isInvalid">
-          <input atlas-input type="email" [disabled]="isDisabled" placeholder="email@dominio.com"/>
+          <input atlas-input type="email" [disabled]="isDisabled" placeholder="email@email.com"/>
           <atlas-field-hint atlasSuffix textKey="sandbox.pages.inputs.examples.hintText"></atlas-field-hint>
           @if (isInvalid) {
             <atlas-field-error atlasFieldMessage text="Invalid characters."></atlas-field-error>
@@ -38,7 +38,7 @@
 
         <atlas-form-field labelKey="sandbox.pages.inputs.fields.name" [floatLabel]="true"
                           hintKey="sandbox.pages.inputs.hints.floatLabel">
-          <input atlas-input type="text" [disabled]="isDisabled" placeholder=" " />
+          <input atlas-input type="text" [disabled]="isDisabled" placeholder=" "/>
         </atlas-form-field>
       </div>
 
@@ -46,7 +46,7 @@
         <div class="cell__title">{{ 'sandbox.pages.inputs.examples.floatLabelIcon' | translate }}</div>
 
         <atlas-form-field labelKey="sandbox.pages.inputs.fields.company" [floatLabel]="true">
-          <i atlasPrefixIcon class="ph ph-building"></i>
+          <i atlasPrefixIcon class="ph ph-device-mobile-speaker"></i>
           <input atlas-input type="text" [disabled]="isDisabled" placeholder=" "/>
         </atlas-form-field>
       </div>
@@ -54,21 +54,48 @@
       <div class="cell">
         <div class="cell__title">{{ 'sandbox.pages.inputs.examples.disabled' | translate }}</div>
 
-        <atlas-form-field label="Disabled">
-          <input atlas-input type="text" disabled value="Somente leitura" />
+        <atlas-form-field labelKey="sandbox.pages.inputs.fields.disabled">
+          <input atlas-input type="text" disabled value="Lorem ipsum dolor sit amet"/>
         </atlas-form-field>
       </div>
 
       <div class="cell">
         <div class="cell__title">{{ 'sandbox.pages.inputs.examples.invalid' | translate }}</div>
 
-        <atlas-form-field label="Senha" [invalid]="isInvalid">
+        <atlas-form-field labelKey="sandbox.pages.inputs.fields.password" [invalid]="isInvalid">
           <input atlas-input type="password" placeholder=" "/>
           <i atlasPrefixIcon class="ph ph-lock"></i>
-          <atlas-password-toggle></atlas-password-toggle>
+          <atlas-password-toggle atlasSuffix></atlas-password-toggle>
           @if (isInvalid) {
             <atlas-field-error atlasFieldMessage text="Invalid password."></atlas-field-error>
           }
+        </atlas-form-field>
+      </div>
+
+      <div class="cell">
+        <atlas-form-field labelKey="sandbox.pages.inputs.fields.selectOption">
+          <atlas-select [items]="singleOptions" [(value)]="selected"></atlas-select>
+        </atlas-form-field>
+      </div>
+
+      <div class="cell">
+        <atlas-form-field labelKey="sandbox.pages.inputs.fields.selectOptionWithFilter">
+          <i atlasPrefixIcon class="ph ph-globe"></i>
+          <atlas-select [items]="singleOptions" [(value)]="selected" [filterable]="true"></atlas-select>
+        </atlas-form-field>
+      </div>
+
+      <div class="cell">
+        <atlas-form-field labelKey="sandbox.pages.inputs.fields.multiSelect">
+          <atlas-multi-select [items]="singleOptions" [(values)]="selectedMany" [filterable]="true"></atlas-multi-select>
+        </atlas-form-field>
+      </div>
+
+      <div class="cell">
+        <atlas-form-field labelKey="sandbox.pages.inputs.fields.multiSelectWithIcon">
+          <i atlasPrefixIcon class="ph ph-globe-hemisphere-west"></i>
+          <atlas-multi-select [items]="singleOptions" [(values)]="selectedMany" [filterable]="true"
+                              [disabled]="isDisabled"></atlas-multi-select>
         </atlas-form-field>
       </div>
     </div>

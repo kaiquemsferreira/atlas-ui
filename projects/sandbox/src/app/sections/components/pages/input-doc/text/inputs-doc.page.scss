@@ -10,6 +10,12 @@
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.doc-actions {
+  button {
+    color: var(--atlas-color-text);
+  }
+}
+
 @media (max-width: 900px) {
   .grid {
     grid-template-columns: 1fr;

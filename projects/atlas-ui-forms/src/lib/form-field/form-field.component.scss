@@ -5,7 +5,7 @@
 
 .atlas-field__label {
   font-weight: 600;
-  margin-left: 0.5rem;
+  margin-left: 0.25rem;
   font-size: var(--atlas-fs-20);
   color: var(--atlas-color-text);
 }
@@ -21,15 +21,10 @@
   grid-template-columns: 1fr;
   --_px: var(--atlas-space-3);
   border-radius: var(--_radius);
-  --_radius: var(--atlas-radius-md);
+  --_radius: var(--atlas-radius-sm);
   border: 1px solid var(--atlas-color-border);
   background: color-mix(in srgb, var(--atlas-color-surface-2) 95%, transparent);
   transition: border-color 120ms ease, box-shadow 120ms ease, background 120ms ease;
-
-  &:focus-within {
-    box-shadow: 0 0 0 0.3rem color-mix(in srgb, var(--atlas-color-primary) 5%, transparent);
-    border-color: color-mix(in srgb, var(--atlas-color-primary) 30%, var(--atlas-color-border));
-  }
 }
 
 .atlas-field--has-prefix .atlas-field__frame {
@@ -82,13 +77,26 @@
 }
 
 .atlas-field__control-slot {
+  width: 100%;
   min-width: 0;
   display: flex;
   align-items: center;
+  flex: 1 1 auto;
+}
+
+.atlas-field__control-slot > * {
+  flex: 1 1 0;
+  min-width: 0;
+  width: 100%;
+}
+
+.atlas-field__control-slot input[atlas-input],
+.atlas-field__control-slot textarea[atlas-input] {
+  width: 100%;
+  min-width: 0;
 }
 
 .atlas-field__suffix {
-  grid-column: 2;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -163,13 +171,18 @@
 }
 
 .atlas-field__frame:has(:is(input[atlas-input], textarea[atlas-input])[disabled]) {
-  opacity: 0.75;
+  opacity: 0.35;
 }
 
 .atlas-field__frame:has(:is(input[atlas-input], textarea[atlas-input])[disabled]) .atlas-field__label,
 .atlas-field__frame:has(:is(input[atlas-input], textarea[atlas-input])[disabled]) .atlas-field__floating,
 .atlas-field__frame:has(:is(input[atlas-input], textarea[atlas-input])[disabled]) .atlas-field__prefix {
   color: var(--atlas-color-text-muted);
+}
+
+.atlas-field__frame:has(:focus-visible) {
+  box-shadow: 0 0 0 0.3rem color-mix(in srgb, var(--atlas-color-primary) 12%, transparent);
+  border-color: color-mix(in srgb, var(--atlas-color-primary) 70%, var(--atlas-color-border));
 }
 
 .atlas-field[data-invalid='true'] .atlas-field__frame {

@@ -1,0 +1,115 @@
+.atlas-calendar {
+  padding: 0.6rem;
+}
+
+.atlas-calendar__header {
+  display: grid;
+  grid-template-columns: 3.2rem 1fr 3.2rem;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.2rem 0.2rem 0.6rem;
+}
+
+.atlas-calendar__title {
+  text-align: center;
+  font-size: var(--atlas-fs-16);
+  font-weight: 700;
+  color: var(--atlas-color-text);
+}
+
+.atlas-calendar__nav {
+  width: 3.2rem;
+  height: 3.2rem;
+  border: 0;
+  background: transparent;
+  border-radius: var(--atlas-radius-sm);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  color: var(--atlas-color-text-muted);
+
+  &:hover {
+    background: color-mix(in srgb, var(--atlas-color-surface-2) 85%, transparent);
+  }
+}
+
+.atlas-calendar__weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.2rem;
+  padding: 0 0.2rem 0.3rem;
+
+  span {
+    text-align: center;
+    font-size: var(--atlas-fs-12);
+    letter-spacing: var(--atlas-ls-md);
+    text-transform: uppercase;
+    color: var(--atlas-color-text-muted);
+    font-weight: 700;
+  }
+}
+
+.atlas-calendar__grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.65rem;
+}
+
+.atlas-day {
+  border: 0;
+  height: 3.2rem;
+  cursor: pointer;
+  position: relative;
+  background: transparent;
+  font-size: var(--atlas-fs-16);
+  color: var(--atlas-color-text);
+  border-radius: var(--atlas-radius-sm);
+
+  &:hover {
+    background: color-mix(in srgb, var(--atlas-color-surface-2) 85%, transparent);
+  }
+
+  &[data-disabled='true'] {
+    opacity: 0.35;
+    cursor: not-allowed;
+  }
+
+  &[data-outside='true'] {
+    opacity: 0.55;
+  }
+
+  &[data-selected='true'],
+  &[data-range-start='true'],
+  &[data-range-end='true'] {
+    outline-offset: 0.1rem;
+    outline: 0.2rem solid color-mix(in srgb, var(--atlas-color-primary) 35%, transparent);
+  }
+
+  &[data-today='true']:not([data-selected='true']):not([data-range-start='true']):not([data-range-end='true']) {
+    outline: 0.2rem solid color-mix(in srgb, var(--atlas-color-primary) 35%, transparent);
+    outline-offset: 0.1rem;
+  }
+
+  &[data-selected='true'] {
+    font-weight: 800;
+    outline-offset: 0.1rem;
+    background: color-mix(in srgb, var(--atlas-color-primary) 18%, transparent);
+    outline: 0.2rem solid color-mix(in srgb, var(--atlas-color-primary) 55%, transparent);
+  }
+
+  &[data-in-range='true'] {
+    background: color-mix(in srgb, var(--atlas-color-primary) 10%, transparent);
+  }
+
+  &[data-range-start='true'],
+  &[data-range-end='true'] {
+    background: color-mix(in srgb, var(--atlas-color-primary) 18%, transparent);
+    font-weight: 800;
+  }
+
+  &[data-today='true'] {
+    outline-offset: 0.1rem;
+    outline: 0.2rem solid color-mix(in srgb, var(--atlas-color-primary) 35%, transparent);
+  }
+}
+

@@ -1,0 +1,40 @@
+<atlas-doc-page [breadcrumbItems]="breadcrumbs" breadcrumbAriaLabelKey="ui.breadcrumb.aria"
+                titleKey="sandbox.pages.datePicker.title" subtitleKey="sandbox.pages.datePicker.subtitle" maxWidth="lg">
+  <div docActions class="doc-actions">
+    <button atlas-button variant="outline" color="surface" type="button" (click)="toggleDisabled()">
+      {{ 'sandbox.pages.inputs.actions.toggleDisabled' | translate }}
+    </button>
+  </div>
+
+  <atlas-doc-section titleKey="ui.common.examples" descriptionKey="sandbox.pages.datePicker.examplesDesc">
+    <atlas-tab-card [tabs]="demoTabs" initialTabId="preview">
+
+      <ng-template atlasTab="preview">
+        <div class="grid">
+          <div class="cell">
+            <atlas-form-field [label]="'sandbox.pages.datePicker.examples.single' | translate">
+              <atlas-date-picker [(value)]="single" [disabled]="isDisabled"></atlas-date-picker>
+            </atlas-form-field>
+          </div>
+
+          <div class="cell">
+            <atlas-form-field [label]="'sandbox.pages.datePicker.examples.range' | translate">
+              <atlas-date-picker mode="range" [(value)]="range" [disabled]="isDisabled"></atlas-date-picker>
+            </atlas-form-field>
+          </div>
+        </div>
+      </ng-template>
+
+      <ng-template atlasTab="code">
+        <atlas-code-tabs [tabs]="codeTabs"></atlas-code-tabs>
+      </ng-template>
+
+    </atlas-tab-card>
+  </atlas-doc-section>
+
+  <atlas-doc-section title="API" descriptionKey="sandbox.pages.datePicker.apiDesc" surface="plain">
+    <p class="api-text">
+      <atlas-inline-code>&lt;atlas-date-picker&gt;</atlas-inline-code>
+    </p>
+  </atlas-doc-section>
+</atlas-doc-page>

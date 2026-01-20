@@ -1,0 +1,40 @@
+:host {
+  width: 100%;
+  display: block;
+}
+
+.atlas-tab-card {
+  overflow: visible;
+  box-shadow: var(--atlas-shadow-sm);
+  border-radius: var(--atlas-radius-md);
+  background: var(--atlas-color-surface);
+  border: 1px solid color-mix(in srgb, var(--atlas-color-border) 85%, transparent);
+}
+
+.atlas-tab-card__tabs {
+  gap: 0.4rem;
+  display: flex;
+  padding: 0.6rem 0.6rem 0;
+}
+
+.atlas-tab-card__tab {
+  cursor: pointer;
+  background: transparent;
+  padding: 0.45rem 0.8rem;
+  font-size: var(--atlas-fs-18);
+  color: var(--atlas-color-text-muted);
+  border-radius: var(--atlas-radius-sm);
+  border: 1px solid color-mix(in srgb, var(--atlas-color-border) 85%, transparent);
+
+  &[data-active='true'] {
+    color: var(--atlas-color-text);
+    background: color-mix(in srgb, var(--atlas-color-surface-2) 85%, transparent);
+    border-color: color-mix(in srgb, var(--atlas-color-border) 95%, transparent);
+  }
+}
+
+.atlas-tab-card__body {
+  padding: 0.8rem;
+  overflow: visible;
+  position: relative;
+}

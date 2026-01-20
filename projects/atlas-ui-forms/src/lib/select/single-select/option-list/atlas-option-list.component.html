@@ -1,0 +1,56 @@
+<div class="atlas-option-list" role="listbox" [attr.aria-multiselectable]="multiple ? 'true' : 'false'">
+  @for (row of vm(); track $index) {
+    @if (row.kind === 'divider') {
+      <div class="atlas-option-list__divider" aria-hidden="true"></div>
+    }
+
+    @if (row.kind === 'group') {
+      <div class="atlas-option-list__group" aria-hidden="true">
+        @let key = row.group?.labelKey;
+        @if (key) { {{ key | translate }} }
+        @else { {{ row.group?.label }} }
+      </div>
+    }
+
+    @if (row.kind === 'option') {
+      @let opt = row.opt!;
+      @let selected = isSelected(opt);
+
+      <button type="button" class="atlas-option" [attr.data-selected]="selected ? 'true' : null"
+              [attr.data-disabled]="opt.disabled ? 'true' : null" [attr.data-multiple]="multiple ? 'true' : null"
+              [attr.data-has-left]="(opt.leftIcon || opt.leftImageSrc) ? 'true' : null"
+              [attr.aria-selected]="selected ? 'true' : 'false'" [attr.data-active]="row.optionIndex === activeIndex ? 'true' : null"
+              (click)="onClick(opt, $event)">
+
+        <span class="atlas-option__left" aria-hidden="true">
+          @if (multiple) {
+            <span class="atlas-option__check">
+              <atlas-checkbox [checked]="isSelected(opt)" [disabled]="opt.disabled" aria-hidden="true"
+                              [attr.tabindex]="-1" (checkedChange)="onCheckboxToggle(opt)"></atlas-checkbox>
+            </span>
+          }
+          @if (opt.leftImageSrc) {
+            <img class="atlas-option__avatar" [ngSrc]="opt.leftImageSrc" [attr.alt]="opt.leftImageAlt ?? ''" fill />
+          } @else if (opt.leftIcon) {
+            <i class="atlas-option__icon" [class]="opt.leftIcon"></i>
+          }
+        </span>
+
+        <span class="atlas-option__label">
+          @if (opt.labelKey) { {{ opt.labelKey | translate }} } @else { {{ opt.label }} }
+        </span>
+
+        <span class="atlas-option__right" aria-hidden="true">
+          @if (opt.badge) {
+            @let tone = opt.badge.tone ?? 'neutral';
+            @let textKey = opt.badge.textKey;
+            <span class="atlas-option__badge" [attr.data-tone]="tone">
+              @if (textKey) { {{ textKey | translate }} }
+              @else { {{ opt.badge.text }} }
+            </span>
+          }
+        </span>
+      </button>
+    }
+  }
+</div>

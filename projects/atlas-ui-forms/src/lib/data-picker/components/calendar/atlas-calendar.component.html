@@ -1,0 +1,31 @@
+<div class="atlas-calendar">
+  <div class="atlas-calendar__header">
+    <button type="button" class="atlas-calendar__nav" (click)="prevMonth()" aria-label="Previous month">
+      <i class="ph ph-caret-left"></i>
+    </button>
+
+    <div class="atlas-calendar__title">{{ monthLabel() }}</div>
+
+    <button type="button" class="atlas-calendar__nav" (click)="nextMonth()" aria-label="Next month">
+      <i class="ph ph-caret-right"></i>
+    </button>
+  </div>
+
+  <div class="atlas-calendar__weekdays">
+    @for (w of weekdayLabels(); track $index) {
+      <span>{{ w }}</span>
+    }
+  </div>
+
+  <div class="atlas-calendar__grid">
+    @for (d of days(); track $index) {
+      <button type="button" class="atlas-day" [attr.data-outside]="!d.inMonth ? 'true' : null"
+              [attr.data-today]="d.isToday ? 'true' : null" [attr.data-disabled]="d.disabled ? 'true' : null"
+              [attr.data-selected]="d.selected ? 'true' : null" [attr.data-in-range]="d.inRange ? 'true' : null"
+              [attr.data-range-start]="d.rangeStart ? 'true' : null" [attr.data-range-end]="d.rangeEnd ? 'true' : null"
+              (click)="onPick(d)">
+        {{ d.date.getDate() }}
+      </button>
+    }
+  </div>
+</div>

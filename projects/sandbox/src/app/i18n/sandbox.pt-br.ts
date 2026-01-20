@@ -89,12 +89,27 @@ export const SANDBOX_PT_BR = {
           search: 'Buscar',
           name: 'Nome',
           company: 'Empresa',
-          password: 'Senha'
+          disabled: 'Desabilitado',
+          password: 'Senha',
+          selectOption: 'Selecionar opção',
+          selectOptionWithFilter: 'Selecionar opção com filtro',
+          multiSelect: 'Multi seleção',
+          multiSelectWithIcon: 'Multi seleção com ícone'
         },
         hints: {
           floatLabel: 'A label vira placeholder e sobe ao focar ou ao preencher.',
           invalid: 'Estado inválido será integrado ao Reactive Forms.'
         }
+      },
+      datePicker: {
+        title: 'Date picker',
+        subtitle: 'Seleção de data única ou intervalo com painel de calendário e ações de aplicar/cancelar.',
+        examplesDesc: 'Exemplos do componente em modo single e range.',
+        apiDesc: 'API e exemplos de uso.',
+        examples: {
+          single: 'Data (única)',
+          range: 'Data (intervalo)',
+        },
       },
       translation: {
         title: 'Tradução (i18n)',

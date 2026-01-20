@@ -1,6 +1,7 @@
 export const ATLAS_UI_PT_BR = {
   common: {
     confirm: 'Confirmar',
+    apply: 'Aplicar',
     cancel: 'Cancelar',
     clear: 'Limpar',
     examples: 'Exemplos',
@@ -16,6 +17,14 @@ export const ATLAS_UI_PT_BR = {
     disabled: 'Desabilitado',
     documents: 'Documentos',
     save: 'Salvar',
+    noResults: 'Nenhum resultado',
+    selected: 'Selecionados',
+    selectOptions: 'Selecionar opções',
+    selectDate: 'Selecionar data',
+    preview: 'Prévia',
+    code: 'Código',
+    html: 'HTML',
+    ts: 'TypeScript',
   },
   components: {
     toast: {

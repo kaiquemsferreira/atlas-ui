@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, ContentChild, Input } from '@angular/core';
 
-import { AtlasPrefixIconDirective } from '../directives/prefix-icon.directive';
-import { AtlasSuffixDirective } from '../directives/suffix.directive';
+import { AtlasPrefixIconDirective } from '../input/directives/prefix-icon.directive';
+import { AtlasSuffixDirective } from '../input/directives/suffix.directive';
 import { AtlasTranslationPipe } from 'atlas-ui-i18n';
 
 @Component({

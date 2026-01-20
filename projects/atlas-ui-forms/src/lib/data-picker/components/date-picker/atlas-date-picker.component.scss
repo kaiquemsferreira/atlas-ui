@@ -1,0 +1,103 @@
+:host {
+  width: 100%;
+  min-width: 0;
+  flex: 1 1 auto;
+  display: block;
+}
+
+.atlas-date-picker {
+  width: 100%;
+  min-width: 0;
+}
+
+.atlas-date-picker__control {
+  width: 100%;
+  min-height: 3.8rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  outline: none;
+}
+
+.atlas-date-picker__value {
+  min-width: 0;
+  display: block;
+  padding: 0.9rem 0;
+}
+
+.atlas-date-picker__placeholder {
+  color: var(--atlas-color-text-muted);
+  opacity: 0.9;
+  font-size: var(--atlas-fs-20);
+}
+
+.atlas-date-picker__text {
+  color: var(--atlas-color-text);
+  font-size: var(--atlas-fs-20);
+}
+
+.atlas-date-picker__actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.atlas-date-picker__icon-btn {
+  width: 3.8rem;
+  height: 3.8rem;
+  display: grid;
+  place-items: center;
+  border: 0;
+  background: transparent;
+  color: var(--atlas-color-text-muted);
+  opacity: 0.7;
+  cursor: pointer;
+
+  &:hover { opacity: 1; }
+}
+
+.atlas-date-picker__caret {
+  width: 3.8rem;
+  height: 3.8rem;
+  display: grid;
+  place-items: center;
+  color: var(--atlas-color-text-muted);
+  opacity: 0.7;
+}
+
+.atlas-date-picker__caret i.ph {
+  display: inline-block;
+  transition: transform 320ms ease;
+  font-size: 1.9rem;
+}
+
+.atlas-date-picker__caret i.ph:hover {
+  transform: scale(1.125);
+  filter: brightness(1.5);
+}
+
+.atlas-date-picker__panel {
+  position: absolute;
+  left: 0;
+  right: auto;
+  top: calc(100% + 0.6rem);
+  z-index: 60;
+  width: max-content;
+  min-width: 32rem;
+  max-width: min(96vw, 72rem);
+  border-radius: var(--atlas-radius-sm);
+  border: 1px solid var(--atlas-color-border);
+  background: var(--atlas-color-surface);
+  box-shadow: var(--atlas-shadow-md);
+  overflow: hidden;
+  padding: 0.4rem;
+}
+
+.atlas-date-picker__footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.6rem;
+  padding: 0.6rem 0.6rem 0.2rem;
+}

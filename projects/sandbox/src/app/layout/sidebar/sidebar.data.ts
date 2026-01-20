@@ -51,16 +51,18 @@ export const SIDEBAR_NAV: SidebarItem[] = [
         badge: 'new',
       },
       {
-        kind: 'link',
+        kind: 'group',
         labelKey: 'sandbox.pages.inputs.title',
-        path: '/components/inputs',
-        badge: 'new',
+        children: [
+          { kind: 'link', labelKey: 'sandbox.pages.inputs.title', path: '/components/inputs/text', badge: 'new' },
+          { kind: 'link', labelKey: 'sandbox.pages.datePicker.title', path: '/components/inputs/date', badge: 'new' },
+        ]
       },
       {
         kind: 'group',
         labelKey: 'sandbox.nav.notifications',
         children: [
-          { kind: 'link', labelKey: 'sandbox.pages.toast.title', path: '/components/notifications/toast', badge: 'new' },
+          { kind: 'link', labelKey: 'sandbox.pages.toast.title', path: '/components/notifications/toast', badge: 'new' }
         ],
       }
     ],
