@@ -2,6 +2,7 @@
 @use "../../atlas-ui-tokens/src/styles/scale.scss" as *;
 @use "sass:map";
 
+@import "intl-tel-input/build/css/intlTelInput.css";
 @import url('@phosphor-icons/web/regular');
 
 

@@ -111,6 +111,18 @@ export const SANDBOX_PT_BR = {
           range: 'Data (intervalo)',
         },
       },
+      phoneInput: {
+        title: 'Telefone',
+        subtitle: 'Input de telefone com seleção de país, DDI, bandeira e validação (via intl-tel-input).',
+        examplesDesc: 'Exemplos de uso do input de telefone com detecção de país por locale do navegador.',
+        examples: {
+          basic: 'Básico',
+          withHint: 'Formato do valor',
+        },
+        hints: {
+          valueShape: 'O valor é um objeto (E.164, nacional, internacional, iso2, dialCode e validade).',
+        },
+      },
       translation: {
         title: 'Tradução (i18n)',
         subtitle: 'Integração de internacionalização no Atlas UI com Transloco + contribuições por app.',

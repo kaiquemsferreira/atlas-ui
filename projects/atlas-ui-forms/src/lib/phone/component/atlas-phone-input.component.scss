@@ -1,0 +1,63 @@
+:host {
+  width: 100%;
+  min-width: 0;
+  flex: 1 1 auto;
+  display: block;
+}
+
+.atlas-phone-input {
+  width: 100%;
+  min-width: 0;
+}
+
+.atlas-phone-input__control {
+  width: 100%;
+  min-height: 3.8rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+}
+
+:host ::ng-deep .iti {
+  width: 100%;
+  min-width: 0;
+}
+
+.atlas-phone-input__input {
+  width: 100%;
+  min-width: 0;
+}
+
+.atlas-phone-input__actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.atlas-phone-input__icon-btn {
+  width: 3.8rem;
+  height: 3.8rem;
+  display: grid;
+  place-items: center;
+  border: 0;
+  background: transparent;
+  color: var(--atlas-color-text-muted);
+  opacity: 0.7;
+  cursor: pointer;
+
+  &:hover { opacity: 1; }
+}
+
+.atlas-phone-input__caret {
+  width: 3.8rem;
+  height: 3.8rem;
+  display: grid;
+  place-items: center;
+  color: var(--atlas-color-text-muted);
+  opacity: 0.7;
+}
+
+.atlas-phone-input[data-disabled='true'] {
+  opacity: 0.75;
+  pointer-events: none;
+}

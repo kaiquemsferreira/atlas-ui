@@ -23,6 +23,7 @@ export const ATLAS_UI_PT_BR = {
     selectDate: 'Selecionar data',
     preview: 'Prévia',
     code: 'Código',
+    phonePlaceholder: 'Digite um telefone',
     html: 'HTML',
     ts: 'TypeScript',
   },

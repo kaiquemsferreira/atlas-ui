@@ -1,0 +1,33 @@
+<atlas-doc-page [breadcrumbItems]="breadcrumbs" breadcrumbAriaLabelKey="ui.breadcrumb.aria"
+                titleKey="sandbox.pages.phoneInput.title" subtitleKey="sandbox.pages.phoneInput.subtitle" maxWidth="lg">
+  <div docActions class="doc-actions">
+    <button atlas-button variant="outline" color="surface" (click)="toggleDisabled()">
+      {{ 'sandbox.pages.inputs.actions.toggleDisabled' | translate }}
+    </button>
+  </div>
+
+  <atlas-doc-section titleKey="ui.common.examples" descriptionKey="sandbox.pages.phoneInput.examplesDesc">
+    <atlas-tab-card [tabs]="demoTabs" initialTabId="preview">
+      <ng-template atlasTab="preview">
+        <div class="grid">
+          <div class="cell">
+            <atlas-form-field [label]="'sandbox.pages.phoneInput.examples.basic' | translate">
+              <atlas-phone-input [(value)]="phone" [disabled]="isDisabled"></atlas-phone-input>
+            </atlas-form-field>
+          </div>
+
+          <div class="cell">
+            <atlas-form-field [label]="'sandbox.pages.phoneInput.examples.withHint' | translate"
+                              hintKey="sandbox.pages.phoneInput.hints.valueShape">
+              <atlas-phone-input [(value)]="phone" [disabled]="isDisabled"></atlas-phone-input>
+            </atlas-form-field>
+          </div>
+        </div>
+      </ng-template>
+
+      <ng-template atlasTab="code">
+        <atlas-code-tabs [tabs]="codeTabs"></atlas-code-tabs>
+      </ng-template>
+    </atlas-tab-card>
+  </atlas-doc-section>
+</atlas-doc-page>

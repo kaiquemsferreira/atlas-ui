@@ -20,6 +20,8 @@
     "@angular/router": "^21.1.0",
     "@jsverse/transloco": "^8.2.0",
     "@phosphor-icons/web": "^2.1.2",
+    "intl-tel-input": "^25.15.0",
+    "libphonenumber-js": "^1.12.34",
     "rxjs": "~7.8.0",
     "shiki": "^3.21.0",
     "tslib": "^2.3.0",
