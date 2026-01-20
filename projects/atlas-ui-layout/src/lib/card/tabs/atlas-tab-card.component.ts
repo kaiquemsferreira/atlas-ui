@@ -1,18 +1,8 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  computed,
-  ContentChildren,
-  Input,
-  OnInit,
-  QueryList,
-  signal
-} from '@angular/core';
-
-import { AtlasCodeBlockComponent } from 'atlas-ui-code';
-import { AtlasTranslationPipe } from 'atlas-ui-i18n';
+import { ChangeDetectionStrategy, Component, computed, ContentChildren, Input, OnInit, QueryList, signal } from '@angular/core';
 import { NgTemplateOutlet } from '@angular/common';
+
 import { AtlasTabCardSlotDirective } from './directives/atlas-tab-card-slot.directive';
+import { AtlasTranslationPipe } from 'atlas-ui-i18n';
 
 @Component({
   selector: 'atlas-tab-card',

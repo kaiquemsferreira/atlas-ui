@@ -1,19 +1,17 @@
 .doc-actions {
+  gap: 1rem;
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+
+  button {
+    color: var(--atlas-color-text);
+  }
 }
 
 .grid {
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.doc-actions {
-  button {
-    color: var(--atlas-color-text);
-  }
 }
 
 @media (max-width: 900px) {

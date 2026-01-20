@@ -16,8 +16,10 @@ export class AtlasCheckboxComponent {
 
   @HostBinding('attr.role') role = 'checkbox';
   @HostBinding('attr.tabindex') get tabIndex() { return this.disabled ? -1 : 0; }
-  @HostBinding('attr.aria-checked') get ariaChecked() {
-    return this.indeterminate ? 'mixed' : (this.checked ? 'true' : 'false');
+  @HostBinding('attr.aria-checked')
+  get ariaChecked(): 'true' | 'false' | 'mixed' {
+    if (this.indeterminate) return 'mixed';
+    return this.checked ? 'true' : 'false';
   }
   @HostBinding('attr.aria-disabled') get ariaDisabled() {
     return this.disabled ? 'true' : null;

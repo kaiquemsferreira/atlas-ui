@@ -8,6 +8,7 @@ import { startOfDay } from '../../utils/atlas-date.utils';
 import { AtlasButtonDirective } from 'atlas-ui-button';
 import { AtlasTranslationPipe } from 'atlas-ui-i18n';
 
+type ValueSignal = Date | AtlasDateRange | undefined;
 @Component({
   selector: 'atlas-date-picker',
   standalone: true,
@@ -33,15 +34,15 @@ export class AtlasDatePickerComponent {
     return this._mode();
   }
 
-  private readonly _value = signal<Date | AtlasDateRange | undefined>(undefined);
-  @Input() set value(v: Date | AtlasDateRange | undefined) {
+  private readonly _value = signal<ValueSignal>(undefined);
+  @Input() set value(v: ValueSignal) {
     this._value.set(v);
   }
-  get value(): Date | AtlasDateRange | undefined {
+  get value(): ValueSignal {
     return this._value();
   }
 
-  @Output() valueChange = new EventEmitter<Date | AtlasDateRange | undefined>();
+  @Output() valueChange = new EventEmitter<ValueSignal>();
 
   protected readonly open = signal(false);
   protected readonly draftSingle = signal<Date | undefined>(undefined);
