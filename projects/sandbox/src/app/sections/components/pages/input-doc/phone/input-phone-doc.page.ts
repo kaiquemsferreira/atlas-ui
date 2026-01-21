@@ -27,7 +27,7 @@ import { AtlasTranslationPipe } from 'atlas-ui-i18n';
 })
 export class InputPhoneDocPage {
   protected isDisabled = false;
-  protected phone: AtlasPhoneValue = {};
+  protected phone?: AtlasPhoneValue;
 
   protected readonly demoTabs: Array<{ id: string; labelKey?: string; label?: string }> = [
     { id: 'preview', labelKey: 'ui.common.ui.preview' },

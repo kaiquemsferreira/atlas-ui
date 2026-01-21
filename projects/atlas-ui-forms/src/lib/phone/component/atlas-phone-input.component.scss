@@ -1,63 +1,158 @@
 :host {
+  display: block;
   width: 100%;
   min-width: 0;
   flex: 1 1 auto;
-  display: block;
 }
 
 .atlas-phone-input {
   width: 100%;
   min-width: 0;
+  position: relative;
 }
 
-.atlas-phone-input__control {
+:host ::ng-deep .atlas-phone-input .iti {
   width: 100%;
-  min-height: 3.8rem;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: center;
+  position: relative;
 }
 
-:host ::ng-deep .iti {
-  width: 100%;
-  min-width: 0;
+:host ::ng-deep .atlas-phone-input .iti__country-container {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 2;
+  display: flex;
+  position: absolute;
+  align-items: stretch;
+  padding-right: 0.73rem;
 }
 
-.atlas-phone-input__input {
-  width: 100%;
-  min-width: 0;
-}
-
-.atlas-phone-input__actions {
+:host ::ng-deep .atlas-phone-input .iti__selected-country {
+  height: 100%;
   display: inline-flex;
   align-items: center;
-  gap: 0.2rem;
-}
-
-.atlas-phone-input__icon-btn {
-  width: 3.8rem;
-  height: 3.8rem;
-  display: grid;
-  place-items: center;
-  border: 0;
+  gap: 0.6rem;
   background: transparent;
-  color: var(--atlas-color-text-muted);
-  opacity: 0.7;
+  border: 0;
   cursor: pointer;
-
-  &:hover { opacity: 1; }
 }
 
-.atlas-phone-input__caret {
-  width: 3.8rem;
+:host ::ng-deep .atlas-phone-input .iti__country-container::after {
+  right: 0;
+  width: 1px;
+  content: '';
+  opacity: 0.9;
+  position: absolute;
+  inset-block: -1rem;
+  background: color-mix(in srgb, var(--atlas-color-border) 85%, transparent);
+}
+
+:host ::ng-deep .atlas-phone-input input.iti__tel-input.atlas-phone-input__control {
+  padding-left: 5.8rem !important;
+  width: 100%;
+  min-width: 0;
+}
+
+:host ::ng-deep .atlas-phone-input .iti__dropdown-content {
+  z-index: 9999;
+  margin-top: 0.6rem;
+
+  border-radius: var(--atlas-radius-md);
+  border: 1px solid color-mix(in srgb, var(--atlas-color-border) 85%, transparent);
+  background: var(--atlas-color-surface);
+  box-shadow: var(--atlas-shadow-md);
+
+  width: min(42rem, 92vw);
+  max-height: min(32rem, 60vh);
+  overflow: hidden;
+}
+
+:host ::ng-deep .atlas-phone-input .iti__search-input-wrapper {
+  padding: 0.8rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--atlas-color-border) 85%, transparent);
+  background: var(--atlas-color-surface);
+}
+
+:host ::ng-deep .atlas-phone-input .iti__search-input {
+  width: 100%;
+  outline: none;
   height: 3.8rem;
-  display: grid;
-  place-items: center;
-  color: var(--atlas-color-text-muted);
-  opacity: 0.7;
+  padding: 0 1.0rem 0 3.0rem;
+  font-size: var(--atlas-fs-20);
+  color: var(--atlas-color-text);
+  border-radius: var(--atlas-radius-sm);
+  background: var(--atlas-color-surface-2);
+  border: 1px solid color-mix(in srgb, var(--atlas-color-border) 85%, transparent);
 }
 
-.atlas-phone-input[data-disabled='true'] {
-  opacity: 0.75;
-  pointer-events: none;
+:host ::ng-deep .atlas-phone-input .iti__search-input:focus {
+  border-color: color-mix(in srgb, var(--atlas-color-primary) 75%, transparent);
+  box-shadow: 0 0 0 0.3rem color-mix(in srgb, var(--atlas-color-primary) 20%, transparent);
+}
+
+:host ::ng-deep .atlas-phone-input .iti__search-icon {
+  left: 1.6rem;
+  opacity: 0.85;
+}
+
+:host ::ng-deep .atlas-phone-input .iti__search-icon-svg {
+  stroke: var(--atlas-color-text-muted);
+}
+
+:host ::ng-deep .atlas-phone-input .iti__country-list {
+  margin: 0;
+  overflow: auto;
+  padding: 0.4rem;
+  max-height: inherit;
+}
+
+:host ::ng-deep .atlas-phone-input .iti__country {
+  display: grid;
+  outline: none;
+  cursor: pointer;
+  column-gap: 0.8rem;
+  align-items: center;
+  padding: 0.7rem 0.8rem;
+  color: var(--atlas-color-text);
+  border-radius: var(--atlas-radius-sm);
+  grid-template-columns: 2.0rem 1fr auto;
+}
+
+:host ::ng-deep .atlas-phone-input .iti__country:hover {
+  background: color-mix(in srgb, var(--atlas-color-surface-2) 85%, transparent);
+}
+
+:host ::ng-deep .atlas-phone-input .iti__country:focus {
+  box-shadow: 0 0 0 0.25rem color-mix(in srgb, var(--atlas-color-primary) 18%, transparent);
+}
+
+:host ::ng-deep .atlas-phone-input .iti__country[aria-selected="true"] {
+  font-weight: 700;
+  background: color-mix(in srgb, var(--atlas-color-primary) 14%, transparent);
+}
+
+:host ::ng-deep .atlas-phone-input .iti__country-name {
+  line-height: 1.2;
+  font-size: var(--atlas-fs-18);
+}
+
+:host ::ng-deep .atlas-phone-input .iti__dial-code {
+  font-size: var(--atlas-fs-16);
+  color: var(--atlas-color-text-muted);
+}
+
+:host ::ng-deep .atlas-phone-input .iti__no-results {
+  padding: 0.8rem;
+  color: var(--atlas-color-text-muted);
+}
+
+:host ::ng-deep .atlas-phone-input .iti__country-list::-webkit-scrollbar {
+  width: 1rem;
+}
+
+:host ::ng-deep .atlas-phone-input .iti__country-list::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--atlas-color-border) 85%, transparent);
+  background-clip: content-box;
+  border: 3px solid transparent;
 }

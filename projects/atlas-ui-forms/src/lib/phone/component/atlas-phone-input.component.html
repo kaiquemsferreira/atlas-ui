@@ -1,18 +1,4 @@
-<div class="atlas-phone-input" [attr.data-disabled]="disabled ? 'true' : null">
-  <div class="atlas-phone-input__control">
-    <input #tel atlas-input class="atlas-phone-input__input" type="tel" [disabled]="disabled"
-      [attr.placeholder]="placeholder ?? ('ui.common.placeholders.phone' | translate)"
-      (input)="onUserInput()"/>
-
-    <span class="atlas-phone-input__actions" aria-hidden="true">
-      @if (canClear()) {
-        <button class="atlas-phone-input__icon-btn" type="button" (click)="clear($event)">
-          <i class="ph ph-x"></i>
-        </button>
-      }
-      <span class="atlas-phone-input__caret">
-        <i class="ph ph-caret-down"></i>
-      </span>
-    </span>
-  </div>
+<div class="atlas-phone-input" (click)="onWrapperClick($event)">
+  <input #tel atlas-input class="atlas-phone-input__control" type="tel" inputmode="tel" autocomplete="tel"
+         [disabled]="disabled" data-bwignore="true"/>
 </div>
