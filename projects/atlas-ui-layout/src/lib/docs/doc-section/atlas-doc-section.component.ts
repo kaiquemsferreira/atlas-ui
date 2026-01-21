@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { NgTemplateOutlet } from '@angular/common';
 
-import { AtlasCardComponent } from '../../card/default/card.component';
+import { AtlasCardComponent } from '../../card/default/atlas-card.component';
 import { AtlasTranslationPipe } from 'atlas-ui-i18n';
 
 @Component({
@@ -12,8 +12,8 @@ import { AtlasTranslationPipe } from 'atlas-ui-i18n';
     AtlasCardComponent,
     NgTemplateOutlet
   ],
-  templateUrl: './doc-section.component.html',
-  styleUrls: ['./doc-section.component.scss'],
+  templateUrl: './atlas-doc-section.component.html',
+  styleUrls: ['./atlas-doc-section.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AtlasDocSectionComponent {

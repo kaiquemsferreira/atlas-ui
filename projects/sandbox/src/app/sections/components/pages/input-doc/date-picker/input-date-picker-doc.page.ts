@@ -41,8 +41,8 @@ export class InputDatePickerDocPage {
     { labelKey: 'sandbox.pages.datePicker.title' },
   ];
   protected readonly demoTabs: Array<{ id: string; labelKey?: string; label?: string }> = [
-    { id: 'preview', labelKey: 'ui.common.preview' },
-    { id: 'code', labelKey: 'ui.common.code' },
+    { id: 'preview', labelKey: 'ui.common.ui.preview' },
+    { id: 'code', labelKey: 'ui.common.ui.code' },
   ];
 
   protected readonly minDate = new Date();

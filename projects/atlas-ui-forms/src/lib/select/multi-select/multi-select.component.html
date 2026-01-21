@@ -3,7 +3,7 @@
     <div class="atlas-multi-select__value">
       @if (selectedRows().length === 0 && !filterable) {
         <span class="atlas-multi-select__placeholder">
-          {{ 'ui.common.selectOptions' | translate }}
+          {{ 'ui.common.actions.selectOptions' | translate }}
         </span>
       } @else {
         @if (showChips()) {
@@ -24,7 +24,7 @@
           </div>
         } @else {
           <span class="atlas-multi-select__summary">
-            {{ selectedRows().length }} {{ 'ui.common.selected' | translate }}
+            {{ selectedRows().length }} {{ 'ui.common.selection.selected' | translate }}
           </span>
         }
       }
@@ -32,7 +32,7 @@
       @if (filterable) {
         <input atlas-input class="atlas-multi-select__filter" type="text" [disabled]="disabled" [value]="query()"
                (click)="$event.stopPropagation()" (input)="onFilter($event)"
-               [placeholder]="selectedRows().length ? '' : ('ui.common.selectOptions' | translate)"/>
+               [placeholder]="selectedRows().length ? '' : ('ui.common.actions.selectOptions' | translate)"/>
       }
     </div>
 

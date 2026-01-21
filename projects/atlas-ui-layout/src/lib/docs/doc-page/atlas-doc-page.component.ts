@@ -10,8 +10,8 @@ import { AtlasBreadcrumbComponent, AtlasBreadcrumbItem } from 'atlas-ui-layout';
     AtlasTranslationPipe,
     AtlasBreadcrumbComponent
   ],
-  templateUrl: './doc-page.component.html',
-  styleUrls: ['./doc-page.component.scss'],
+  templateUrl: './atlas-doc-page.component.html',
+  styleUrls: ['./atlas-doc-page.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AtlasDocPageComponent {

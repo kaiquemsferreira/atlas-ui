@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
-type ThemeName = 'github-light' | 'github-dark';
+import { ThemeName } from './model/theme-name.type';
+
 @Injectable({ providedIn: 'root' })
 export class AtlasCodeHighlightService {
   private highlighterPromise?: Promise<any>;

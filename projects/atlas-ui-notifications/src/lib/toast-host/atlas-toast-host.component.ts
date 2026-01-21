@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { AsyncPipe, NgClass } from '@angular/common';
 
-import { AtlasToastAction, AtlasToastPosition, AtlasToastText, AtlasToastVariant } from '../notification-types';
-import { AtlasNotificationsService } from '../atlas-notifications.service';
+import { AtlasToastAction, AtlasToastPosition, AtlasToastText, AtlasToastVariant } from '../model/atlas-notification-types';
+import { AtlasNotificationsService } from '../service/atlas-notifications.service';
 import { AtlasButtonDirective } from 'atlas-ui-button';
 import { ATLAS_I18N } from 'atlas-ui-i18n';
 import { Observable, of } from 'rxjs';
@@ -15,10 +15,8 @@ import { Observable, of } from 'rxjs';
     AsyncPipe,
     NgClass
   ],
-  templateUrl: './toast-host.component.html',
-  styleUrls: [
-    './toast-host.component.scss'
-  ],
+  templateUrl: './atlas-toast-host.component.html',
+  styleUrls: ['./atlas-toast-host.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AtlasToastHostComponent {
@@ -49,7 +47,6 @@ export class AtlasToastHostComponent {
 
   protected onAction(toastId: string, action: AtlasToastAction): void {
     action.onClick?.();
-
     if (action.closeOnClick) {
       this.notificationService.dismiss(toastId);
     }
@@ -59,7 +56,6 @@ export class AtlasToastHostComponent {
     if ('text' in t) {
       return of(t.text);
     }
-
     return this.translationService.translate$(t.key, t.params);
   }
 }

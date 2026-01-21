@@ -34,6 +34,16 @@ provideAtlasI18nContributions({
   'pt-BR': { sandbox: { ... } },
   'en-US': { sandbox: { ... } },
 });`;
+  protected readonly breadcrumbs: AtlasBreadcrumbItem[] = [
+    { labelKey: 'sandbox.nav.services', path: '/services' },
+    { labelKey: 'sandbox.nav.translation', path: '/components/translation' },
+  ];
+  protected readonly installTabs = [
+    { label: 'pnpm', value: 'pnpm add @jsverse/transloco' },
+    { label: 'npm',  value: 'npm i @jsverse/transloco' },
+    { label: 'yarn', value: 'yarn add @jsverse/transloco' },
+    { label: 'bun',  value: 'bun add @jsverse/transloco' },
+  ];
   protected readonly usageTabs = [
     {
       label: 'HTML',
@@ -47,19 +57,9 @@ provideAtlasI18nContributions({
         `this.notifications.successKey('sandbox.pages.toast.successMessage', {
   titleKey: 'ui.components.toast.success',
   actions: [
-    { label: { key: 'ui.common.undo' }, closeOnClick: true }
+    { label: { key: 'ui.common.actions.undo' }, closeOnClick: true }
   ]
 });`,
     }
-  ];
-  protected readonly breadcrumbs: AtlasBreadcrumbItem[] = [
-    { labelKey: 'sandbox.nav.services', path: '/services' },
-    { labelKey: 'sandbox.nav.translation', path: '/components/translation' },
-  ];
-  protected readonly installTabs = [
-    { label: 'pnpm', value: 'pnpm add @jsverse/transloco' },
-    { label: 'npm',  value: 'npm i @jsverse/transloco' },
-    { label: 'yarn', value: 'yarn add @jsverse/transloco' },
-    { label: 'bun',  value: 'bun add @jsverse/transloco' },
   ];
 }

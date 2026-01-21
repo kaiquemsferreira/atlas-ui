@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 
-import { AtlasCodeBlockComponent, AtlasInlineCodeComponent } from 'atlas-ui-code';
 import { AtlasBreadcrumbItem, AtlasDocPageComponent, AtlasDocSectionComponent } from 'atlas-ui-layout';
+import { AtlasCodeBlockComponent, AtlasInlineCodeComponent } from 'atlas-ui-code';
 import { AtlasNotificationsService } from 'atlas-ui-notifications';
-import { AtlasTranslationPipe } from 'atlas-ui-i18n';
 import { AtlasButtonDirective } from 'atlas-ui-button';
+import { AtlasTranslationPipe } from 'atlas-ui-i18n';
 
 @Component({
   selector: 'sandbox-toast-doc-page',
@@ -34,8 +34,8 @@ export class ToastDocPage {
   detailsKey: 'sandbox.pages.toast.successDetails',
   position: 'bottom-center',
   actions: [
-    { label: { key: 'ui.common.undo' }, variant: 'primary', onClick: () => ..., closeOnClick: true },
-    { label: { key: 'ui.common.details' }, variant: 'ghost', href: '/logs' },
+    { label: { key: 'ui.common.actions.undo' }, variant: 'primary', onClick: () => ..., closeOnClick: true },
+    { label: { key: 'ui.common.ui.details' }, variant: 'ghost', href: '/logs' },
   ],
   durationMs: 6000,
 });`;
@@ -54,8 +54,8 @@ export class ToastDocPage {
       detailsKey: 'sandbox.pages.toast.successDetails',
       position: 'bottom-center',
       actions: [
-        { label: { key: 'ui.common.undo' }, variant: 'success', onClick: () => console.log('undo'), closeOnClick: true },
-        { label: { key: 'ui.common.details' }, variant: 'surface', href: '/logs' },
+        { label: { key: 'ui.common.actions.undo' }, variant: 'success', onClick: () => console.log('undo'), closeOnClick: true },
+        { label: { key: 'ui.common.ui.details' }, variant: 'surface', href: '/logs' },
       ],
       durationMs: 6000,
     });

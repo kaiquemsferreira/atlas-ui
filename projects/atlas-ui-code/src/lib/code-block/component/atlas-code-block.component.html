@@ -14,7 +14,7 @@
         <button type="button" class="atlas-code-block__copy" (click)="copy()" aria-label="Copy code">
           <i class="ph" [class.ph-clipboard]="!copied()" [class.ph-check]="copied()"></i>
           <span>
-            {{ copied() ? ('ui.common.copied' | translate) : ('ui.common.copyCode' | translate) }}
+            {{ copied() ? ('ui.common.ui.copied' | translate) : ('ui.common.ui.copyCode' | translate) }}
           </span>
         </button>
       }

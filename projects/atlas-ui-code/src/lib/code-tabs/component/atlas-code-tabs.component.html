@@ -4,7 +4,7 @@
       <span class="atlas-code-tabs__title">{{ title }}</span>
     }
 
-    <div class="atlas-code-tabs__tablist" role="tablist">
+    <div class="atlas-code-tabs__tablist" role="tablist" (keydown)="onKeydown($event)">
       @for (t of tabs; track t.label; let i = $index) {
         <button type="button" class="atlas-code-tabs__tab" role="tab" [attr.aria-selected]="activeIndex() === i"
                 [class.is-active]="activeIndex() === i" (click)="select(i)">
@@ -17,7 +17,7 @@
       @if (copyable) {
         <button type="button" class="atlas-code-tabs__copy" (click)="copy()" aria-label="Copy code">
           <i class="ph" [class.ph-clipboard]="!copied()" [class.ph-check]="copied()"></i>
-          <span class="atlas-code-tabs__copy-text">{{ 'ui.common.copyCode' | translate }}</span>
+          <span class="atlas-code-tabs__copy-text">{{ 'ui.common.ui.copyCode' | translate }}</span>
         </button>
       }
     </div>

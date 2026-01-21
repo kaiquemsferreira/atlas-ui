@@ -1,18 +1,18 @@
 import { ChangeDetectionStrategy, Component, Input, inject, signal, OnChanges, SimpleChanges, OnDestroy, } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
-import { AtlasCodeHighlightService } from '../highlight/atlas-code-highlight.service';
+import { AtlasCodeHighlightService } from '../../highlight/atlas-code-highlight.service';
 import { AtlasTranslationPipe } from 'atlas-ui-i18n';
 
 @Component({
   selector: 'atlas-code-block',
   standalone: true,
-  templateUrl: './code-block.component.html',
-  styleUrls: ['./code-block.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     AtlasTranslationPipe
-  ]
+  ],
+  templateUrl: './atlas-code-block.component.html',
+  styleUrls: ['./atlas-code-block.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AtlasCodeBlockComponent implements OnChanges, OnDestroy {
   @Input() public code?: string;
@@ -27,6 +27,14 @@ export class AtlasCodeBlockComponent implements OnChanges, OnDestroy {
   private themeObserver?: MutationObserver;
 
   ngOnChanges(changes: SimpleChanges): void {
+    this.checkSimpleChanges(changes);
+  }
+
+  ngOnDestroy(): void {
+    this.themeObserver?.disconnect();
+  }
+
+  private checkSimpleChanges(changes: SimpleChanges): void {
     if (changes['code'] || changes['language']) {
       void this.render();
     }
@@ -38,10 +46,6 @@ export class AtlasCodeBlockComponent implements OnChanges, OnDestroy {
         attributeFilter: ['data-atlas-theme'],
       });
     }
-  }
-
-  ngOnDestroy(): void {
-    this.themeObserver?.disconnect();
   }
 
   protected normalizedCode(): string {

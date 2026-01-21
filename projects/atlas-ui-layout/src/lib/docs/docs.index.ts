@@ -1,2 +1,2 @@
-export * from './doc-section/doc-section.component';
-export * from './doc-page/doc-page.component';
+export * from './doc-section/atlas-doc-section.component';
+export * from './doc-page/atlas-doc-page.component';

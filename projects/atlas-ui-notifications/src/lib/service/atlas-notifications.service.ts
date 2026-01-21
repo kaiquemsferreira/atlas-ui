@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
-import { AtlasToast, AtlasToastText, AtlasToastVariant, TimerState } from './notification-types';
-import { AtlasNotifyOptions } from './notification-interface';
+import { AtlasToast, AtlasToastText, AtlasToastVariant, TimerState } from '../model/atlas-notification-types';
+import { AtlasNotifyOptions } from '../model/atlas-notification-interface';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })

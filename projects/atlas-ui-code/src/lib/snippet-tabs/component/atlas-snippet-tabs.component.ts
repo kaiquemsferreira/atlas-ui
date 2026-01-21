@@ -1,21 +1,26 @@
 import { ChangeDetectionStrategy, Component, Input, OnChanges, signal } from '@angular/core';
-import { AtlasSnippetTab } from './model/snippet-tabs.types';
+
+import { AtlasSnippetTab } from '../model/atlas-snippet-tabs.types';
 
 @Component({
   selector: 'atlas-snippet-tabs',
   standalone: true,
-  templateUrl: './snippet-tabs.component.html',
-  styleUrls: ['./snippet-tabs.component.scss'],
+  templateUrl: './atlas-snippet-tabs.component.html',
+  styleUrls: ['./atlas-snippet-tabs.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AtlasSnippetTabsComponent implements OnChanges {
-  @Input() initialLabel?: string;
-  @Input() copyable = true;
-  @Input({ required: true }) tabs: AtlasSnippetTab[] = [];
+  @Input() public initialLabel?: string;
+  @Input() public copyable = true;
+  @Input({ required: true }) public tabs: AtlasSnippetTab[] = [];
   protected copied = signal(false);
   protected activeIndex = signal(0);
 
   ngOnChanges(): void {
+    this.listenChanges();
+  }
+
+  private listenChanges(): void {
     if (!this.tabs?.length) return;
 
     if (this.initialLabel) {

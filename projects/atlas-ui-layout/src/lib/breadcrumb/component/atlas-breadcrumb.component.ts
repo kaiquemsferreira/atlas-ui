@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
-import { AtlasBreadcrumbItem } from './model/atlas-breadcrumb-item';
+import { AtlasBreadcrumbItem } from '../model/atlas-breadcrumb-item';
 import { AtlasTranslationPipe } from 'atlas-ui-i18n';
 
 @Component({
@@ -11,14 +11,14 @@ import { AtlasTranslationPipe } from 'atlas-ui-i18n';
     RouterLink,
     AtlasTranslationPipe
   ],
-  templateUrl: './breadcrumb.component.html',
-  styleUrls: ['./breadcrumb.component.scss'],
+  templateUrl: './atlas-breadcrumb.component.html',
+  styleUrls: ['./atlas-breadcrumb.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AtlasBreadcrumbComponent {
-  @Input({ required: true }) items: AtlasBreadcrumbItem[] = [];
-  @Input() ariaLabelKey?: string;
-  @Input() ariaLabel?: string;
+  @Input() public ariaLabel?: string;
+  @Input() public ariaLabelKey?: string;
+  @Input({ required: true }) public items: AtlasBreadcrumbItem[] = [];
 
   protected isLast(index: number): boolean {
     return index === this.items.length - 1;

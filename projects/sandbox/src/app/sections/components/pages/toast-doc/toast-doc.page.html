@@ -2,54 +2,54 @@
                 subtitleKey="sandbox.pages.toast.subtitle" maxWidth="lg">
   <div docActions class="doc-actions">
     <button atlas-button type="button" color="gradient" (click)="fireInfo()">
-      {{ 'ui.components.toast.info' | translate }}
+      {{ 'ui.components.toast.variants.info' | translate }}
     </button>
 
     <button atlas-button type="button" color="gradient" (click)="fireSuccess()">
-      {{ 'ui.components.toast.success' | translate }}
+      {{ 'ui.components.toast.variants.success' | translate }}
     </button>
 
     <button atlas-button type="button" color="gradient" (click)="fireWarning()">
-      {{ 'ui.components.toast.warning' | translate }}
+      {{ 'ui.components.toast.variants.warning' | translate }}
     </button>
 
     <button atlas-button type="button" color="gradient" (click)="fireErrorSticky()">
-      {{ 'ui.components.toast.error' | translate }}
+      {{ 'ui.components.toast.variants.error' | translate }}
     </button>
 
     <button atlas-button type="button" color="gradient" (click)="fireNeutral()">
-      {{ 'ui.components.toast.neutral' | translate }}
+      {{ 'ui.components.toast.variants.neutral' | translate }}
     </button>
 
     <button atlas-button type="button" color="surface" (click)="clear()">
-      {{ 'ui.common.clear' | translate }}
+      {{ 'ui.common.actions.clear' | translate }}
     </button>
   </div>
 
-  <atlas-doc-section titleKey="ui.common.examples" descriptionKey="sandbox.pages.toast.resume" surface="plain">
+  <atlas-doc-section titleKey="ui.common.ui.examples" descriptionKey="sandbox.pages.toast.resume" surface="plain">
     <div class="examples">
       <div class="row">
-        <div class="row__label">{{ 'ui.components.toast.info' | translate }}:</div>
+        <div class="row__label">{{ 'ui.components.toast.variants.info' | translate }}:</div>
         <div class="row__desc">Mensagem simples para informação.</div>
       </div>
 
       <div class="row">
-        <div class="row__label">{{ 'ui.components.toast.success' | translate }}:</div>
+        <div class="row__label">{{ 'ui.components.toast.variants.success' | translate }}:</div>
         <div class="row__desc">Confirmação + ações (ex: desfazer).</div>
       </div>
 
       <div class="row">
-        <div class="row__label">{{ 'ui.components.toast.warning' | translate }}:</div>
+        <div class="row__label">{{ 'ui.components.toast.variants.warning' | translate }}:</div>
         <div class="row__desc">Atenção para validação/risco.</div>
       </div>
 
       <div class="row">
-        <div class="row__label">{{ 'ui.components.toast.error' | translate }}:</div>
+        <div class="row__label">{{ 'ui.components.toast.variants.error' | translate }}:</div>
         <div class="row__desc">Erro persistente (duration 0) com ação de retry.</div>
       </div>
 
       <div class="row">
-        <div class="row__label">{{ 'ui.components.toast.neutral' | translate }}:</div>
+        <div class="row__label">{{ 'ui.components.toast.variants.neutral' | translate }}:</div>
         <div class="row__desc">Mensagem simples para informação.</div>
       </div>
 

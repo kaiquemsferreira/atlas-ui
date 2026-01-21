@@ -2,40 +2,48 @@ import { AfterViewInit, ChangeDetectionStrategy, Component, Input, OnChanges, On
   SimpleChanges, inject, signal, } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
-import { AtlasCodeHighlightService } from '../highlight/atlas-code-highlight.service';
-import { AtlasCodeTab } from './model/code-tabs.types';
+import { AtlasCodeHighlightService } from '../../highlight/atlas-code-highlight.service';
 import { AtlasTranslationPipe } from 'atlas-ui-i18n';
+import { AtlasCodeTab } from '../model/atlas-code-tabs.types';
 
 @Component({
   selector: 'atlas-code-tabs',
   imports: [AtlasTranslationPipe],
   standalone: true,
-  templateUrl: './code-tabs.component.html',
-  styleUrls: ['./code-tabs.component.scss'],
+  templateUrl: './atlas-code-tabs.component.html',
+  styleUrls: ['./atlas-code-tabs.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AtlasCodeTabsComponent implements OnChanges, AfterViewInit, OnDestroy {
+  private readonly highlighter = inject(AtlasCodeHighlightService);
+  private readonly sanitizer = inject(DomSanitizer);
+
   @Input() public title?: string;
   @Input() public wrap = false;
   @Input() public initialLabel?: string;
   @Input() public copyable = true;
   @Input({ required: true }) public tabs: AtlasCodeTab[] = [];
-  private readonly highlighter = inject(AtlasCodeHighlightService);
-  private readonly sanitizer = inject(DomSanitizer);
+
   protected copied = signal(false);
   protected activeIndex = signal(0);
   protected highlighted = signal<SafeHtml>('');
-  private themeObserver?: MutationObserver;
-  private renderSeq = 0;
 
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes['tabs'] || changes['initialLabel']) {
-      this.initActive();
-      void this.render();
-    }
-  }
+  private renderSeq = 0;
+  private themeObserver?: MutationObserver;
 
   ngAfterViewInit(): void {
+    this.initializeAfterView();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.listenSimpleChanges(changes);
+  }
+
+  ngOnDestroy(): void {
+    this.themeObserver?.disconnect();
+  }
+
+  private initializeAfterView(): void {
     this.themeObserver = new MutationObserver(() => {
       void this.render();
     });
@@ -46,8 +54,11 @@ export class AtlasCodeTabsComponent implements OnChanges, AfterViewInit, OnDestr
     });
   }
 
-  ngOnDestroy(): void {
-    this.themeObserver?.disconnect();
+  private listenSimpleChanges(changes: SimpleChanges): void {
+    if (changes['tabs'] || changes['initialLabel']) {
+      this.initActive();
+      void this.render();
+    }
   }
 
   private initActive(): void {

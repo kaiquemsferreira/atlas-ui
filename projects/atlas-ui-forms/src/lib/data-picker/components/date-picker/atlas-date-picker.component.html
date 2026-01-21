@@ -2,7 +2,7 @@
   <div class="atlas-date-picker__control" role="button" tabindex="0" (click)="toggle($event)">
     <div class="atlas-date-picker__value">
       @if (!hasValue()) {
-        <span class="atlas-date-picker__placeholder">{{ 'ui.common.selectDate' | translate }}</span>
+        <span class="atlas-date-picker__placeholder">{{ 'ui.common.actions.selectDate' | translate }}</span>
       } @else {
         <span class="atlas-date-picker__text">{{ label() }}</span>
       }
@@ -34,10 +34,10 @@
 
       <div class="atlas-date-picker__footer">
         <button atlas-button variant="outline" color="surface" type="button" (click)="cancel()">
-          {{ 'ui.common.cancel' | translate }}
+          {{ 'ui.common.actions.cancel' | translate }}
         </button>
         <button atlas-button type="button" (click)="apply()">
-          {{ 'ui.common.apply' | translate }}
+          {{ 'ui.common.actions.apply' | translate }}
         </button>
       </div>
     </div>

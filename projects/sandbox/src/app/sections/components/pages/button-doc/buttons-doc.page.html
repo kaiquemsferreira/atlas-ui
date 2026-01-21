@@ -7,12 +7,12 @@
     </button>
   </div>
 
-  <atlas-doc-section titleKey="ui.common.examples" descriptionKey="sandbox.pages.buttons.examplesDesc">
+  <atlas-doc-section titleKey="ui.common.ui.examples" descriptionKey="sandbox.pages.buttons.examplesDesc">
     <div class="grid">
       <div class="cell">
         <div class="cell__title">{{ 'sandbox.pages.buttons.examples.textOnly' | translate }}</div>
         <button atlas-button color="surface" variant="outline">
-          {{ 'ui.common.cancel' | translate }}
+          {{ 'ui.common.actions.cancel' | translate }}
         </button>
       </div>
 
@@ -20,7 +20,7 @@
         <div class="cell__title">{{ 'sandbox.pages.buttons.examples.textIcon' | translate }}</div>
         <button atlas-button color="primary">
           <i class="ph ph-download"></i>
-          {{ 'ui.common.export' | translate }}
+          {{ 'ui.common.actions.export' | translate }}
         </button>
       </div>
 
@@ -28,7 +28,7 @@
         <div class="cell__title">{{ 'sandbox.pages.buttons.examples.iconText' | translate }}</div>
         <button atlas-button variant="soft" color="info">
           <i class="ph ph-arrow-right"></i>
-          {{ 'ui.common.next' | translate }}
+          {{ 'ui.common.actions.next' | translate }}
         </button>
       </div>
 
@@ -42,10 +42,10 @@
       <div class="cell">
         <div class="cell__title">{{ 'sandbox.pages.buttons.examples.colors' | translate }}</div>
         <div class="row">
-          <button atlas-button color="success">{{ 'ui.components.toast.success' | translate }}</button>
-          <button atlas-button color="warning">{{ 'ui.components.toast.warning' | translate }}</button>
-          <button atlas-button color="error">{{ 'ui.components.toast.error' | translate }}</button>
-          <button atlas-button color="info">{{ 'ui.components.toast.info' | translate }}</button>
+          <button atlas-button color="success">{{ 'ui.components.toast.variants.success' | translate }}</button>
+          <button atlas-button color="warning">{{ 'ui.components.toast.variants.warning' | translate }}</button>
+          <button atlas-button color="error">{{ 'ui.components.toast.variants.error' | translate }}</button>
+          <button atlas-button color="info">{{ 'ui.components.toast.variants.info' | translate }}</button>
         </div>
       </div>
 
@@ -53,7 +53,7 @@
         <div class="cell__title">{{ 'sandbox.pages.buttons.examples.gradient' | translate }}</div>
         <button atlas-button color="gradient">
           <i class="ph ph-sparkle"></i>
-          {{ 'ui.common.create' | translate }}
+          {{ 'ui.common.actions.create' | translate }}
         </button>
       </div>
 
@@ -70,11 +70,11 @@
         <div class="cell__title">{{ 'sandbox.pages.buttons.examples.states' | translate }}</div>
         <div class="row">
           <button atlas-button variant="outline" color="surface" disabled>
-            {{ 'ui.common.disabled' | translate }}
+            {{ 'ui.common.status.disabled' | translate }}
           </button>
 
           <button atlas-button color="primary" [loading]="loading">
-            {{ 'ui.common.loading' | translate }}
+            {{ 'ui.common.status.loading' | translate }}
           </button>
         </div>
         <div class="hint">
@@ -86,13 +86,13 @@
         <div class="cell__title">{{ 'sandbox.pages.buttons.examples.grouped' | translate }}</div>
 
         <div atlas-button-group>
-          <button atlas-button variant="outline" color="surface">
-            {{ 'ui.common.documents' | translate }}
+          <button atlas-button variant="solid" color="primary">
+            {{ 'ui.common.ui.documents' | translate }}
           </button>
 
           <button atlas-button variant="outline" color="surface">
             <i class="ph ph-export"></i>
-            {{ 'ui.common.export' | translate }}
+            {{ 'ui.common.actions.export' | translate }}
           </button>
 
           <button atlas-button variant="outline" color="surface" iconOnly aria-label="More">
@@ -104,7 +104,7 @@
       <div class="cell">
         <div class="cell__title">{{ 'sandbox.pages.buttons.examples.fullWidth' | translate }}</div>
         <button atlas-button fullWidth color="primary">
-          {{ 'ui.common.save' | translate }}
+          {{ 'ui.common.actions.save' | translate }}
         </button>
       </div>
     </div>

@@ -3,8 +3,8 @@ import { ChangeDetectionStrategy, Component, Input, signal } from '@angular/core
 @Component({
   selector: 'atlas-inline-code',
   standalone: true,
-  templateUrl: './inline-code.component.html',
-  styleUrls: ['./inline-code.component.scss'],
+  templateUrl: './atlas-inline-code.component.html',
+  styleUrls: ['./atlas-inline-code.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AtlasInlineCodeComponent {

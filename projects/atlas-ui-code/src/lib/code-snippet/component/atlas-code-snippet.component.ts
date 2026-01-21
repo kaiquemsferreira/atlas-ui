@@ -3,15 +3,15 @@ import { ChangeDetectionStrategy, Component, Input, signal } from '@angular/core
 @Component({
   selector: 'atlas-code-snippet',
   standalone: true,
-  templateUrl: './code-snippet.component.html',
-  styleUrls: ['./code-snippet.component.scss'],
+  templateUrl: './atlas-code-snippet.component.html',
+  styleUrls: ['./atlas-code-snippet.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AtlasCodeSnippetComponent {
-  @Input() label?: string;
-  @Input() copyable = true;
-  @Input({ required: true }) text = '';
-  @Input() variant: 'inline' | 'block' = 'block';
+  @Input() public label?: string;
+  @Input() public copyable = true;
+  @Input({ required: true }) public text = '';
+  @Input() public variant: 'inline' | 'block' = 'block';
 
   protected copied = signal(false);
 

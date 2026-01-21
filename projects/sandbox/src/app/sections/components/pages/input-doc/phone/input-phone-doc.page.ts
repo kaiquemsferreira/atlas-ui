@@ -30,8 +30,8 @@ export class InputPhoneDocPage {
   protected phone: AtlasPhoneValue = {};
 
   protected readonly demoTabs: Array<{ id: string; labelKey?: string; label?: string }> = [
-    { id: 'preview', labelKey: 'ui.common.preview' },
-    { id: 'code', labelKey: 'ui.common.code' },
+    { id: 'preview', labelKey: 'ui.common.ui.preview' },
+    { id: 'code', labelKey: 'ui.common.ui.code' },
   ];
   protected readonly usageHtml = `<atlas-form-field label="Telefone">
   <atlas-phone-input [(value)]="phone"></atlas-phone-input>

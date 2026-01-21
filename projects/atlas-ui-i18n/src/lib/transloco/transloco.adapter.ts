@@ -3,11 +3,11 @@ import { Injectable, inject } from '@angular/core';
 import { AtlasParams } from '../api/model/atlas-params';
 import { TranslocoService } from '@jsverse/transloco';
 import { AtlasLang } from '../api/model/atlas-lang';
-import { AtlasI18n } from 'atlas-ui-i18n';
+import { AtlasI18nInterface } from 'atlas-ui-i18n';
 import { Observable } from 'rxjs';
 
 @Injectable()
-export class AtlasTranslocoI18nAdapter implements AtlasI18n {
+export class AtlasTranslocoI18nAdapter implements AtlasI18nInterface {
   private readonly translocoService = inject(TranslocoService);
 
   public lang(): AtlasLang {

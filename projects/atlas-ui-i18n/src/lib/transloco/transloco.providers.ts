@@ -2,7 +2,7 @@ import { EnvironmentProviders, inject, makeEnvironmentProviders, provideAppIniti
 
 import { provideTransloco, provideTranslocoMissingHandler, TranslocoMissingHandler,
   TranslocoMissingHandlerData, TranslocoService } from '@jsverse/transloco';
-import { ATLAS_I18N, ATLAS_I18N_CONFIGURATION } from '../api/atlas-i18n.tokens';
+import { ATLAS_I18N, ATLAS_I18N_CONFIGURATION } from '../api/token/atlas-i18n.tokens';
 import { AtlasI18nConfiguration } from '../api/model/atlas-i18n-configuration';
 import { AtlasTranslocoI18nAdapter } from './transloco.adapter';
 import { AtlasTranslocoLoader } from './transloco.loader';

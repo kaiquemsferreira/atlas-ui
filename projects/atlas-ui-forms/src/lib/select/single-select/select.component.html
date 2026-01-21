@@ -3,12 +3,12 @@
     @if (!filterable) {
       <span class="atlas-select__value" [class.is-placeholder]="!selected()">
         @if (selected()?.labelKey) { {{ selected()!.labelKey! | translate }} }
-        @else { {{ selected() ? displayLabel() : ('ui.common.selectOptions' | translate) }} }
+        @else { {{ selected() ? displayLabel() : ('ui.common.actions.selectOptions' | translate) }} }
       </span>
     } @else {
       <input atlas-input class="atlas-select__filter" type="text" [disabled]="disabled" [value]="query()"
              (click)="$event.stopPropagation()" (input)="onFilter($event)"
-             [placeholder]="selected() ? displayLabel() : ('ui.common.selectOptions' | translate)"/>
+             [placeholder]="selected() ? displayLabel() : ('ui.common.actions.selectOptions' | translate)"/>
     }
 
     <span class="atlas-select__actions" aria-hidden="true">
