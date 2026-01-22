@@ -5,7 +5,7 @@ import { AtlasButtonColor } from '../model/atlas-button-color';
 import { AtlasButtonSize } from '../model/atlas-button-size';
 
 @Directive({
-  selector: 'button[atlas-button],a[atlas-button]',
+  selector: 'button[atlasButton], a[atlasButton], button[atlas-button], a[atlas-button]',
   standalone: true,
 })
 export class AtlasButtonDirective {

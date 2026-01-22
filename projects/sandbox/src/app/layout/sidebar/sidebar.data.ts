@@ -57,6 +57,7 @@ export const SIDEBAR_NAV: SidebarItem[] = [
           { kind: 'link', labelKey: 'sandbox.pages.inputs.title', path: '/components/inputs/text', badge: 'new' },
           { kind: 'link', labelKey: 'sandbox.pages.datePicker.title', path: '/components/inputs/date', badge: 'new' },
           { kind: 'link', labelKey: 'sandbox.pages.phoneInput.title', path: '/components/inputs/phone', badge: 'new' },
+          { kind: 'link', labelKey: 'sandbox.pages.fileUpload.title', path: '/components/inputs/file-upload', badge: 'beta' },
         ]
       },
       {

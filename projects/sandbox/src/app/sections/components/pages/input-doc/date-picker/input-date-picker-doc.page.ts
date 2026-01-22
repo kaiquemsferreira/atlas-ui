@@ -6,13 +6,6 @@ import { AtlasCodeTab, AtlasCodeTabsComponent, AtlasInlineCodeComponent } from '
 import { AtlasButtonDirective } from 'atlas-ui-button';
 import { AtlasTranslationPipe } from 'atlas-ui-i18n';
 
-type CodeTab = {
-  id: 'html' | 'ts';
-  labelKey: string;
-  language: 'html' | 'ts';
-  code: string;
-};
-
 @Component({
   selector: 'sandbox-inputs-date-picker-page',
   standalone: true,
@@ -44,8 +37,6 @@ export class InputDatePickerDocPage {
     { id: 'preview', labelKey: 'ui.common.ui.preview' },
     { id: 'code', labelKey: 'ui.common.ui.code' },
   ];
-
-  protected readonly minDate = new Date();
 
   protected readonly usageHtml = `<atlas-form-field label="Date (single)">
   <atlas-date-picker [(value)]="single"></atlas-date-picker>

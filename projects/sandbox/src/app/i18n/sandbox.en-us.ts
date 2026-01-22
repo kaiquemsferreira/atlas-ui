@@ -2,9 +2,9 @@ export const SANDBOX_EN_US = {
   sandbox: {
     nav: {
       home: 'Home',
-      getStarted: 'Get Started',
+      getStarted: 'Get started',
       installation: 'Installation',
-      usage: 'How to Use',
+      usage: 'Usage',
       components: 'Components',
       services: 'Services',
       translation: 'Translation (i18n)',
@@ -13,15 +13,17 @@ export const SANDBOX_EN_US = {
     },
     pages: {
       shell: {
-        search: 'Search documentation'
+        search: 'Search documentation',
       },
       toast: {
         title: 'Notifications',
-        subtitle: 'Temporary notifications to provide feedback on user actions. Supports variants, actions, expandable details, and positions.',
-        resume: 'Use the buttons above to trigger different toast types. Hover to pause the duration bar.',
+        subtitle:
+          'Temporary notifications for user feedback. Supports variants, actions, expandable details, and positions.',
+        resume:
+          'Use the buttons above to trigger different toast types. Hover to pause the duration bar.',
         description: 'Methods follow the pattern:',
         pattern: 'info/success/warning/error/neutral(message, options).',
-        info: 'Information',
+        info: 'Info',
         infoMessage: 'Hello world!',
         success: 'Upload completed successfully',
         successMessage: 'File uploaded successfully!',
@@ -29,25 +31,25 @@ export const SANDBOX_EN_US = {
       },
       cards: {
         title: 'Cards',
-        subtitle: 'Displays in static or animated card formats for page styling.',
+        subtitle: 'Static or animated card layouts for page styling.',
         resume: 'Use cards to highlight information, separate sections, and present related actions.',
         overviewTitle: 'Overview',
-        usageTitle: 'Basic Usage',
+        usageTitle: 'Basic usage',
         usageDesc: 'Create cards with optional header, body, and footer.',
         variantsTitle: 'Variants',
         variantsDesc: 'Atlas Card supports different visual styles.',
         a11yTitle: 'Accessibility',
         a11yDesc: 'When interactive, the card exposes role and tabindex.',
         description: 'Container component to group content.',
-        cardContentMessage: 'Card content'
+        cardContentMessage: 'Card content',
       },
       buttons: {
         title: 'Buttons',
-        subtitle: 'Variants, colors, sizes, and states of the Atlas Button',
-        examplesDesc: 'Examples of button usage in different compositions.',
+        subtitle: 'Variants, colors, sizes, and states of Atlas Button',
+        examplesDesc: 'Examples of using the button in different compositions.',
         apiDesc: 'API and usage examples.',
         hints: {
-          loading: 'Tip: loading keeps the button width to prevent layout “jumps”.',
+          loading: 'Tip: loading keeps the button width to avoid layout jumps.',
         },
         actions: {
           toggleTheme: 'Toggle theme',
@@ -64,20 +66,16 @@ export const SANDBOX_EN_US = {
           states: 'States',
           grouped: 'Grouped buttons',
           fullWidth: 'Full width',
-        },
+        }
       },
       inputs: {
         title: 'Inputs',
         subtitle: 'Text fields with label, icon, and behavior variations.',
-        examplesDesc: 'Examples of Atlas Form Field and Atlas Input composition.',
+        examplesDesc: 'Examples of composing Atlas Form Field and Atlas Input.',
         apiDesc: 'API and usage examples.',
-        children: {
-          text: 'Text',
-          date: 'Date',
-        },
         actions: {
           toggleDisabled: 'Toggle disabled',
-          toggleInvalid: 'Toggle invalid'
+          toggleInvalid: 'Toggle invalid',
         },
         examples: {
           basic: 'Basic',
@@ -86,7 +84,7 @@ export const SANDBOX_EN_US = {
           floatLabelIcon: 'Floating label + icon',
           disabled: 'Disabled',
           invalid: 'Invalid (preview)',
-          hintText: 'We will use your email only for login and account recovery.'
+          hintText: 'We will use your email only for login and account recovery.',
         },
         fields: {
           email: 'Email',
@@ -98,22 +96,68 @@ export const SANDBOX_EN_US = {
           selectOption: 'Select option',
           selectOptionWithFilter: 'Select option with filter',
           multiSelect: 'Multi select',
-          multiSelectWithIcon: 'Multi select with icon'
+          multiSelectWithIcon: 'Multi select with icon',
         },
         hints: {
           floatLabel: 'The label becomes a placeholder and floats on focus or when filled.',
-          invalid: 'Invalid state will be integrated with Reactive Forms.'
+          invalid: 'Invalid state will be integrated with Reactive Forms.',
         }
+      },
+      datePicker: {
+        title: 'Date picker',
+        subtitle: 'Single date or range selection with calendar panel and apply/cancel actions.',
+        examplesDesc: 'Examples for single and range modes.',
+        apiDesc: 'API and usage examples.',
+        examples: {
+          single: 'Date (single)',
+          range: 'Date (range)',
+        }
+      },
+      phoneInput: {
+        title: 'Phone',
+        subtitle: 'Phone input with country selector, dial code, flag, and validation (via intl-tel-input).',
+        examplesDesc: 'Examples using browser locale-based country detection.',
+        examples: {
+          basic: 'Basic',
+          withHint: 'Value format',
+        },
+        hints: {
+          valueShape: 'The value is an object (E.164, national, international, iso2, dialCode, and validity).',
+        },
+      },
+      fileUpload: {
+        title: 'File upload',
+        subtitle: 'Upload with dropzone, compact mode, and URL submission. Supports list with progress and actions.',
+        examplesDesc: 'Examples combining layout and selector, with dynamic accepted formats.',
+        apiDesc: 'API and usage examples.',
+        helper: 'Drag & drop or browse files to upload.',
+        actions: {
+          toggleUploading: 'Toggle uploading',
+        },
+        examples: {
+          inlineDropzone: 'Inline · Dropzone',
+          inlineCompact: 'Inline · Compact',
+          dialogDropzoneUrl: 'Dialog · Dropzone + URL',
+          dialogCompactUrl: 'Dialog · Compact + URL',
+        },
+        dialog: {
+          title: 'Upload files',
+          primary: 'Upload files',
+          cancel: 'Cancel',
+        },
+        errors: {
+          failed: 'Upload failed. Please try again.',
+        },
       },
       translation: {
         title: 'Translation (i18n)',
-        subtitle: 'Internationalization integration in Atlas UI with Transloco + app contributions.',
+        subtitle: 'Internationalization in Atlas UI with Transloco + app contributions.',
         installTitle: 'Installation',
         installDesc: 'Install Transloco in the workspace (Atlas uses Transloco runtime).',
         setupTitle: 'Setup',
         setupDesc: 'Configure the Atlas provider and inject sandbox translations via contributions.',
         usageDesc: 'Use the pipe in templates and the *Key variants in TypeScript (toasts, actions, etc.).',
-      }
-    },
+      },
+    }
   }
-};
+} as const;

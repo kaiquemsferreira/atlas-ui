@@ -73,7 +73,8 @@
   grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
   position: relative;
-  padding: 0 var(--_px);
+  padding-left: var(--_px);
+  padding-right: 0;
 }
 
 .atlas-field__control-slot {
@@ -100,6 +101,15 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  padding-right: var(--_px);
+  gap: var(--atlas-space-2);
+}
+
+.atlas-field__suffix :is(button[atlasButton], a[atlasButton]) {
+  align-self: stretch;
+  align-items: center;
+  display: inline-flex;
+  height: calc(var(--_h) - 0.2rem);
 }
 
 .atlas-field__status {
@@ -202,4 +212,39 @@
 
 .atlas-field[data-invalid='true'] .atlas-field__body :is(input[atlas-input], textarea[atlas-input])::placeholder {
   color: color-mix(in srgb, var(--atlas-color-error) 45%, var(--atlas-color-text-muted));
+}
+
+:host([data-variant='file-uploader']) {
+  cursor: pointer;
+}
+
+:host([data-variant='file-uploader']) .atlas-field__frame {
+  transition:
+    border-color 120ms ease,
+    background-color 120ms ease,
+    box-shadow 120ms ease;
+}
+
+:host([data-variant='file-uploader'][data-dragover='true']) .atlas-field__frame {
+  border-style: dashed;
+  border-color: var(--atlas-color-primary);
+  background: color-mix(
+      in srgb,
+      var(--atlas-color-primary) 6%,
+      var(--atlas-color-surface-2)
+  );
+}
+
+:host([data-variant='file-uploader'][data-dragover='true']) .atlas-field__frame:focus-within {
+  box-shadow: 0 0 0 0.3rem
+  color-mix(in srgb, var(--atlas-color-primary) 14%, transparent);
+}
+
+:host([data-variant='file-uploader']) .atlas-field__frame:has(:is(input, textarea)[disabled]) {
+  border-style: solid;
+  background: var(--atlas-color-surface-2);
+}
+
+:host([data-variant='file-uploader'][data-invalid='true']) .atlas-field__frame {
+  border-style: solid;
 }

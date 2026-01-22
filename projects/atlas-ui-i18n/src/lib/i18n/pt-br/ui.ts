@@ -1,6 +1,7 @@
 export const ATLAS_UI_PT_BR = {
   common: {
     ui: {
+      or: 'ou',
       examples: 'Exemplos',
       components: 'Componentes',
       details: 'Detalhes',
@@ -16,6 +17,8 @@ export const ATLAS_UI_PT_BR = {
       apply: 'Aplicar',
       cancel: 'Cancelar',
       clear: 'Limpar',
+      remove: 'Remover',
+      retry: 'Tentar novamente',
       undo: 'Desfazer',
       next: 'Próximo',
       export: 'Exportar',
@@ -37,7 +40,7 @@ export const ATLAS_UI_PT_BR = {
     formats: {
       html: 'HTML',
       ts: 'TypeScript',
-    }
+    },
   },
   components: {
     toast: {
@@ -54,5 +57,23 @@ export const ATLAS_UI_PT_BR = {
         neutral: 'Neutro',
       },
     },
-  }
+
+    upload: {
+      browse: 'Procurar',
+      accepts: '(aceita: {{formats}})',
+      dropzone: {
+        title: 'Solte arquivos aqui ou clique para selecionar',
+        formatsWithSize: 'Formatos {{formats}}, até {{size}}MB',
+        formats: 'Formatos {{formats}}',
+      },
+      compact: {
+        label: 'Arquivos',
+      },
+      url: {
+        label: 'Enviar arquivo por URL',
+        placeholder: 'Digite a URL do arquivo',
+        action: 'Enviar',
+      },
+    },
+  },
 } as const;

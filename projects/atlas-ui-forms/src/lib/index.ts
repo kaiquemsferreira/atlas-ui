@@ -1,4 +1,5 @@
 export * from './data-picker/date-picker.index';
+export * from './file-upload/file-upload.index';
 export * from './form-field/form-field.index';
 export * from './checkbox/checkbox.index';
 export * from './tooltip/tooltip.index';

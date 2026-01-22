@@ -1,0 +1,84 @@
+<atlas-doc-page [breadcrumbItems]="breadcrumbs" breadcrumbAriaLabelKey="ui.breadcrumb.aria"
+                titleKey="sandbox.pages.fileUpload.title" subtitleKey="sandbox.pages.fileUpload.subtitle" maxWidth="lg">
+  <div docActions class="doc-actions">
+    <button atlas-button variant="outline" color="surface" type="button" (click)="toggleDisabled()">
+      {{ 'sandbox.pages.inputs.actions.toggleDisabled' | translate }}
+    </button>
+
+    <button atlas-button variant="outline" color="surface" type="button" (click)="toggleUploading()">
+      {{ 'sandbox.pages.fileUpload.actions.toggleUploading' | translate }}
+    </button>
+  </div>
+
+  <atlas-doc-section titleKey="ui.common.ui.examples" descriptionKey="sandbox.pages.fileUpload.examplesDesc">
+    <atlas-tab-card [tabs]="demoTabs" initialTabId="preview">
+      <ng-template atlasTab="preview">
+        <div class="grid">
+          <div class="cell">
+            <div class="cell__title">
+              {{ 'sandbox.pages.fileUpload.examples.inlineDropzone' | translate }}
+            </div>
+
+            <atlas-file-upload layout="inline" selector="dropzone" [enableUrl]="false" [accept]="acceptImagesAndDocs"
+                               [maxSizeMb]="50" [multiple]="true" [disabled]="isDisabled" [items]="items"
+                               helperText="{{ 'sandbox.pages.fileUpload.helper' | translate }}"
+                               (filesSelected)="onFilesSelected($event)" (urlSubmitted)="onUrlSubmitted($event)"
+                               (remove)="onRemove($event)" (cancelEvent)="onCancel($event)" (retry)="onRetry($event)"/>
+          </div>
+
+          <div class="cell">
+            <div class="cell__title">
+              {{ 'sandbox.pages.fileUpload.examples.inlineCompact' | translate }}
+            </div>
+
+            <atlas-file-upload layout="inline" selector="compact" [enableUrl]="false" [accept]="acceptImagesOnly"
+                               [maxSizeMb]="10" [multiple]="false" [disabled]="isDisabled" [items]="items"
+                               (filesSelected)="onFilesSelected($event)" (remove)="onRemove($event)"
+                               (cancelEvent)="onCancel($event)" (retry)="onRetry($event)"/>
+          </div>
+
+          <div class="cell">
+            <div class="cell__title">
+              {{ 'sandbox.pages.fileUpload.examples.dialogDropzoneUrl' | translate }}
+            </div>
+
+            <div class="dialog-surface">
+              <atlas-file-upload layout="dialog" selector="dropzone" [enableUrl]="true" [accept]="acceptImagesAndDocs"
+                                 [maxSizeMb]="50" [multiple]="true" [disabled]="isDisabled" [items]="items"
+                                 [showDialogFooter]="true" dialogTitleKey="sandbox.pages.fileUpload.dialog.title"
+                                 primaryActionKey="sandbox.pages.fileUpload.dialog.primary"
+                                 cancelActionKey="sandbox.pages.fileUpload.dialog.cancel" (primaryAction)="onPrimary()"
+                                 (cancelAction)="onCancelDialog()" (filesSelected)="onFilesSelected($event)"
+                                 (urlSubmitted)="onUrlSubmitted($event)" (remove)="onRemove($event)"
+                                 (cancelEvent)="onCancel($event)" (retry)="onRetry($event)"/>
+            </div>
+          </div>
+
+          <div class="cell">
+            <div class="cell__title">
+              {{ 'sandbox.pages.fileUpload.examples.dialogCompactUrl' | translate }}
+            </div>
+
+            <div class="dialog-surface">
+              <atlas-file-upload layout="dialog" selector="compact" [enableUrl]="true" [accept]="acceptDocsOnly"
+                                 [maxSizeMb]="25" [multiple]="true" [disabled]="isDisabled" [items]="items"
+                                 dialogTitleKey="sandbox.pages.fileUpload.dialog.title"
+                                 (filesSelected)="onFilesSelected($event)" (urlSubmitted)="onUrlSubmitted($event)"
+                                 (remove)="onRemove($event)" (cancelEvent)="onCancel($event)" (retry)="onRetry($event)"/>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+
+      <ng-template atlasTab="code">
+        <atlas-code-tabs [tabs]="codeTabs"></atlas-code-tabs>
+      </ng-template>
+    </atlas-tab-card>
+  </atlas-doc-section>
+
+  <atlas-doc-section title="API" descriptionKey="sandbox.pages.fileUpload.apiDesc" surface="plain">
+    <p class="api-text">
+      <atlas-inline-code>&lt;atlas-file-upload&gt;</atlas-inline-code>
+    </p>
+  </atlas-doc-section>
+</atlas-doc-page>

@@ -13,17 +13,19 @@ export const SANDBOX_PT_BR = {
     },
     pages: {
       shell: {
-        search: 'Pesquisar documentação'
+        search: 'Pesquisar documentação',
       },
       toast: {
         title: 'Notificações',
-        subtitle: 'Notificações temporárias para feedback de ações do usuário. Suporta variantes, ações, detalhes expansíveis e posições.',
-        resume: 'Use os botões acima para disparar diferentes tipos de toast. Passe o mouse para pausar a barra de duração.',
+        subtitle:
+          'Notificações temporárias para feedback de ações do usuário. Suporta variantes, ações, detalhes expansíveis e posições.',
+        resume:
+          'Use os botões acima para disparar diferentes tipos de toast. Passe o mouse para pausar a barra de duração.',
         description: 'Os métodos seguem o padrão:',
         pattern: 'info/success/warning/error/neutral(message, options).',
-        info:'Informação',
+        info: 'Informação',
         infoMessage: 'Olá mundo!',
-        success:'Upload realizado com sucesso',
+        success: 'Upload realizado com sucesso',
         successMessage: 'Arquivo enviado com sucesso!',
         successDetails: 'invoice.pdf foi enviado e indexado. Você pode desfazer dentro de 30s.',
       },
@@ -39,7 +41,7 @@ export const SANDBOX_PT_BR = {
         a11yTitle: 'Acessibilidade',
         a11yDesc: 'Quando interativo, o card expõe role e tabindex.',
         description: 'Componente de contêiner para agrupar conteúdo.',
-        cardContentMessage: 'Conteúdo do card'
+        cardContentMessage: 'Conteúdo do card',
       },
       buttons: {
         title: 'Botões',
@@ -73,7 +75,7 @@ export const SANDBOX_PT_BR = {
         apiDesc: 'API e exemplos de uso.',
         actions: {
           toggleDisabled: 'Alternar disabled',
-          toggleInvalid: 'Alternar invalid'
+          toggleInvalid: 'Alternar invalid',
         },
         examples: {
           basic: 'Básico',
@@ -82,7 +84,7 @@ export const SANDBOX_PT_BR = {
           floatLabelIcon: 'Label flutuante + ícone',
           disabled: 'Disabled',
           invalid: 'Invalid (preview)',
-          hintText: 'Usaremos seu email apenas para login e recuperação de conta.'
+          hintText: 'Usaremos seu email apenas para login e recuperação de conta.',
         },
         fields: {
           email: 'Email',
@@ -94,12 +96,12 @@ export const SANDBOX_PT_BR = {
           selectOption: 'Selecionar opção',
           selectOptionWithFilter: 'Selecionar opção com filtro',
           multiSelect: 'Multi seleção',
-          multiSelectWithIcon: 'Multi seleção com ícone'
+          multiSelectWithIcon: 'Multi seleção com ícone',
         },
         hints: {
           floatLabel: 'A label vira placeholder e sobe ao focar ou ao preencher.',
-          invalid: 'Estado inválido será integrado ao Reactive Forms.'
-        }
+          invalid: 'Estado inválido será integrado ao Reactive Forms.',
+        },
       },
       datePicker: {
         title: 'Date picker',
@@ -123,6 +125,30 @@ export const SANDBOX_PT_BR = {
           valueShape: 'O valor é um objeto (E.164, nacional, internacional, iso2, dialCode e validade).',
         },
       },
+      fileUpload: {
+        title: 'Upload de arquivo',
+        subtitle: 'Upload com dropzone, modo compacto e envio por URL. Suporta lista com progresso e ações.',
+        examplesDesc: 'Exemplos de combinações entre layout e seletor, com formatos aceitos dinâmicos.',
+        apiDesc: 'API e exemplos de uso.',
+        helper: 'Arraste e solte ou selecione arquivos para enviar.',
+        actions: {
+          toggleUploading: 'Alternar carregamento',
+        },
+        examples: {
+          inlineDropzone: 'Inline · Dropzone',
+          inlineCompact: 'Inline · Compact',
+          dialogDropzoneUrl: 'Dialog · Dropzone + URL',
+          dialogCompactUrl: 'Dialog · Compact + URL',
+        },
+        dialog: {
+          title: 'Upload de arquivos',
+          primary: 'Enviar arquivos',
+          cancel: 'Cancelar',
+        },
+        errors: {
+          failed: 'Falha ao enviar. Tente novamente.',
+        }
+      },
       translation: {
         title: 'Tradução (i18n)',
         subtitle: 'Integração de internacionalização no Atlas UI com Transloco + contribuições por app.',
@@ -131,7 +157,7 @@ export const SANDBOX_PT_BR = {
         setupTitle: 'Configuração',
         setupDesc: 'Configure o provider do Atlas e injete traduções do sandbox via contributions.',
         usageDesc: 'Use o pipe no template e as variantes *Key no TypeScript (toasts, actions, etc.).',
-      }
-    },
+      },
+    }
   }
-};
+} as const;

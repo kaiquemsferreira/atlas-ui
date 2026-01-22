@@ -1,0 +1,269 @@
+<input #fileInput type="file" [attr.accept]="acceptAttr" [attr.multiple]="multiple ? '' : null"
+       (change)="onFileInputChange($event)" hidden/>
+
+@if (effectiveLayout === 'dialog') {
+  <section class="atlas-upload-dialog" [attr.aria-label]="(dialogTitleKey | translate)">
+    @if (showDialogHeader) {
+      <header class="atlas-upload-dialog__header">
+        <h3 class="atlas-upload-dialog__title">
+          {{ dialogTitleKey | translate }}
+        </h3>
+      </header>
+    }
+
+    <div class="atlas-upload-dialog__body">
+      @switch (effectiveSelector) {
+        @case ('dropzone') {
+          <div class="atlas-upload-drop" [class.is-dragover]="dragOver" [class.is-disabled]="disabled" role="button"
+               tabindex="0" (click)="onBrowseClick()" (keydown)="onKeyActivate($event)" (drop)="onDrop($event)"
+               (dragover)="onDragOver($event)" (dragleave)="onDragLeave($event)" [attr.aria-disabled]="disabled"
+               [attr.aria-label]="'ui.components.upload.aria.dropzone' | translate">
+            <div class="atlas-upload-drop__icon" aria-hidden="true">
+              <i class="ph ph-file-arrow-up"></i>
+            </div>
+
+            <div class="atlas-upload-drop__title">
+              {{ 'ui.components.upload.dropzone.title' | translate }}
+            </div>
+
+            <div class="atlas-upload-drop__subtitle">
+              @if (maxSizeMb != null) {
+                {{ 'ui.components.upload.dropzone.formatsWithSize' | translate:{ formats: acceptedFormatsLabel, size: maxSizeMb } }}
+              } @else {
+                {{ 'ui.components.upload.dropzone.formats' | translate:{ formats: acceptedFormatsLabel } }}
+              }
+            </div>
+
+            <button atlas-button type="button" class="atlas-upload-drop__browse" (click)="$event.stopPropagation(); onBrowseClick()"
+                    [disabled]="disabled">
+              {{ 'ui.components.upload.browse' | translate }}
+            </button>
+          </div>
+        }
+        @case ('compact') {
+          <div class="atlas-upload-compact-clickarea" role="button" tabindex="0" (click)="onBrowseClick()"
+               (keydown)="onKeyActivate($event)" (drop)="onDrop($event)" (dragover)="onDragOver($event)"
+               (dragleave)="onDragLeave($event)" [attr.aria-disabled]="disabled"
+               [attr.aria-label]="'ui.components.upload.aria.dropzone' | translate">
+            <atlas-form-field data-variant="file-uploader" [attr.data-dragover]="dragOver ? 'true' : null">
+              <i atlasPrefixIcon class="ph ph-file"></i>
+              <div class="atlas-upload-compact-text">
+                <span class="atlas-upload-compact-title">
+                  {{ 'ui.components.upload.dropzone.title' | translate }}
+                </span>
+
+                @if (acceptedFormatsLabel) {
+                  <span class="atlas-upload-compact-subtitle">
+                    {{ 'ui.components.upload.accepts' | translate:{ formats: acceptedFormatsLabel } }}
+                  </span>
+                }
+              </div>
+              <i atlasSuffix class="ph ph-plus" style="margin-right: 1rem;"></i>
+            </atlas-form-field>
+
+          </div>
+        }
+      }
+
+      @if (helperText) {
+        <div class="atlas-upload-helper">
+          {{ helperText }}
+        </div>
+      }
+
+      @if (effectiveEnableUrl) {
+        <div class="atlas-upload-dialog__divider" aria-hidden="true">
+          <span class="atlas-upload-dialog__divider-line"></span>
+          <span class="atlas-upload-dialog__divider-text">
+            {{ 'ui.common.ui.or' | translate }}
+          </span>
+          <span class="atlas-upload-dialog__divider-line"></span>
+        </div>
+
+        <atlas-form-field labelKey="ui.components.upload.url.label">
+          <i atlasPrefixIcon class="ph ph-link-simple"></i>
+
+          <input atlas-input type="url" [disabled]="disabled" [attr.placeholder]="(urlPlaceholderKey | translate)"
+                 [ngModel]="urlValue" (ngModelChange)="setUrlValue($event)"/>
+
+          <button atlasButton atlasSuffix type="button" variant="ghost" (click)="submitUrl()"
+                  [disabled]="disabled || !(urlValue.trim())">
+            {{ 'ui.components.upload.url.action' | translate }}
+          </button>
+        </atlas-form-field>
+      }
+    </div>
+
+    @if (items.length) {
+      <div class="atlas-upload-list" role="list">
+        @for (item of items; track item.id) {
+          <div class="atlas-upload-item" role="listitem">
+            <div class="atlas-upload-item__main">
+              <div class="atlas-upload-item__name">
+                {{ item.name }}
+              </div>
+
+              @if (item.status === 'uploading' || item.status === 'queued') {
+                <div class="atlas-upload-item__meta">
+                  {{ progressLabel(item) }}
+                </div>
+              } @else if (item.status === 'error') {
+                <div class="atlas-upload-item__meta is-error">
+                  {{ item.errorKey ? (item.errorKey | translate) : ('ui.components.upload.status.error' | translate) }}
+                </div>
+              } @else if (item.status === 'success') {
+                <div class="atlas-upload-item__meta is-success">
+                  {{ 'ui.components.toast.variants.success' | translate }}
+                </div>
+              }
+            </div>
+
+            <div class="atlas-upload-item__actions">
+              @if (item.status === 'uploading') {
+                <button type="button" class="atlas-upload-action" (click)="cancelItem(item.id)" [disabled]="disabled">
+                  {{ 'ui.common.actions.cancel' | translate }}
+                </button>
+              } @else if (item.status === 'error') {
+                <button type="button" class="atlas-upload-action" (click)="retryItem(item.id)" [disabled]="disabled">
+                  {{ 'ui.common.actions.retry' | translate }}
+                </button>
+              }
+
+              <button type="button" class="atlas-upload-action" (click)="removeItem(item.id)" [disabled]="disabled">
+                {{ 'ui.common.actions.remove' | translate }}
+              </button>
+            </div>
+
+            @if (item.status === 'uploading') {
+              <div class="atlas-upload-progress">
+                <div class="atlas-upload-progress__bar" [style.width.%]="item.progress ?? 0"></div>
+              </div>
+            }
+          </div>
+        }
+      </div>
+    }
+
+    @if (showDialogFooter) {
+      <footer class="atlas-upload-dialog__footer">
+        <button atlasButton type="button" variant="ghost" (click)="cancelAction.emit()" [disabled]="disabled">
+          {{ cancelActionKey | translate }}
+        </button>
+
+        <button atlasButton type="button" (click)="primaryAction.emit()" [disabled]="disabled">
+          {{ primaryActionKey | translate }}
+        </button>
+      </footer>
+    }
+  </section>
+}
+
+@if (effectiveLayout === 'inline') {
+  @switch (effectiveSelector) {
+    @case ('dropzone') {
+      <div class="atlas-upload-drop" [class.is-dragover]="dragOver" [class.is-disabled]="disabled" role="button"
+           tabindex="0" (click)="onBrowseClick()" (keydown)="onKeyActivate($event)" (drop)="onDrop($event)"
+           (dragover)="onDragOver($event)" (dragleave)="onDragLeave($event)" [attr.aria-disabled]="disabled"
+           [attr.aria-label]="'ui.components.upload.aria.dropzone' | translate">
+        <div class="atlas-upload-drop__icon" aria-hidden="true">
+          <i class="ph ph-file-arrow-up"></i>
+        </div>
+
+        <div class="atlas-upload-drop__title">
+          {{ 'ui.components.upload.dropzone.title' | translate }}
+        </div>
+
+        <div class="atlas-upload-drop__subtitle">
+          @if (maxSizeMb != null) {
+            {{ 'ui.components.upload.dropzone.formatsWithSize' | translate:{ formats: acceptedFormatsLabel, size: maxSizeMb } }}
+          } @else {
+            {{ 'ui.components.upload.dropzone.formats' | translate:{ formats: acceptedFormatsLabel } }}
+          }
+        </div>
+
+        <button atlas-button type="button" class="atlas-upload-drop__browse" (click)="$event.stopPropagation(); onBrowseClick()"
+                [disabled]="disabled">
+          {{ 'ui.components.upload.browse' | translate }}
+        </button>
+      </div>
+    }
+    @case ('compact') {
+      <div class="atlas-upload-compact-clickarea" role="button" tabindex="0" (click)="onBrowseClick()"
+           (keydown)="onKeyActivate($event)" (drop)="onDrop($event)" (dragover)="onDragOver($event)"
+           (dragleave)="onDragLeave($event)" [attr.aria-disabled]="disabled"
+           [attr.aria-label]="'ui.components.upload.aria.dropzone' | translate">
+        <atlas-form-field data-variant="file-uploader" [attr.data-dragover]="dragOver ? 'true' : null">
+          <i atlasPrefixIcon class="ph ph-file"></i>
+          <span>{{ 'ui.components.upload.dropzone.title' | translate }}</span>
+          <i atlasSuffix class="ph ph-plus" style="margin-right: 1rem;"></i>
+        </atlas-form-field>
+      </div>
+    }
+  }
+
+  @if (helperText) {
+    <div class="atlas-upload-helper">
+      {{ helperText }}
+    </div>
+  }
+
+  @if (effectiveEnableUrl) {
+    <atlas-form-field labelKey="ui.components.upload.url.label">
+      <i atlasPrefixIcon class="ph ph-link-simple"></i>
+
+      <input atlas-input type="url" [disabled]="disabled" [attr.placeholder]="(urlPlaceholderKey | translate)"
+             [ngModel]="urlValue" (ngModelChange)="setUrlValue($event)"/>
+
+      <button atlasButton atlasSuffix type="button" variant="ghost" (click)="submitUrl()"
+              [disabled]="disabled || !(urlValue.trim())">
+        {{ 'ui.components.upload.url.action' | translate }}
+      </button>
+    </atlas-form-field>
+  }
+
+  @if (items.length) {
+    <div class="atlas-upload-list" role="list">
+      @for (item of items; track item.id) {
+        <div class="atlas-upload-item" role="listitem">
+          <div class="atlas-upload-item__main">
+            <div class="atlas-upload-item__name">{{ item.name }}</div>
+
+            @if (item.status === 'uploading' || item.status === 'queued') {
+              <div class="atlas-upload-item__meta">{{ progressLabel(item) }}</div>
+            } @else if (item.status === 'error') {
+              <div class="atlas-upload-item__meta is-error">
+                {{ item.errorKey ? (item.errorKey | translate) : ('ui.components.upload.status.error' | translate) }}
+              </div>
+            } @else if (item.status === 'success') {
+              <div class="atlas-upload-item__meta is-success">
+                {{ 'ui.components.toast.variants.success' | translate }}
+              </div>
+            }
+          </div>
+
+          <div class="atlas-upload-item__actions">
+            @if (item.status === 'uploading') {
+              <button type="button" class="atlas-upload-action" (click)="cancelItem(item.id)" [disabled]="disabled">
+                {{ 'ui.common.actions.cancel' | translate }}
+              </button>
+            } @else if (item.status === 'error') {
+              <button type="button" class="atlas-upload-action" (click)="retryItem(item.id)" [disabled]="disabled">
+                {{ 'ui.common.actions.retry' | translate }}
+              </button>
+            }
+
+            <button type="button" class="atlas-upload-action" (click)="removeItem(item.id)" [disabled]="disabled">
+              {{ 'ui.common.actions.remove' | translate }}
+            </button>
+          </div>
+
+          @if (item.status === 'uploading') {
+            <div class="atlas-upload-progress">
+              <div class="atlas-upload-progress__bar" [style.width.%]="item.progress ?? 0"></div>
+            </div>
+          }
+        </div>
+      }
+    </div>
+  }
+}
