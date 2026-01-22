@@ -1,0 +1,98 @@
+<atlas-doc-page [breadcrumbItems]="breadcrumbs" breadcrumbAriaLabelKey="ui.breadcrumb.aria"
+                titleKey="sandbox.pages.skeleton.title" subtitleKey="sandbox.pages.skeleton.subtitle" maxWidth="lg">
+  <div docActions class="doc-actions">
+    <button atlas-button variant="outline" color="surface" type="button" (click)="setAnimation('wave')">
+      {{ 'sandbox.pages.skeleton.actions.wave' | translate }}
+    </button>
+
+    <button atlas-button variant="outline" color="surface" type="button" (click)="setAnimation('pulse')">
+      {{ 'sandbox.pages.skeleton.actions.pulse' | translate }}
+    </button>
+
+    <button atlas-button variant="outline" color="surface" type="button" (click)="setAnimation('none')">
+      {{ 'sandbox.pages.skeleton.actions.static' | translate }}
+    </button>
+  </div>
+
+  <atlas-doc-section titleKey="ui.common.ui.examples" descriptionKey="sandbox.pages.skeleton.examplesDesc">
+    <atlas-tab-card [tabs]="demoTabs" initialTabId="preview">
+      <ng-template atlasTab="preview">
+        <div class="grid">
+          <!-- Rect -->
+          <div class="cell">
+            <div class="cell__title">
+              {{ 'sandbox.pages.skeleton.examples.rect' | translate }}
+            </div>
+
+            <div class="stack">
+              <atlas-skeleton [animation]="animation" width="100%" height="2.4rem"></atlas-skeleton>
+              <atlas-skeleton [animation]="animation" width="70%" height="1.4rem"></atlas-skeleton>
+              <atlas-skeleton [animation]="animation" width="40%" height="1.4rem"></atlas-skeleton>
+            </div>
+          </div>
+
+          <div class="cell">
+            <div class="cell__title">
+              {{ 'sandbox.pages.skeleton.examples.text' | translate }}
+            </div>
+
+            <div class="stack">
+              <atlas-skeleton variant="text" [animation]="animation" [lines]="3" lastLineWidth="65%"></atlas-skeleton>
+              <atlas-skeleton variant="text" [animation]="animation" [lines]="2" lastLineWidth="45%"></atlas-skeleton>
+            </div>
+          </div>
+
+          <div class="cell">
+            <div class="cell__title">
+              {{ 'sandbox.pages.skeleton.examples.circle' | translate }}
+            </div>
+
+            <div class="row">
+              <atlas-skeleton variant="circle" [animation]="animation" size="4.0rem"></atlas-skeleton>
+
+              <div class="col">
+                <atlas-skeleton [animation]="animation" width="14rem" height="1.4rem"></atlas-skeleton>
+                <atlas-skeleton [animation]="animation" width="9rem" height="1.2rem"></atlas-skeleton>
+              </div>
+            </div>
+          </div>
+
+          <div class="cell">
+            <div class="cell__title">
+              {{ 'sandbox.pages.skeleton.examples.card' | translate }}
+            </div>
+
+            <div class="example-card">
+              <div class="example-card__header">
+                <atlas-skeleton variant="circle" [animation]="animation" size="3.2rem"></atlas-skeleton>
+                <div class="example-card__header-text">
+                  <atlas-skeleton [animation]="animation" width="12rem" height="1.4rem"></atlas-skeleton>
+                  <atlas-skeleton [animation]="animation" width="7rem" height="1.2rem"></atlas-skeleton>
+                </div>
+              </div>
+
+              <div class="example-card__body">
+                <atlas-skeleton variant="text" [animation]="animation" width="20rem" [lines]="2" lastLineWidth="60%"></atlas-skeleton>
+              </div>
+
+              <div class="example-card__footer">
+                <atlas-skeleton [animation]="animation" width="9rem" height="2.8rem"></atlas-skeleton>
+                <atlas-skeleton [animation]="animation" width="9rem" height="2.8rem"></atlas-skeleton>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+
+      <ng-template atlasTab="code">
+        <atlas-code-tabs [tabs]="codeTabs"></atlas-code-tabs>
+      </ng-template>
+    </atlas-tab-card>
+  </atlas-doc-section>
+
+  <atlas-doc-section title="API" descriptionKey="sandbox.pages.skeleton.apiDesc" surface="plain">
+    <p class="api-text">
+      <atlas-inline-code>&lt;atlas-skeleton&gt;</atlas-inline-code>
+    </p>
+  </atlas-doc-section>
+</atlas-doc-page>

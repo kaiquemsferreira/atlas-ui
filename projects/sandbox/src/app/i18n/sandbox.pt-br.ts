@@ -158,6 +158,23 @@ export const SANDBOX_PT_BR = {
         setupDesc: 'Configure o provider do Atlas e injete traduções do sandbox via contributions.',
         usageDesc: 'Use o pipe no template e as variantes *Key no TypeScript (toasts, actions, etc.).',
       },
+      skeleton: {
+        title: 'Skeleton',
+        subtitle: 'Placeholders para estados de carregamento (wave/pulse/static) com composição flexível.',
+        examplesDesc: 'Exemplos do atlas-skeleton em variantes e composições comuns.',
+        apiDesc: 'API e exemplos de uso.',
+        actions: {
+          wave: 'Wave',
+          pulse: 'Pulse',
+          static: 'Static',
+        },
+        examples: {
+          rect: 'Retângulos',
+          text: 'Texto (linhas)',
+          circle: 'Círculo (avatar)',
+          card: 'Composição (card)',
+        },
+      }
     }
   }
 } as const;

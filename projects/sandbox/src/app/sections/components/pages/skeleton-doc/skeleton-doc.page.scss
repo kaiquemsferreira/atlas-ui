@@ -1,0 +1,81 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--atlas-space-6);
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.doc-actions {
+  display: inline-flex;
+  gap: var(--atlas-space-3);
+
+  button {
+    color: var(--atlas-color-text);
+  }
+}
+
+.cell__title {
+  font-size: var(--atlas-fs-18);
+  font-weight: 700;
+  color: var(--atlas-color-text);
+  margin-bottom: 0.8rem;
+}
+
+.stack {
+  display: grid;
+  gap: var(--atlas-space-3);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: var(--atlas-space-4);
+}
+
+.col {
+  display: grid;
+  gap: var(--atlas-space-2);
+  min-width: 0;
+}
+
+/* Example card composition (tokenized) */
+.example-card {
+  border: 1px solid color-mix(in srgb, var(--atlas-color-border) 85%, transparent);
+  border-radius: var(--atlas-radius-md);
+  background: color-mix(in srgb, var(--atlas-color-surface) 92%, transparent);
+  box-shadow: var(--atlas-shadow-sm);
+  overflow: hidden;
+}
+
+.example-card__header {
+  display: flex;
+  align-items: center;
+  gap: var(--atlas-space-4);
+  padding: 1rem 1.2rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--atlas-color-border) 85%, transparent);
+  background: color-mix(in srgb, var(--atlas-color-surface-2) 85%, transparent);
+}
+
+.example-card__header-text {
+  display: grid;
+  gap: 0.6rem;
+  min-width: 0;
+}
+
+.example-card__body {
+  padding: 1.2rem;
+}
+
+.example-card__footer {
+  display: flex;
+  gap: var(--atlas-space-3);
+  justify-content: flex-end;
+  padding: 1rem 1.2rem;
+  border-top: 1px solid color-mix(in srgb, var(--atlas-color-border) 85%, transparent);
+  background: color-mix(in srgb, var(--atlas-color-surface-2) 85%, transparent);
+}

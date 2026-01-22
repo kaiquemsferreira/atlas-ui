@@ -38,6 +38,11 @@ export const COMPONENTS_ROUTES: Routes = [
     path: 'cards',
     loadComponent: () => import('./pages/card-doc/card-doc.page')
       .then(m => m.CardDocPage)
+  },
+  {
+    path: 'skeleton',
+    loadComponent: () => import('./pages/skeleton-doc/skeleton-doc.page')
+      .then(m => m.SkeletonDocPage)
   }
 ];
 

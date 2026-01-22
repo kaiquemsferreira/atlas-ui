@@ -1,0 +1,9 @@
+@if (variant === 'text') {
+  <div class="atlas-skeleton-text" aria-hidden="true">
+    @for (i of textLineArray; track i) {
+      <span class="atlas-skeleton__block" [attr.data-radius]="resolvedRadius" [ngStyle]="lineStyle(i)"></span>
+    }
+  </div>
+} @else {
+  <span class="atlas-skeleton__block" [attr.data-radius]="resolvedRadius" aria-hidden="true"></span>
+}
