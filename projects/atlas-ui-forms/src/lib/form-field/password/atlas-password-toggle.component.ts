@@ -19,9 +19,10 @@ export class AtlasPasswordToggleComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     const field = this.host.nativeElement.closest('atlas-form-field, .atlas-field');
-    const el = field?.querySelector('input[atlas-input]') ?? undefined;
 
-    if (el && el instanceof HTMLInputElement) {
+    const el = field ? (field.querySelector('input[atlas-input]')) : null;
+
+    if (el instanceof HTMLInputElement) {
       this.input = el;
       this.syncFromInput();
     }
