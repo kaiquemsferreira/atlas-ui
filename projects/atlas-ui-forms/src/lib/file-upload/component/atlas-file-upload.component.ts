@@ -6,8 +6,8 @@ import { FormsModule } from '@angular/forms';
 import { AtlasFileUploadMode, AtlasFileUploadLayout, AtlasFileUploadSelector,
   AtlasUploadItem } from '../model/atlas-file-upload.types';
 import { AtlasPrefixIconDirective } from '../../form-field/directives/prefix-icon.directive';
+import { AtlasFormFieldComponent } from '../../form-field/atlas-form-field.component';
 import { AtlasSuffixDirective } from '../../form-field/directives/suffix.directive';
-import { AtlasFormFieldComponent } from '../../form-field/form-field.component';
 import { AtlasInputDirective } from '../../input/directives/input.directive';
 import { AtlasButtonDirective } from 'atlas-ui-button';
 import { AtlasTranslationPipe } from 'atlas-ui-i18n';

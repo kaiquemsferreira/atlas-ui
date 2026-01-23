@@ -8,8 +8,8 @@ import { AtlasTranslationPipe } from 'atlas-ui-i18n';
   selector: 'atlas-form-field',
   standalone: true,
   imports: [AtlasTranslationPipe],
-  templateUrl: './form-field.component.html',
-  styleUrls: ['./form-field.component.scss'],
+  templateUrl: './atlas-form-field.component.html',
+  styleUrls: ['./atlas-form-field.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AtlasFormFieldComponent {

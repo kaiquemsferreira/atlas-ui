@@ -1,0 +1,19 @@
+.atlas-overlay-container {
+  inset: 0;
+  z-index: 9999;
+  position: fixed;
+  pointer-events: none;
+}
+
+.atlas-overlay-panel {
+  position: fixed;
+  pointer-events: auto;
+  z-index: 10000;
+}
+
+.atlas-overlay-backdrop {
+  position: absolute;
+  inset: 0;
+  pointer-events: auto;
+  z-index: 9999;
+}

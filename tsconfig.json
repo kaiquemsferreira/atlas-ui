@@ -21,6 +21,9 @@
       "atlas-ui-notifications": [
         "projects/atlas-ui-notifications/src/public-api.ts"
       ],
+      "atlas-ui-overlay": [
+        "projects/atlas-ui-overlay/src/public-api.ts"
+      ],
       "atlas-ui-tokens": [
         "projects/atlas-ui-tokens/src/public-api.ts"
       ]
@@ -45,5 +48,13 @@
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
-  }
+  },
+  "references": [
+    {
+      "path": "./projects/atlas-ui-overlay/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/atlas-ui-overlay/tsconfig.spec.json"
+    }
+  ]
 }

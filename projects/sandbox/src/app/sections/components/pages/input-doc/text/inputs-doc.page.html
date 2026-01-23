@@ -30,6 +30,12 @@
         <atlas-form-field labelKey="sandbox.pages.inputs.fields.search">
           <i atlasPrefixIcon class="ph ph-magnifying-glass"></i>
           <input atlas-input type="text" [disabled]="isDisabled" [placeholder]="'sandbox.pages.inputs.fields.search' | translate"/>
+          <atlas-field-hint atlasSuffix mode="popover" placement="bottom" align="end">
+            <ng-template atlasHintContent>
+              <strong>Dicas</strong>
+              <p>Use filtros como <code>status:ativo</code></p>
+            </ng-template>
+          </atlas-field-hint>
         </atlas-form-field>
       </div>
 

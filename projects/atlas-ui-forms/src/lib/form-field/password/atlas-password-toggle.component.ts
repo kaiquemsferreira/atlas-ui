@@ -3,8 +3,8 @@ import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, HostBind
 @Component({
   selector: 'atlas-password-toggle',
   standalone: true,
-  templateUrl: './password-toggle.component.html',
-  styleUrls: ['./password-toggle.component.scss'],
+  templateUrl: './atlas-password-toggle.component.html',
+  styleUrls: ['./atlas-password-toggle.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AtlasPasswordToggleComponent implements AfterViewInit {

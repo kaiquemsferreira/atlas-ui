@@ -1,0 +1,65 @@
+:host {
+  display: contents;
+}
+
+.atlas-popover {
+  display: inline-flex;
+}
+
+.atlas-popover__trigger {
+  display: inline-flex;
+}
+
+.atlas-popover__panel {
+  min-width: 16rem;
+  max-width: 40rem;
+
+  padding: var(--atlas-space-3);
+  border-radius: var(--atlas-radius-md);
+  background: var(--atlas-color-surface);
+  border: 1px solid color-mix(in srgb, var(--atlas-color-border) 85%, transparent);
+  box-shadow: var(--atlas-shadow-md);
+
+  color: var(--atlas-color-text);
+  font-size: var(--atlas-fs-18);
+  line-height: var(--atlas-lh-normal);
+
+  transform-origin: top center;
+  opacity: 0;
+  transform: translateY(-0.4rem) scale(0.98);
+  filter: blur(0.2px);
+
+  transition:
+    opacity 140ms ease,
+    transform 180ms cubic-bezier(0.16, 1, 0.3, 1),
+    filter 180ms ease;
+  will-change: transform, opacity;
+}
+
+:host([data-state='open']) .atlas-popover__panel {
+  opacity: 1;
+  filter: none;
+  transform: translateY(0) scale(1);
+}
+
+:host([data-state='open']) .atlas-popover__panel[data-placement='top'] {
+  transform-origin: bottom center;
+}
+:host([data-state='open']) .atlas-popover__panel[data-placement='bottom'] {
+  transform-origin: top center;
+}
+:host([data-state='open']) .atlas-popover__panel[data-placement='left'] {
+  transform-origin: center right;
+}
+:host([data-state='open']) .atlas-popover__panel[data-placement='right'] {
+  transform-origin: center left;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .atlas-popover__panel {
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+    filter: none !important;
+  }
+}

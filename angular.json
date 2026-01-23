@@ -331,6 +331,32 @@
           }
         }
       }
+    },
+    "atlas-ui-overlay": {
+      "projectType": "library",
+      "root": "projects/atlas-ui-overlay",
+      "sourceRoot": "projects/atlas-ui-overlay/src",
+      "prefix": "atlas",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:ng-packagr",
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/atlas-ui-overlay/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/atlas-ui-overlay/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular/build:unit-test",
+          "options": {
+            "tsConfig": "projects/atlas-ui-overlay/tsconfig.spec.json"
+          }
+        }
+      }
     }
   },
   "schematics": {

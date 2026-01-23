@@ -2,7 +2,6 @@ export * from './data-picker/date-picker.index';
 export * from './file-upload/file-upload.index';
 export * from './form-field/form-field.index';
 export * from './checkbox/checkbox.index';
-export * from './tooltip/tooltip.index';
 export * from './select/select.index';
 export * from './phone/phone.index';
 export * from './input/input.index';

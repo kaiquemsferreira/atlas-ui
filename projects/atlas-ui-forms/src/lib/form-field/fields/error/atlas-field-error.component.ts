@@ -6,8 +6,8 @@ import { AtlasTranslationPipe } from 'atlas-ui-i18n';
   selector: 'atlas-field-error',
   standalone: true,
   imports: [AtlasTranslationPipe],
-  templateUrl: './field-error.component.html',
-  styleUrls: ['./field-error.component.scss'],
+  templateUrl: './atlas-field-error.component.html',
+  styleUrls: ['./atlas-field-error.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AtlasFieldErrorComponent {
