@@ -17,9 +17,9 @@ export interface AtlasOptionRow<T = unknown> {
   leftImageSrc?: string;
   leftImageAlt?: string;
   badge?: {
-    text?: string;
-    textKey?: string;
-    tone?: AtlasBadgeTone;
+    text: string;
+    textKey: string;
+    tone: AtlasBadgeTone;
   };
 }
 
