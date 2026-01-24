@@ -1,11 +1,4 @@
-import {
-  AfterViewInit,
-  ChangeDetectionStrategy,
-  Component,
-  ContentChild,
-  DestroyRef,
-  ViewEncapsulation
-} from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, ContentChild, DestroyRef } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 import { AtlasTooltipTriggerDirective } from '../directive/atlas-tooltip-trigger.directive';

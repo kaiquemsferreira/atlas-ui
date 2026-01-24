@@ -43,10 +43,10 @@
         <span class="atlas-option__right" aria-hidden="true">
           @if (opt.badge) {
             @let tone = opt.badge.tone ?? 'neutral';
-            @let textKey = opt.badge.textKey;
+            @let textKey = opt.badge?.textKey;
             <span class="atlas-option__badge" [attr.data-tone]="tone">
               @if (textKey) { {{ textKey | translate }} }
-              @else { {{ opt.badge.text }} }
+              @else { {{ opt.badge?.text }} }
             </span>
           }
         </span>
