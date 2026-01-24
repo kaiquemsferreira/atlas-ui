@@ -149,6 +149,7 @@
 
 [atlas-button][data-variant='outline'] {
   --_btn-bg: transparent;
+  color: var(--atlas-color-text);
   --_btn-fg: var(--atlas-color-text);
   --_btn-border: var(--atlas-color-border);
 

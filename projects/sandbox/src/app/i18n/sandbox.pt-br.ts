@@ -174,6 +174,49 @@ export const SANDBOX_PT_BR = {
           circle: 'Círculo (avatar)',
           card: 'Composição (card)',
         },
+      },
+      overlay: {
+        title: 'Overlay',
+        subtitle: 'Infraestrutura para conteúdo flutuante: tooltip, popover e menu. Usa o AtlasOverlayService como base.',
+        examplesDesc: 'Exemplos de uso dos consumidores do overlay.',
+        apiDesc: 'Componentes e padrões expostos pela lib atlas-ui-overlay.',
+        examples: {
+          tooltip: {
+            title: 'Tooltip',
+            label: 'Passe o mouse ou foque no ícone',
+            aria: 'Ajuda',
+            content: 'Esse é um tooltip (não interativo).',
+          },
+          popover: {
+            title: 'Popover',
+            label: 'Clique para abrir um conteúdo interativo',
+            aria: 'Abrir popover',
+            contentTitle: 'Dicas',
+            contentBody: 'Use filtros e ações dentro do popover.',
+            actionPrimary: 'Aplicar',
+            actionSecondary: 'Cancelar',
+          },
+          menu: {
+            title: 'Menu',
+            trigger: 'Abrir menu',
+            hint: 'Suporta teclado (↑ ↓, Enter, Esc) e itens desabilitados.',
+            items: {
+              search: 'Buscar',
+              filters: 'Filtros avançados',
+              removeDisabled: 'Remover (desabilitado)',
+            },
+          },
+          dialog: {
+            title: 'Dialog',
+            primary: 'Enviar',
+            cancel: 'Cancelar',
+            trigger: 'Abrir dialog',
+            hint: 'Suporta opções com ou sem close on esc e close on backdrop',
+            contentBody: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eget porta quam. Aliquam vitae tortor nec quam cursus commodo sit amet nec diam. Nam a massa eget nibh pellentesque ullamcorper a a sem. Integer finibus mollis dictum. Cras tortor risus, dapibus nec laoreet eget, gravida mattis purus. Donec facilisis leo at porttitor ornare. Quisque tincidunt, enim vel congue condimentum, quam tellus rutrum lacus, at porta diam enim id sapien. Sed euismod pretium ligula, nec gravida sem finibus at. Suspendisse consectetur hendrerit ligula non accumsan.\n' +
+              '\n' +
+              'Nam id arcu vitae arcu tempor aliquam. Sed a turpis a nibh maximus blandit. Aliquam erat volutpat. Curabitur molestie, tortor a malesuada tempor, neque enim ultricies purus, non auctor ex lacus sit amet nibh. Curabitur porta, tellus at aliquet imperdiet, ipsum metus ullamcorper sapien, non rutrum libero elit eu nisl. Vestibulum vitae diam non urna finibus egestas ut id eros. Vivamus euismod vestibulum pretium.'
+          }
+        },
       }
     }
   }

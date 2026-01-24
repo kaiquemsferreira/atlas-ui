@@ -39,16 +39,18 @@ export const SIDEBAR_NAV: SidebarItem[] = [
     labelKey: 'sandbox.nav.components',
     children: [
       {
-        kind: 'link',
+        kind: 'group',
         labelKey: 'sandbox.pages.cards.title',
-        path: '/components/cards',
-        badge: 'new'
+        children: [
+          { kind: 'link', labelKey: 'sandbox.pages.cards.title', path: '/components/cards', badge: 'new' },
+        ]
       },
       {
-        kind: 'link',
+        kind: 'group',
         labelKey: 'sandbox.pages.buttons.title',
-        path: '/components/buttons',
-        badge: 'new',
+        children: [
+          { kind: 'link', labelKey: 'sandbox.pages.buttons.title', path: '/components/buttons', badge: 'new' },
+        ]
       },
       {
         kind: 'group',
@@ -68,10 +70,18 @@ export const SIDEBAR_NAV: SidebarItem[] = [
         ],
       },
       {
-        kind: 'link',
+        kind: 'group',
+        labelKey: 'sandbox.pages.overlay.title',
+        children: [
+          { kind: 'link', labelKey: 'sandbox.pages.overlay.title', path: '/components/overlay', badge: 'new' },
+        ]
+      },
+      {
+        kind: 'group',
         labelKey: 'sandbox.pages.skeleton.title',
-        path: '/components/skeleton',
-        badge: 'new'
+        children: [
+          { kind: 'link', labelKey: 'sandbox.pages.skeleton.title', path: '/components/skeleton', badge: 'new' },
+        ]
       }
     ],
   },

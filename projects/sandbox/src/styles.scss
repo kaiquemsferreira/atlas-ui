@@ -16,11 +16,24 @@ html, body {
 
 body {
   margin: 0;
-  font-family: map.get($atlas-typography, font-sans);
   font-size: var(--atlas-fs-20);
   color: var(--atlas-color-text);
   background: var(--atlas-color-bg);
   line-height: var(--atlas-lh-normal);
+  font-family: map.get($atlas-typography, font-sans);
 }
+
+.atlas-overlay-container {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+
+.atlas-overlay-container,
+.atlas-overlay-panel {
+  font-family: var(--atlas-font-sans), system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
 
 button { cursor: pointer; background: none; border: none; }

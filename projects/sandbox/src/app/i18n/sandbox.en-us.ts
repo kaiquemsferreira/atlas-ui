@@ -158,6 +158,56 @@ export const SANDBOX_EN_US = {
         setupDesc: 'Configure the Atlas provider and inject sandbox translations via contributions.',
         usageDesc: 'Use the pipe in templates and the *Key variants in TypeScript (toasts, actions, etc.).',
       },
+    },
+    skeleton: {
+      title: 'Skeleton',
+      subtitle: 'Placeholders for loading states (wave/pulse/static) with flexible composition.',
+      examplesDesc: 'Examples of atlas-skeleton in common variants and compositions.',
+      apiDesc: 'API and usage examples.',
+      actions: {
+        wave: 'Wave',
+        pulse: 'Pulse',
+        static: 'Static',
+      },
+      examples: {
+        rect: 'Rectangles',
+        text: 'Text (lines)',
+        circle: 'Circle (avatar)',
+        card: 'Composition (card)',
+      },
+    },
+    overlay: {
+      title: 'Overlay',
+      subtitle: 'Infrastructure for floating content: tooltip, popover, and menu. Built on AtlasOverlayService.',
+      examplesDesc: 'Examples using overlay consumers.',
+      apiDesc: 'Components and patterns exposed by atlas-ui-overlay.',
+      examples: {
+        tooltip: {
+          title: 'Tooltip',
+          label: 'Hover or focus the icon',
+          aria: 'Help',
+          content: 'This is a tooltip (non-interactive).',
+        },
+        popover: {
+          title: 'Popover',
+          label: 'Click to open interactive content',
+          aria: 'Open popover',
+          contentTitle: 'Tips',
+          contentBody: 'Use filters and actions inside the popover.',
+          actionPrimary: 'Apply',
+          actionSecondary: 'Cancel',
+        },
+        menu: {
+          title: 'Menu',
+          trigger: 'Open menu',
+          hint: 'Keyboard support (↑ ↓, Enter, Esc) and disabled items.',
+          items: {
+            search: 'Search',
+            filters: 'Advanced filters',
+            removeDisabled: 'Remove (disabled)',
+          },
+        },
+      },
     }
   }
 } as const;

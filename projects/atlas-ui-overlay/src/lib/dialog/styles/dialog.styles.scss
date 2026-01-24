@@ -1,0 +1,32 @@
+.atlas-dialog {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: var(--atlas-color-text);
+  border-radius: var(--atlas-radius-lg);
+  box-shadow: var(--atlas-shadow-lg);
+}
+
+.atlas-dialog__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--atlas-space-3);
+  padding: var(--atlas-space-4);
+  border-bottom: 1px solid color-mix(in srgb, var(--atlas-color-border) 85%, transparent);
+}
+
+.atlas-dialog__title {
+  font-weight: 800;
+  font-size: var(--atlas-fs-24);
+  color: var(--atlas-color-text);
+}
+
+.atlas-dialog__body {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+  padding: var(--atlas-space-4);
+}

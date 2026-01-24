@@ -1,0 +1,17 @@
+.dialog-title {
+  font-weight: 800;
+  font-size: var(--atlas-fs-24);
+  color: var(--atlas-color-text);
+}
+
+.dialog-text {
+  margin-bottom: 2rem;
+  font-size: var(--atlas-fs-22);
+  color: var(--atlas-color-text);
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.8rem;
+}

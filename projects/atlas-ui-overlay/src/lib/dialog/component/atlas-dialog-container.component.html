@@ -1,0 +1,51 @@
+<div class="atlas-dialog" role="dialog" aria-modal="true" [attr.data-size]="size" [attr.aria-label]="ariaLabel || null"
+     [attr.aria-labelledby]="ariaLabel ? null : titleId">
+
+  @if (titleTpl || titleKey || title) {
+    <div class="atlas-dialog__header" [attr.data-align]="headerAlign">
+      <div class="atlas-dialog__title" [id]="titleId">
+        @if (titleTpl) { <ng-container *ngTemplateOutlet="titleTpl"></ng-container> }
+        @else if (titleKey) { {{ titleKey | translate }} }
+        @else { {{ title }} }
+      </div>
+
+      @if (closeButton) {
+        <button type="button" class="atlas-dialog__close" (click)="requestClose.emit()" aria-label="Close">
+          <i class="ph ph-x"></i>
+        </button>
+      }
+    </div>
+  }
+
+  <div class="atlas-dialog__body">
+    @if (contentTpl) {
+      <ng-container *ngTemplateOutlet="contentTpl"></ng-container>
+    } @else if (component) {
+      <ng-container *ngComponentOutlet="component; injector: componentInjector"></ng-container>
+    } @else {
+      <ng-content></ng-content>
+    }
+  </div>
+
+  @if (footerTpl || (footerActions?.length ?? 0) > 0) {
+    <div class="atlas-dialog__footer" [attr.data-align]="footerAlign">
+      @if (footerTpl) {
+        <ng-container *ngTemplateOutlet="footerTpl"></ng-container>
+      } @else {
+        @for (a of footerActions!; track $index) {
+          @if (a.tpl) {
+            <ng-container *ngTemplateOutlet="a.tpl; context: { $implicit: a, close: close }"></ng-container>
+          } @else {
+            <button atlas-button type="button" [variant]="a.variant ?? 'solid'" [color]="a.color ?? 'primary'"
+                    [disabled]="a.disabled ?? false" [attr.aria-label]="a.ariaLabel || null"
+                    [attr.data-autofocus]="a.autoFocus ? 'true' : null" [class]="actionClass(a)"
+                    (click)="onActionClick(a)">
+              @if (a.icon) { <i [class]="a.icon" aria-hidden="true"></i> }
+              @if (a.textKey) { {{ a.textKey | translate }} } @else { {{ a.text }} }
+            </button>
+          }
+        }
+      }
+    </div>
+  }
+</div>

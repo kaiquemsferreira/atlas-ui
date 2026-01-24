@@ -1,0 +1,52 @@
+<div class="atlas-multi-select" [attr.data-open]="open() ? 'true' : null" [attr.data-disabled]="disabled ? 'true' : null">
+
+  <div #control class="atlas-multi-select__control" role="button" tabindex="0" (click)="toggle($event)">
+    <div class="atlas-multi-select__value">
+      @if (selectedRows().length === 0 && !filterable) {
+        <span class="atlas-multi-select__placeholder">
+          {{ 'ui.common.actions.selectOptions' | translate }}
+        </span>
+      } @else {
+        @if (showChips()) {
+          <div class="atlas-multi-select__chips">
+            @for (opt of selectedRows(); track $index) {
+              <span class="atlas-chip">
+                <span class="atlas-chip__label">
+                  @if (opt.labelKey) { {{ opt.labelKey | translate }} }
+                  @else { {{ opt.label }} }
+                </span>
+
+                <button type="button" class="atlas-chip__remove" (click)="removeValue(opt.value, $event)"
+                        [disabled]="disabled" [attr.aria-label]="'ui.common.actions.remove' | translate">
+                  <i class="ph ph-x"></i>
+                </button>
+              </span>
+            }
+          </div>
+        } @else {
+          <span class="atlas-multi-select__summary">
+            {{ selectedRows().length }} {{ 'ui.common.selection.selected' | translate }}
+          </span>
+        }
+      }
+
+      @if (filterable) {
+        <input atlas-input class="atlas-multi-select__filter" type="text" [disabled]="disabled" [value]="query()"
+               (click)="$event.stopPropagation()" (input)="onFilter($event)"
+               [placeholder]="selectedRows().length ? '' : ('ui.common.actions.selectOptions' | translate)"/>
+      }
+    </div>
+
+    <span class="atlas-multi-select__actions" aria-hidden="true">
+      @if (canClear()) {
+        <button class="atlas-multi-select__icon-btn" type="button" (click)="clearAll($event)">
+          <i class="ph ph-x"></i>
+        </button>
+      }
+
+      <span class="atlas-multi-select__caret">
+        <i class="ph ph-caret-down" [class.is-rotated]="open()"></i>
+      </span>
+    </span>
+  </div>
+</div>

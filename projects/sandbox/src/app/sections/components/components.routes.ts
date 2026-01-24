@@ -43,6 +43,11 @@ export const COMPONENTS_ROUTES: Routes = [
     path: 'skeleton',
     loadComponent: () => import('./pages/skeleton-doc/skeleton-doc.page')
       .then(m => m.SkeletonDocPage)
+  },
+  {
+    path: 'overlay',
+    loadComponent: () => import('./pages/overlay-doc/overlay-doc.page')
+      .then(m => m.OverlayDocPage)
   }
 ];
 

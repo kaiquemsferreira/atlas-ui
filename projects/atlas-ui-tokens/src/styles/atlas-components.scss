@@ -1,3 +1,5 @@
+@use "../../../atlas-ui-overlay/src/lib/overlay/component/atlas-overlay" as *;
+@use "../../../atlas-ui-overlay/src/lib/tooltip/styles/tooltip.styles" as *;
+@use "../../../atlas-ui-overlay/src/lib/dialog/styles/dialog.styles" as *;
 @use "../../../atlas-ui-button/src/lib/styles/atlas-button.styles" as *;
 @use "../../../atlas-ui-forms/src/lib/input/styles/input.styles" as *;
-@use "../../../atlas-ui-overlay/src/lib/styles/tooltip.styles" as *;

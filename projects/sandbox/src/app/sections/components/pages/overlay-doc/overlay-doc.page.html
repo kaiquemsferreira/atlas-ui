@@ -1,0 +1,113 @@
+<atlas-doc-page [breadcrumbItems]="breadcrumbs" breadcrumbAriaLabelKey="ui.breadcrumb.aria"
+                titleKey="sandbox.pages.overlay.title" subtitleKey="sandbox.pages.overlay.subtitle" maxWidth="lg">
+  <atlas-doc-section titleKey="ui.common.ui.examples" descriptionKey="sandbox.pages.overlay.examplesDesc">
+    <atlas-tab-card [tabs]="demoTabs" initialTabId="preview">
+
+      <ng-template atlasTab="preview">
+        <div class="grid">
+
+          <div class="cell">
+            <div class="cell__title">{{ 'sandbox.pages.overlay.examples.tooltip.title' | translate }}</div>
+            <div class="cell__row">
+              <atlas-field-hint mode="tooltip" [ariaLabel]="'sandbox.pages.overlay.examples.tooltip.aria' | translate"
+                                textKey="sandbox.pages.overlay.examples.tooltip.content"></atlas-field-hint>
+
+              <span class="cell__label">
+                {{ 'sandbox.pages.overlay.examples.tooltip.label' | translate }}
+              </span>
+            </div>
+          </div>
+
+          <div class="cell">
+            <div class="cell__title">{{ 'sandbox.pages.overlay.examples.popover.title' | translate }}</div>
+            <div class="cell__row">
+              <atlas-field-hint mode="popover" align="end" placement="bottom"
+                                [ariaLabel]="'sandbox.pages.overlay.examples.popover.aria' | translate">
+                <ng-template atlasHintContent>
+                  <div class="popover-content">
+                    <strong>{{ 'sandbox.pages.overlay.examples.popover.contentTitle' | translate }}</strong>
+                    <p>{{ 'sandbox.pages.overlay.examples.popover.contentBody' | translate }}</p>
+                    <div class="popover-actions">
+                      <button atlas-button type="button" variant="outline" color="surface">
+                        {{ 'sandbox.pages.overlay.examples.popover.actionSecondary' | translate }}
+                      </button>
+                      <button atlas-button type="button">
+                        {{ 'sandbox.pages.overlay.examples.popover.actionPrimary' | translate }}
+                      </button>
+                    </div>
+                  </div>
+                </ng-template>
+              </atlas-field-hint>
+
+              <span class="cell__label">
+                {{ 'sandbox.pages.overlay.examples.popover.label' | translate }}
+              </span>
+            </div>
+          </div>
+
+          <div class="cell">
+            <div class="cell__title">{{ 'sandbox.pages.overlay.examples.menu.title' | translate }}</div>
+
+            <atlas-menu placement="bottom" align="start">
+              <button atlas-button atlasMenuTrigger type="button" variant="outline" color="surface">
+                {{ 'sandbox.pages.overlay.examples.menu.trigger' | translate }}
+              </button>
+
+              <ng-template atlasMenu>
+                <button atlasMenuItem type="button">
+                  <i class="ph ph-magnifying-glass"></i>
+                  {{ 'sandbox.pages.overlay.examples.menu.items.search' | translate }}
+                </button>
+
+                <button atlasMenuItem type="button">
+                  <i class="ph ph-funnel"></i>
+                  {{ 'sandbox.pages.overlay.examples.menu.items.filters' | translate }}
+                </button>
+
+                <div atlasMenuSeparator></div>
+
+                <button atlasMenuItem type="button" [disabled]="true">
+                  <i class="ph ph-trash"></i>
+                  {{ 'sandbox.pages.overlay.examples.menu.items.removeDisabled' | translate }}
+                </button>
+              </ng-template>
+            </atlas-menu>
+
+            <div class="cell__hint">
+              {{ 'sandbox.pages.overlay.examples.menu.hint' | translate }}
+            </div>
+          </div>
+
+          <div class="cell">
+            <div class="cell__title">
+              {{ 'sandbox.pages.overlay.examples.dialog.title' | translate }}
+            </div>
+
+            <button atlas-button type="button" variant="outline" color="surface" (click)="openDialog()">
+              {{ 'sandbox.pages.overlay.examples.dialog.trigger' | translate }}
+            </button>
+
+            <div class="cell__hint">
+              {{ 'sandbox.pages.overlay.examples.dialog.hint' | translate }}
+            </div>
+          </div>
+        </div>
+      </ng-template>
+
+      <ng-template atlasTab="code">
+        <atlas-code-tabs [tabs]="codeTabs"></atlas-code-tabs>
+      </ng-template>
+
+    </atlas-tab-card>
+  </atlas-doc-section>
+
+  <atlas-doc-section title="API" descriptionKey="sandbox.pages.overlay.apiDesc" surface="plain">
+    <p class="api-text">
+      <atlas-inline-code>atlas-ui-overlay</atlas-inline-code>
+      <span class="api-sep">•</span>
+      <atlas-inline-code>&lt;atlas-field-hint&gt;</atlas-inline-code>
+      <span class="api-sep">•</span>
+      <atlas-inline-code>&lt;atlas-menu&gt;</atlas-inline-code>
+    </p>
+  </atlas-doc-section>
+</atlas-doc-page>
